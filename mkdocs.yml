@@ -4,7 +4,9 @@ nav:
   - Home: index.md
   - Using Mastodon: 
     - Gettings started with Mastodon: partA/getting_started.md
+    - Manually editing tracks & TrackScheme: partA/manual_editing.md 
     - Keyboard shortcuts for navigation in BDV: partA/table_bdv_navigation_keys.md
+    - Keyboard shortcuts for the focus: partA/table_focus_navigation.md
 
 theme: readthedocs
 markdown_extensions:

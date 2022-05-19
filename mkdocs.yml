@@ -1,0 +1,12 @@
+site_name: Mastodon
+site_url: https://github.com/mastodon-sc/mastodon
+nav:
+  - Home: index.md
+  - Using Mastodon: 
+    - Gettings started with Mastodon: partA/getting_started.md
+    - Keyboard shortcuts for navigation in BDV: partA/table_bdv_navigation_keys.md
+
+theme: readthedocs
+markdown_extensions:
+  - attr_list
+  - md_in_html

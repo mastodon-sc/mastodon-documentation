@@ -38,7 +38,7 @@ It is a great tool inp artiular when studying and editing cell lineages.
 When opened, the view in TrackScheme is scaled so that the full data is shown, all tracks over all time-points. 
 Even on our small dataset, most of the tracks and spots appear as single lines or dense boxes. 
 To see the details of each track, you need to zoom in and navigate around the data.
-The navigation actions their mappings are listed in the tableXXXX.
+The navigation actions their mappings are listed in the [TrackScheme keyboard shortcuts table](table_trackscheme_navigation_keys.md).
 
 Try to zoom in until you can see the label of a few spots.
 TrackScheme implements adaptive level of details depending on the zoom level, so that we can accommodate plotting a large amount of data without compromising the responsiveness of Mastodon.
@@ -150,7 +150,7 @@ You can even combine several BDV views in sync at different magnification to hav
    ![](../imgs/Mastodon_Sync3.png){width="30%"}
   <figcaption><i>Three views of the same dataset in sync. Notice that the lock number 1 is activated on the three views (in yellow). The second view is zoomed in a XY plane. The third view is dezoomed and align with the XZ plane.</i></figcaption>
 </figure> 
-
+<br/><br/>
 
 ## The highlight.
 
@@ -167,6 +167,8 @@ To highlight a spot or link you just have to lay the mouse over it. As for the f
    ![](../imgs/Mastodon_HighlightLink.png){width="50%"}
 <figcaption><i>The highlight in Mastodon. The highlighted spot or link will appear painted with a thicker line, both in the BDV and TrackScheme views.</i></figcaption>
 </figure> 
+<br/><br/>
+
 
 ## Deleting individual spots and links.
 
@@ -193,14 +195,13 @@ Also notice that you can toggle links this way.
 If you draw a link between two spots that are already connected, their link will be removed.
 
 
-
 <figure markdown>
    ![](../imgs/Mastodon_TrackSchemeManualLinking1.png){width="32%"}
    ![](../imgs/Mastodon_TrackSchemeManualLinking2.png){width="32%"}
    ![](../imgs/Mastodon_TrackSchemeManualLinking3.png){width="32%"}
    <figcaption><i>Manually creating links in TrackScheme. Press and hold </i><code>L</code><i> while hovering the mouse over a spot. Then drag the link in red to the target spot. A new link will be created between the two spots when you release </i><code>L</code><i>. Doing this between two spots that are already connected removes the link between them.</i></figcaption>
 </figure> 
-
+<br/><br/>
 
 In BDV views, it is again very similar.
 Move the mouse over a spot until it is highlighted then press and hold the `L` key.
@@ -220,8 +221,7 @@ Then drag the white link to the target spot.
 A new link will be created between the two spots when you release </i><code>L</code><i>. 
 As for TrackScheme, doing this between two spots that are already connected removes the link between them.</i></figcaption>
 </figure> 
-
-You cannot move in Z while creating a link this way.
+<br/><br/>You cannot move in Z while creating a link this way.
 You must orient the BDV view so that the source and target spot are roughly in the same  displayed slice.
 However you can move in time. 
 While still holding the key, press the or and or key to navigate backward and forward in time.
@@ -254,19 +254,19 @@ Finally there are commands to add a full track from the currently focused spot.
 to the focused spot, and `Shift ⇟` does  the converse backward in time.
 
 ![](../imgs/Mastodon_SelectionBox1.png){width="45%"}
+
 ![](../imgs/Mastodon_SelectionBox2.png){width="45%"}
 
 The selection is shown in BDV views as red or magenta spots and links by default.
 In BDV views you can only edit the selection via `Shift click`. 
 The interaction with the focus also work as described above. 
-These default key-bindings are recapitulated in the
-table tab:MastodonSelectionKeys XXXX.
+These default key-bindings are recapitulated in the [table of shortcuts for the selection actions](table_mastodon_selection_keys.md).
 
 ## Editing spots and links with the selection.
 
 The selection actions are all applied in bulk. 
 You can delete all the spots and the links currently in the selection with `Shift ⌫`. 
-If your selection includes spots that are not linked, pressing will `Shift K` link them sequentially. 
+If your selection includes spots that are not linked, pressing will `Shift K` link them sequentially. 
 If the selection contains more than one spot per frame, only one of them, picked randomly, will be linked.
 
 ## Manually adding spots and linking them.
@@ -314,8 +314,9 @@ In our humble opinion, this is one of the nice reasons for Mastodon to exits: a 
    ![](../imgs/Mastodon_ManualTracking_01.png){width="35%"}
    ![](../imgs/Mastodon_ManualTracking_02.png){width="25%"}
    ![](../imgs/Mastodon_ManualTracking_03.png){width="35%"}
- <figcaption><i>Manual tracking in Mastodon. 1. After selecting the spots we added to each time-point. 2. After linking them with </i><code>Shift+K</code><i> 3. ~Backtracking a cell with </i><code>shift+A</code><i>.</i></figcaption>
+ <figcaption><i>Manual tracking in Mastodon. 1. After selecting the spots we added to each time-point. 2. After linking them with </i><code>Shift+K</code><i> 3.  Backtracking a cell with </i><code>shift+A</code><i>.</i></figcaption>
 </figure> 
+<br/><br/>
 
 Make sure you have one BDV view and one view open, and that both are linked using the same lock. 
 In TrackScheme, select one of the spot or link that belongs to one of the long tracks; the ones that extend from the first time-point to the last.
@@ -331,7 +332,7 @@ Our model should now lack several good tracks we will try to put back manually.
 For clarity, also remove all the tracks on the right part of the view, that do not start at the first time-point.
 
 In the BDV view, go to the first time-point, and look for a cell whose spot has been removed. 
-Pan the view (right-click and drag), adjust the zoom (`Control Shift mousewheel`) and the Z position (`mousewheel` with or without `Shift` ) so that the cell is well in view.
+Pan the view (right-click and drag), adjust the zoom (`Control Shift Mouse-wheel`) and the Z position (`Mouse-wheel` with or without `Shift` ) so that the cell is well in view.
 Then put the mouse cursor over it and press `A`. 
 A spot has been added on the cell.
 The fine adjustment of the spot position in 3D can be made easier with a second BDV view. 

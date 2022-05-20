@@ -6,8 +6,11 @@ nav:
     - Gettings started with Mastodon: partA/getting_started.md
     - Manually editing tracks & TrackScheme: partA/manual_editing.md 
     - Inspecting large datasets: partA/inspecting_large_datasets.md
+    - Numerical features, tags, and the table view: partA/numerical_features_tags_the_table_view.md
+  - Keyboard shortcuts:
     - Keyboard shortcuts for navigation in BDV: partA/table_bdv_navigation_keys.md
     - Keyboard shortcuts for navigation in TrackScheme: partA/table_trackscheme_navigation_keys.md
+    - Keyboard shortcuts for navigation in the tables: partA/table_table_navigation_keys.md
     - Keyboard shortcuts for the focus: partA/table_focus_navigation.md
     - Keyboard shortcuts for the selection: partA/table_mastodon_selection_keys.md
 

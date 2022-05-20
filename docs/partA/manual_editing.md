@@ -54,6 +54,7 @@ When the zoom level is so low that several tracks coalesce, they are drawn as a 
    ![](../imgs/Mastodon_TrackScheme_Zoom_4.png){width="40%"}
   <figcaption><i>TrackScheme displays spots and links differently depending on the zoom level. 1. At low zoom level tracks that coalesce are shown as gray boxes. 2. Zooming in, the individual tracks appear first as black lines. 3. When they are separated enough, spots appear as black dots. 4. With an even higher zoom level they are shown as empty circles. 5. Until they grow big enough so that the spot labels can be painted. Notice the size of the sliders at the bottom and at the right of the view.</i></figcaption>
 </figure> 
+<br/>
 
 ## The focus and the spot labels.
 
@@ -85,6 +86,8 @@ In the case where you could navigate to several branches, for instance you are c
    ![](../imgs/Mastodon_FocusInBDV.png){width="50%"}
   <figcaption><i>Focused spots are painted in TrackScheme (left) and in BDV (right) views as ellipses with a dashed-contour.</i></figcaption>
 </figure> 
+<br/>
+
 
 ### Editing the spot labels.
 
@@ -150,7 +153,7 @@ You can even combine several BDV views in sync at different magnification to hav
    ![](../imgs/Mastodon_Sync3.png){width="30%"}
   <figcaption><i>Three views of the same dataset in sync. Notice that the lock number 1 is activated on the three views (in yellow). The second view is zoomed in a XY plane. The third view is dezoomed and align with the XZ plane.</i></figcaption>
 </figure> 
-<br/><br/>
+<br/>
 
 ## The highlight.
 
@@ -167,7 +170,7 @@ To highlight a spot or link you just have to lay the mouse over it. As for the f
    ![](../imgs/Mastodon_HighlightLink.png){width="50%"}
 <figcaption><i>The highlight in Mastodon. The highlighted spot or link will appear painted with a thicker line, both in the BDV and TrackScheme views.</i></figcaption>
 </figure> 
-<br/><br/>
+<br/>
 
 
 ## Deleting individual spots and links.
@@ -201,7 +204,7 @@ If you draw a link between two spots that are already connected, their link will
    ![](../imgs/Mastodon_TrackSchemeManualLinking3.png){width="32%"}
    <figcaption><i>Manually creating links in TrackScheme. Press and hold </i><code>L</code><i> while hovering the mouse over a spot. Then drag the link in red to the target spot. A new link will be created between the two spots when you release </i><code>L</code><i>. Doing this between two spots that are already connected removes the link between them.</i></figcaption>
 </figure> 
-<br/><br/>
+<br/>
 
 In BDV views, it is again very similar.
 Move the mouse over a spot until it is highlighted then press and hold the `L` key.
@@ -221,7 +224,7 @@ Then drag the white link to the target spot.
 A new link will be created between the two spots when you release </i><code>L</code><i>. 
 As for TrackScheme, doing this between two spots that are already connected removes the link between them.</i></figcaption>
 </figure> 
-<br/><br/>You cannot move in Z while creating a link this way.
+<br/>You cannot move in Z while creating a link this way.
 You must orient the BDV view so that the source and target spot are roughly in the same  displayed slice.
 However you can move in time. 
 While still holding the key, press the or and or key to navigate backward and forward in time.
@@ -314,9 +317,9 @@ In our humble opinion, this is one of the nice reasons for Mastodon to exits: a 
    ![](../imgs/Mastodon_ManualTracking_01.png){width="35%"}
    ![](../imgs/Mastodon_ManualTracking_02.png){width="25%"}
    ![](../imgs/Mastodon_ManualTracking_03.png){width="35%"}
- <figcaption><i>Manual tracking in Mastodon. 1. After selecting the spots we added to each time-point. 2. After linking them with </i><code>Shift+K</code><i> 3.  Backtracking a cell with </i><code>shift+A</code><i>.</i></figcaption>
+ <figcaption><i>Manual tracking in Mastodon. 1. After selecting the spots we added to each time-point. 2. After linking them with </i><code>Shift+K</code><i> 3.  Backtracking a cell with </i><code>Shift+A</code><i>.</i></figcaption>
 </figure> 
-<br/><br/>
+<br/>
 
 Make sure you have one BDV view and one view open, and that both are linked using the same lock. 
 In TrackScheme, select one of the spot or link that belongs to one of the long tracks; the ones that extend from the first time-point to the last.

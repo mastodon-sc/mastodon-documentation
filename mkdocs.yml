@@ -5,6 +5,7 @@ nav:
   - Using Mastodon: 
     - Gettings started with Mastodon: partA/getting_started.md
     - Manually editing tracks & TrackScheme: partA/manual_editing.md 
+    - Inspecting large datasets: partA/inspecting_large_datasets.md
     - Keyboard shortcuts for navigation in BDV: partA/table_bdv_navigation_keys.md
     - Keyboard shortcuts for navigation in TrackScheme: partA/table_trackscheme_navigation_keys.md
     - Keyboard shortcuts for the focus: partA/table_focus_navigation.md

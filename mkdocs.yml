@@ -7,6 +7,8 @@ nav:
     - Manually editing tracks & TrackScheme: partA/manual_editing.md 
     - Inspecting large datasets: partA/inspecting_large_datasets.md
     - Numerical features, tags, and the table view: partA/numerical_features_tags_the_table_view.md
+  - Technical information:
+    - Mastodon numerical features: partD/numerical_features.md
   - Keyboard shortcuts:
     - Keyboard shortcuts for navigation in BDV: partA/table_bdv_navigation_keys.md
     - Keyboard shortcuts for navigation in TrackScheme: partA/table_trackscheme_navigation_keys.md

@@ -10,6 +10,7 @@ nav:
   - Technical information:
     - Mastodon numerical features: partD/numerical_features.md
     - The graph data structure of Mastodon: partD/mastodon_graph_data_structure.md
+    - Containment in Convex Polytopes using 𝑘-D trees: partD/convex_polytopes.md
   - Keyboard shortcuts:
     - Keyboard shortcuts for navigation in BDV: partA/table_bdv_navigation_keys.md
     - Keyboard shortcuts for navigation in TrackScheme: partA/table_trackscheme_navigation_keys.md

@@ -6,20 +6,20 @@ This chapter describes how the feature values currently available in Mastodon ar
 
 In Mastodon, feature values are expressed when possible in physical units. Each feature projection as a _dimension_ (in the physics meaning) from which we compute the _units_ of the values. For instance, if a feature value as the dimension `LENGTH` and the spatial units is μm, then the values of this feature will be in μm. Mastodon only has physical units for space. For time, the frame interval is always equal to the dummy `1 frame`. This is why you will find all units involving time expressed in frames. Each feature projection has a dimension, and the features report what are the dimension of their projections in the feature computation dialog. The table below lists all the feature dimensions currently supported in Mastodon, and give examples of the derived units when the spatial units are μm.
 
-| **Dimension**       | **Name**   | **Example units**<br> (when the spatial units are µm) | **Description**                                              |
-| ------------------- | ---------- | ----------------------------------------------------- | ------------------------------------------------------------ |
-| `NONE`              | None       | ø                                                     | Used for dimensionless quantities, such as frame position, number of things, _etc_ |
-| `LENGTH`            | Length     | µm                                                    | For quantities about the length of objects. For instance radius or distance between objects. |
-| `POSITION`          | Position   | µm                                                    | Dimension for feature that report a position. Different from `LENGTH` so that for objects with small lengths at large positions, quantities are plotted separately. |
-| `TIME`              | Time       | frame                                                 | For quantities that report a delay, a duration or the timing of an event. Because Mastodon does not deal with physical units for time, quantities formed with the time dimension always use the frame unit. |
-| `VELOCITY`          | Velocity   | µm/frame                                              | For quantities that report a speed or a velocity.            |
-| `RATE`              | Rate       | /frame                                                | For quantities that report a change per units of time.       |
-| `ANGLE`             | Angle      | Radians                                               | Measures of angles. In Mastodon, all angles are in radians.  |
-| `STRING`            | NA         | ø                                                     | For non-numeric features.                                    |
-| `INTENSITY`         | Intensity  | Counts                                                | For quantities based on pixel values. For instance the mean intensity within a spot. |
-| `INTENSITY_SQUARED` | Intensity² | Counts²                                               | For quantities based on pixel intensity squared. For instance the variance of the mean within a spot. |
-| `QUALITY`           | Quality    | ø                                                     | This dimension is used by spot detectors. There is a special feature called Detection quality, that stores for each spot they detect automatically a measure of quality or confidence in their detection. |
-| `COST`              | Cost       | ø                                                     | This dimension is used by spot linking algorithms. There is a special feature called Link cost used in the estimation phase. It stores for each link the cost that the linker computes for it in the estimation phase. These costs are then used in the association phase to retrieve the best set of links. |
+| **Dimension**       | **Name**   | **Example units**<br> (when the spatial<br> units are µm) | **Description**                                              |
+| ------------------- | ---------- | --------------------------------------------------------- | ------------------------------------------------------------ |
+| `NONE`              | None       | ø                                                         | Used for dimensionless quantities, <br>such as frame position, number of <br>things, _etc_ |
+| `LENGTH`            | Length     | µm                                                        | For quantities about the length of objects. <br>For instance radius or distance between<br> objects. |
+| `POSITION`          | Position   | µm                                                        | Dimension for feature that report a position.<br> Different from `LENGTH` so that for objects <br>with small lengths at large positions, <br>quantities are plotted separately. |
+| `TIME`              | Time       | frame                                                     | For quantities that report a delay, a duration <br>or the timing of an event. Because Mastodon<br> does not deal with physical units for time,<br> quantities formed with the time dimension<br> always use the frame unit. |
+| `VELOCITY`          | Velocity   | µm/frame                                                  | For quantities that report a speed or a <br>velocity.        |
+| `RATE`              | Rate       | /frame                                                    | For quantities that report a change per units <br>of time.   |
+| `ANGLE`             | Angle      | Radians                                                   | Measures of angles. In Mastodon, all angles <br>are in radians. |
+| `STRING`            | NA         | ø                                                         | For non-numeric features.                                    |
+| `INTENSITY`         | Intensity  | Counts                                                    | For quantities based on pixel values. For <br>instance the mean intensity within a spot. |
+| `INTENSITY_SQUARED` | Intensity² | Counts²                                                   | For quantities based on pixel intensity <br>squared. For instance the variance of <br>the mean within a spot. |
+| `QUALITY`           | Quality    | ø                                                         | This dimension is used by spot detectors. <br>There is a special feature called Detection <br>quality, that stores for each spot they detect<br> automatically a measure of quality or <br>confidence in their detection. |
+| `COST`              | Cost       | ø                                                         | This dimension is used by spot linking <br>algorithms. There is a special feature called <br>Link cost used in the estimation phase. It <br>stores for each link the cost that the linker<br> computes for it in the estimation phase. <br>These costs are then used in the association<br> phase to retrieve the best set of links. |
 
 ## Spot features.
 
@@ -63,16 +63,16 @@ It is recommended to use the 'Spot intensity' feature described above when the b
 | Spot frame | _idem_ | The spot frame. |
 | Spot N links | _idem_ | The total number of links, incoming and outgoing, of the spot. |
 | Spot position | X & Y &  Z | The spot center position, in physical units. |
-| Spot radius | _idem_ | The spot radius in physical units. <br>For spots that are ellipsoids, returns a radius using the geometric mean of the spot ellipsoid radiuses. This approximation is such that the sphere with the reported radius and the spot ellipsoid have the same volume. |
-| Spot track ID | _idem_ | The ID of the track the spot belongs to. Track IDs are positive integer numbers starting from 0. |
+| Spot radius | _idem_ | The spot radius in physical units. <br>For spots that are ellipsoids, returns a radius using the geometric <br>mean of the spot ellipsoid radiuses. This approximation is such <br>that the sphere with the reported radius and the spot ellipsoid <br>have the same volume. |
+| Spot track ID | _idem_ | The ID of the track the spot belongs to. Track IDs are positive <br>integer numbers starting from 0. |
 
 
 ## Link features.
 
 | **Feature name** |  **Projections**  |  **Description** |
 |----|---|---|
-| Link target IDs | Source spot id & Target spot id | Stores the IDs of the two spots the link connects to. In Mastodon, the links are oriented: the source and target are not equivalent. By convention in Mastodon, the source spot is always the first in time, and the target the last in time. |
-| Link displacement | _idem_ | The distance between the source and target spots of the links, in phys- ical units. |
+| Link target IDs | Source spot id & <br>Target spot id | Stores the IDs of the two spots the link connects to. In Mastodon, <br>the links are oriented: the source and target are not equivalent. <br>By convention in Mastodon, the source spot is always the <br>first in time, and the target the last in time. |
+| Link displacement | _idem_ | The distance between the source and target spots of the links, <br>in physical units. |
 | Link velocity | _idem_ | The velocity at the time of the link. It is calculated as the link displace- ment divided by the frame interval between the source and target spots (in frame units). |
 
 

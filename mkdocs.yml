@@ -9,6 +9,7 @@ nav:
     - Numerical features, tags, and the table view: partA/numerical_features_tags_the_table_view.md
   - Technical information:
     - Mastodon numerical features: partD/numerical_features.md
+    - The graph data structure of Mastodon: partD/mastodon_graph_data_structure.md
   - Keyboard shortcuts:
     - Keyboard shortcuts for navigation in BDV: partA/table_bdv_navigation_keys.md
     - Keyboard shortcuts for navigation in TrackScheme: partA/table_trackscheme_navigation_keys.md

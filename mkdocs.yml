@@ -7,6 +7,7 @@ nav:
     - Manually editing tracks & TrackScheme: partA/manual_editing.md 
     - Inspecting large datasets: partA/inspecting_large_datasets.md
     - Numerical features, tags, and the table view: partA/numerical_features_tags_the_table_view.md
+    - Semi-automatic tracking: partA/semi_automated_tracking.md
   - Technical information:
     - Mastodon numerical features: partD/numerical_features.md
     - The graph data structure of Mastodon: partD/mastodon_graph_data_structure.md

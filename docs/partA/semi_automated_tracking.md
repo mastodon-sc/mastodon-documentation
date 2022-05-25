@@ -134,62 +134,45 @@ Instead, they relied on semi-automated tracking, selecting a the cells of intere
 
 Once the tracking was done, they used feature analysis to extract fluorescence intensity over time for each cell in the gene reporter channel.
 
-![image](../imgs/Mastodon_ArianneUseCase_01.png){width="45%"}
-![image](../imgs/Mastodon_ArianneUseCase_02.png){width="45%"}
+![image](../imgs/Mastodon_ArianneUseCase_01.png)
+![image](../imgs/Mastodon_ArianneUseCase_02.png)
 
 ### Stitching small track segments.
 
 The semi-automated tracker can be used with the same configuration to stitch small track segments, which follow the same cell but are separated and spread in time. 
-This might be caused linking with missing detections, and the situation could resemble what is pictured in
-Figure [\[fig:Tracklets\]](#fig:Tracklets){reference-type="ref"
-reference="fig:Tracklets"}.
+This might be caused linking with missing detections, and the situation could resemble what is pictured below.
 
-We can use the semi-automated tracker to connect them, and add the
-missing detections. We want the tracker to create spots for the cell in
-time-points when they are missing, and to connect to existing ones it
-will find by following the cell. To allow this, we must enable first the
-'`Link even if target has outgoing links`' setting, so that the tracker
-does not stop when it meets a spot that is at the beginning of a track
-segment. Second, we must enable the
-'`Continue tracking if source and target spots are already linked`'
-setting. If we do not, the tracker will stop after connecting the first
-track segment it meets. Finally, we have to increase the value of the
-'`N time-points`' parameter, so that the tracker iterate through the
-full movie. After doing this and tracking for the first cell, we get a
-single track
-(Figure [\[fig:StitchedTracklets\]](#fig:StitchedTracklets){reference-type="ref"
-reference="fig:StitchedTracklets"}).
+![image](../imgs/Mastodon_Tracklets_01.png)
+![image](../imgs/Mastodon_Tracklets_02.png)
 
-![image](../imgs/Mastodon_Tracklets_01.png){height="0.2\\textheight"}
-![image](../imgs/Mastodon_Tracklets_02.png){height="0.2\\textheight"}
+We can use the semi-automated tracker to connect them, and add the missing detections. 
+We want the tracker to create spots for the cell in time-points when they are missing, and to connect to existing ones it will find by following the cell.
+To allow this, we must enable first the '`Link even if target has outgoing links`' setting, so that the tracker does not stop when it meets a spot that is at the beginning of a track segment.
+Second, we must enable the '`Continue tracking if source and target spots are already linked`' setting.
+If we do not, the tracker will stop after connecting the first track segment it meets. 
+Finally, we have to increase the value of the '`N time-points`' parameter, so that the tracker iterate through the full movie.
+After doing this and tracking for the first cell, we get a single track:
 
-![image](../imgs/Mastodon_Tracklets_03.png){height="0.2\\textheight"}
-![image](../imgs/Mastodon_Tracklets_04.png){height="0.2\\textheight"}
-![image](../imgs/Mastodon_Tracklets_05.png){height="0.2\\textheight"}
+![image](../imgs/Mastodon_Tracklets_03.png)
+![image](../imgs/Mastodon_Tracklets_04.png)
+![image](../imgs/Mastodon_Tracklets_05.png)
 
 ### Backtracking, branching on cell divisions. 
 
-Backtracking is particularly useful when creating lineages of cells that
-divide often in the movie. Another application is in mapping
-differentiated cells at a late time-point, to the position of their
-progenitors at the beginning of the movie. For this we typically starts
-from an empty annotation, select a cell of interest in a late
-time-point, and backtrack it to its position in the beginning of the
-movie. The built-in configuration called **Backtracking** is made for
-this. If the cell we backtrack divided several times during the movie,
-might be creating tracks for sibling cells. We want these tracks to
-branch properly in case we meet the mother cell when it divides.
+Backtracking is particularly useful when creating lineages of cells that divide often in the movie.
+Another application is in mapping differentiated cells at a late time-point, to the position of their progenitors at the beginning of the movie. 
+For this we typically starts from an empty annotation, select a cell of interest in a late time-point, and backtrack it to its position in the beginning of the movie.
+The built-in configuration called **Backtracking** is made for this.
+If the cell we backtrack divided several times during the movie, might be creating tracks for sibling cells.
+We want these tracks to branch properly in case we meet the mother cell when it divides.
 
-This is why we need to enable the
-'`Link even if target has outgoing links`' setting, but no other.
-Suppose we already have one track for a cell that divides, following the
-mother cell then one of the daughter cells. When we will backtrack from
-the other daughter cell, late in the movie, we will meet the division
-point of the mother cell. There is an existing spot there, just before
-the cell divides. It has already an outgoing link (to the first daughter
-we already tracked), and we want to connect to it. Hence we enable the
-'`Link even if target has outgoing links`' setting. Because we want to
-stop tracking there (the rest of the track is good already), we do not
+This is why we need to enable the '`Link even if target has outgoing links`' setting, but no other.
+Suppose we already have one track for a cell that divides, following the mother cell then one of the daughter cells.
+When we will backtrack from the other daughter cell, late in the movie, we will meet the division point of the mother cell.
+There is an existing spot there, just before the cell divides.
+It has already an outgoing link (to the first daughter we already tracked), and we want to connect to it. 
+Hence we enable the '`Link even if target has outgoing links`' setting. 
+Because we want to stop tracking there (the rest of the track is good already), we do not
 enable any of the two other settings.
 
 ### Sparse linking over dense spots.

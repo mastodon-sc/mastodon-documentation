@@ -145,7 +145,7 @@ They are indeed close to what is found in the standard but some changes.
 **Please note:** You can reconfigure almost everything in Mastodon, as we will see later, including key-bindings. 
 In this tutorial and the next ones, the key-bindings we present are for the `Default`
 configuration. 
-In the [BDV navigation shortcuts](table_bdv_navigation_keys.md) table you will find the key bindings to navigate through the image data.
+In the [BDV navigation shortcuts](../partB/table_bdv_navigation_keys.md) table you will find the key bindings to navigate through the image data.
 
 Now you want to save the project. 
 Go back to the main window, and click on the XXX button. 

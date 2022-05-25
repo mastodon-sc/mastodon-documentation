@@ -38,7 +38,7 @@ It is a great tool inp artiular when studying and editing cell lineages.
 When opened, the view in TrackScheme is scaled so that the full data is shown, all tracks over all time-points. 
 Even on our small dataset, most of the tracks and spots appear as single lines or dense boxes. 
 To see the details of each track, you need to zoom in and navigate around the data.
-The navigation actions their mappings are listed in the [TrackScheme keyboard shortcuts table](table_trackscheme_navigation_keys.md).
+The navigation actions their mappings are listed in the [TrackScheme keyboard shortcuts table](../partB/table_trackscheme_navigation_keys.md).
 
 Try to zoom in until you can see the label of a few spots.
 TrackScheme implements adaptive level of details depending on the zoom level, so that we can accommodate plotting a large amount of data without compromising the responsiveness of Mastodon.
@@ -47,12 +47,12 @@ As you zoom out, they becomes just empty circles, then points, then they disappe
 When the zoom level is so low that several tracks coalesce, they are drawn as a gray box.
 
 <figure markdown>
-   ![](../imgs/Mastodon_TrackScheme_Zoom_0.png){width="40%"}
-   ![](../imgs/Mastodon_TrackScheme_Zoom_1.png){width="40%"}
-   ![](../imgs/Mastodon_TrackScheme_Zoom_2.png){width="40%"}
-   ![](../imgs/Mastodon_TrackScheme_Zoom_3.png){width="40%"}
-   ![](../imgs/Mastodon_TrackScheme_Zoom_4.png){width="40%"}
-  <figcaption><i>TrackScheme displays spots and links differently depending on the zoom level. 1. At low zoom level tracks that coalesce are shown as gray boxes. 2. Zooming in, the individual tracks appear first as black lines. 3. When they are separated enough, spots appear as black dots. 4. With an even higher zoom level they are shown as empty circles. 5. Until they grow big enough so that the spot labels can be painted. Notice the size of the sliders at the bottom and at the right of the view.</i></figcaption>
+   ![](../imgs/Mastodon_TrackScheme_Zoom_0.png)
+   ![](../imgs/Mastodon_TrackScheme_Zoom_1.png)
+   ![](../imgs/Mastodon_TrackScheme_Zoom_2.png)
+   ![](../imgs/Mastodon_TrackScheme_Zoom_3.png)
+   ![](../imgs/Mastodon_TrackScheme_Zoom_4.png)
+  <figcaption><i>TrackScheme displays spots and links differently depending on the zoom level. From top to bottom and left to right: 1. At low zoom level tracks that coalesce are shown as gray boxes. 2. Zooming in, the individual tracks appear first as black lines. 3. When they are separated enough, spots appear as black dots. 4. With an even higher zoom level they are shown as empty circles. 5. Until they grow big enough so that the spot labels can be painted. Notice the size of the sliders at the bottom and at the right of the view.</i></figcaption>
 </figure> 
 <br/>
 
@@ -75,16 +75,16 @@ Click on one spot in TrackScheme when fully zoomed, and move across track and ti
 If the focus reaches the border of the window, the view will be moved to follow it. 
 You can think of the focus as the caret in a text editor.
 It is meant to facilitate keyboard interaction.
-See the [focus navigation keyboard shortcuts](table_focus_navigation.md).
+See the [focus navigation keyboard shortcuts](../partB/table_focus_navigation.md).
 
 You can also jumps across branches. 
 A branch in a track is a linear section of the track between divisions, fusions or the track end or start. `Alt ↑` and `Alt ↓` will move the focus to the branch start and end. 
 In the case where you could navigate to several branches, for instance you are currently at a cell division and you can go the end of either daughter cells branches, you can navigate to one or the other with or `Alt ↓` or `Control Alt ↓`.
 
 <figure markdown>
-   ![](../imgs/Mastodon_FocusInTrackScheme.png){width="45%"}
-   ![](../imgs/Mastodon_FocusInBDV.png){width="50%"}
-  <figcaption><i>Focused spots are painted in TrackScheme (left) and in BDV (right) views as ellipses with a dashed-contour.</i></figcaption>
+   ![](../imgs/Mastodon_FocusInTrackScheme.png)
+   ![](../imgs/Mastodon_FocusInBDV.png)
+  <figcaption><i>Focused spots are painted in TrackScheme (top) and in BDV (bottom) views as ellipses with a dashed-contour.</i></figcaption>
 </figure> 
 <br/>
 
@@ -148,9 +148,9 @@ This is very handy to navigate around in TrackScheme, for instance following a c
 You can even combine several BDV views in sync at different magnification to have both an overview of the cell position in the sample and a close view of the cell itself.
 
 <figure markdown>
-   ![](../imgs/Mastodon_Sync1.png){width="35%"}
-   ![](../imgs/Mastodon_Sync2.png){width="30%"}
-   ![](../imgs/Mastodon_Sync3.png){width="30%"}
+   ![](../imgs/Mastodon_Sync1.png)
+   ![](../imgs/Mastodon_Sync2.png)
+   ![](../imgs/Mastodon_Sync3.png)
   <figcaption><i>Three views of the same dataset in sync. Notice that the lock number 1 is activated on the three views (in yellow). The second view is zoomed in a XY plane. The third view is dezoomed and align with the XZ plane.</i></figcaption>
 </figure> 
 <br/>
@@ -164,10 +164,10 @@ To highlight a spot or link you just have to lay the mouse over it. As for the f
 
 
 <figure markdown>
-   ![](../imgs/Mastodon_HighlightSpotBDV.png){width="49%"}
-   ![](../imgs/Mastodon_HighlightSpot.png){width="50%"}
-   ![](../imgs/Mastodon_HighlightLinkBDV.png){width="49%"}
-   ![](../imgs/Mastodon_HighlightLink.png){width="50%"}
+   ![](../imgs/Mastodon_HighlightSpotBDV.png)
+   ![](../imgs/Mastodon_HighlightSpot.png)
+   ![](../imgs/Mastodon_HighlightLinkBDV.png)
+   ![](../imgs/Mastodon_HighlightLink.png)
 <figcaption><i>The highlight in Mastodon. The highlighted spot or link will appear painted with a thicker line, both in the BDV and TrackScheme views.</i></figcaption>
 </figure> 
 <br/>
@@ -182,7 +182,7 @@ For instance, to delete a spot or a link in , simply move the mouse cursor over 
 You should see the tracks being rearranged following the deletion. 
 In a BDV view, the highlight and deletion mechanism is the same.
 
-## Linking spots together.
+## Linking spots.
 
 Creating links between existing spots happens in a similar way, except that you have to point to a source spot and another target spot for a single link.
 In TrackScheme , move inside a spot until it is highlighted (no mouse-click). 
@@ -199,9 +199,9 @@ If you draw a link between two spots that are already connected, their link will
 
 
 <figure markdown>
-   ![](../imgs/Mastodon_TrackSchemeManualLinking1.png){width="32%"}
-   ![](../imgs/Mastodon_TrackSchemeManualLinking2.png){width="32%"}
-   ![](../imgs/Mastodon_TrackSchemeManualLinking3.png){width="32%"}
+   ![](../imgs/Mastodon_TrackSchemeManualLinking1.png)
+   ![](../imgs/Mastodon_TrackSchemeManualLinking2.png)
+   ![](../imgs/Mastodon_TrackSchemeManualLinking3.png)
    <figcaption><i>Manually creating links in TrackScheme. Press and hold </i><code>L</code><i> while hovering the mouse over a spot. Then drag the link in red to the target spot. A new link will be created between the two spots when you release </i><code>L</code><i>. Doing this between two spots that are already connected removes the link between them.</i></figcaption>
 </figure> 
 <br/>
@@ -215,9 +215,9 @@ The link is created. If you press `Shift L` in a spot, the BDV view will move to
 
 
 <figure markdown>
-   ![](../imgs/Mastodon_BDVManualLinking1.png){width="32%"}
-   ![](../imgs/Mastodon_BDVManualLinking2.png){width="32%"}
-   ![](../imgs/Mastodon_BDVManualLinking3.png){width="32%"}
+   ![](../imgs/Mastodon_BDVManualLinking1.png)
+   ![](../imgs/Mastodon_BDVManualLinking2.png)
+   ![](../imgs/Mastodon_BDVManualLinking3.png)
    <figcaption><i>Manually creating links in BDV views. Press and hold </i><code>L</code><i> while hovering the mouse over a spot. 
 The viewer moves to the next frame and paints the source spot as a dashed, white outline, and the link to create as a white line.
 Then drag the white link to the target spot. 
@@ -256,14 +256,13 @@ Finally there are commands to add a full track from the currently focused spot.
 `Shift ⇞` selects all the spots and links in the track that are forward in time relative
 to the focused spot, and `Shift ⇟` does  the converse backward in time.
 
-![](../imgs/Mastodon_SelectionBox1.png){width="45%"}
-
-![](../imgs/Mastodon_SelectionBox2.png){width="45%"}
+![](../imgs/Mastodon_SelectionBox1.png)
+![](../imgs/Mastodon_SelectionBox2.png)
 
 The selection is shown in BDV views as red or magenta spots and links by default.
 In BDV views you can only edit the selection via `Shift click`. 
 The interaction with the focus also work as described above. 
-These default key-bindings are recapitulated in the [table of shortcuts for the selection actions](table_mastodon_selection_keys.md).
+These default key-bindings are recapitulated in the [table of shortcuts for the selection actions](../partB/table_mastodon_selection_keys.md).
 
 ## Editing spots and links with the selection.
 
@@ -314,10 +313,10 @@ In our humble opinion, this is one of the nice reasons for Mastodon to exits: a 
 
 
 <figure markdown>
-   ![](../imgs/Mastodon_ManualTracking_01.png){width="35%"}
-   ![](../imgs/Mastodon_ManualTracking_02.png){width="25%"}
-   ![](../imgs/Mastodon_ManualTracking_03.png){width="35%"}
- <figcaption><i>Manual tracking in Mastodon. 1. After selecting the spots we added to each time-point. 2. After linking them with </i><code>Shift+K</code><i> 3.  Backtracking a cell with </i><code>Shift+A</code><i>.</i></figcaption>
+   ![](../imgs/Mastodon_ManualTracking_01.png)
+   ![](../imgs/Mastodon_ManualTracking_02.png)
+   ![](../imgs/Mastodon_ManualTracking_03.png)
+ <figcaption><i>Manual tracking in Mastodon. From top to bottom: 1. After selecting the spots we added to each time-point. 2. After linking them with </i><code>Shift+K</code><i> 3.  Backtracking a cell with </i><code>Shift+A</code><i>.</i></figcaption>
 </figure> 
 <br/>
 

@@ -82,11 +82,11 @@ If you pick an item corresponding to an opened BDV view, then this view will onl
 And the view will be updated (and animated) as you pan, move in Z, zoom or unzoom the BDV view.
 
 <figure markdown>
-   ![](../imgs/Mastodon_Context1.png){width="35%"}
-   ![](../imgs/Mastodon_Context2.png){width="35%"}
-   ![](../imgs/Mastodon_Context3.png){width="25%"}
+   ![](../imgs/Mastodon_Context1.png)
+   ![](../imgs/Mastodon_Context2.png)
+   ![](../imgs/Mastodon_Context3.png)
   <figcaption><i>Context in Mastodon. The context displayed in TrackScheme (center) and the table (right, detailed in a following tutorial) is determined by what is currently displayed in the BDV window (left). 
-The content displayed in and the table id updated live as the view in the BDV window is changed by the user. </i></figcaption>
+The content displayed in and the table is updated live as the view in the BDV window is changed by the user. </i></figcaption>
 </figure> 
 <br/>
 

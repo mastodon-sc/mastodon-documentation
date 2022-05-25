@@ -2,23 +2,25 @@ site_name: Mastodon
 site_url: https://github.com/mastodon-sc/mastodon
 nav:
   - Home: index.md
-  - Using Mastodon: 
-    - Gettings started with Mastodon: partA/getting_started.md
-    - Manually editing tracks & TrackScheme: partA/manual_editing.md 
+  - Using Mastodon:
+    - Gettings started with Mastodon and automatic tracking: partA/getting_started.md
+    - Manually editing tracks and TrackScheme: partA/manual_editing.md
     - Inspecting large datasets: partA/inspecting_large_datasets.md
     - Numerical features, tags, and the table view: partA/numerical_features_tags_the_table_view.md
     - Semi-automatic tracking: partA/semi_automated_tracking.md
     - The selection creator: partA/selection_creator.md
+  - Keyboard shortcuts:
+    - Keyboard shortcuts for navigation in BDV: partB/table_bdv_navigation_keys.md
+    - Keyboard shortcuts for navigation in TrackScheme: partB/table_trackscheme_navigation_keys.md
+    - Keyboard shortcuts for navigation in the tables: partB/table_table_navigation_keys.md
+    - Keyboard shortcuts for the focus: partB/table_focus_navigation.md
+    - Keyboard shortcuts for the selection: partB/table_mastodon_selection_keys.md
+  - Extending Mastodon:
+    - Mastodon data structures: partC/mastodon_data_structures.md
   - Technical information:
     - Mastodon numerical features: partD/numerical_features.md
     - The graph data structure of Mastodon: partD/mastodon_graph_data_structure.md
     - Containment in Convex Polytopes using 𝑘-D trees: partD/convex_polytopes.md
-  - Keyboard shortcuts:
-    - Keyboard shortcuts for navigation in BDV: partA/table_bdv_navigation_keys.md
-    - Keyboard shortcuts for navigation in TrackScheme: partA/table_trackscheme_navigation_keys.md
-    - Keyboard shortcuts for navigation in the tables: partA/table_table_navigation_keys.md
-    - Keyboard shortcuts for the focus: partA/table_focus_navigation.md
-    - Keyboard shortcuts for the selection: partA/table_mastodon_selection_keys.md
 
 theme: readthedocs
 markdown_extensions:

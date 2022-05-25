@@ -33,16 +33,16 @@ Then pick a cell in the top layer, and create a spot, centered on its brightest 
 Adjust its radius and select it.
 Open a TrackScheme window to visualize the tracking progress.
 
-![image](../imgs/Mastodon_SemiAutoTracking_01a.png){width="45%"}
-![image](../imgs/Mastodon_SemiAutoTracking_01b.png){width="45%"}
+![image](../imgs/Mastodon_SemiAutoTracking_01a.png)
+![image](../imgs/Mastodon_SemiAutoTracking_01b.png)
 
 To start semi-automated tracking, press `Control T`.
 A log window should open, and tracking should proceed.
 If the log does not complain about candidates being too far, you should end up with something resembling the images below.
 
 
-![image](../imgs/Mastodon_SemiAutoTracking_02.png){width="30%"}
-![image](../imgs/Mastodon_SemiAutoTracking_03.png){width="60%"}
+![image](../imgs/Mastodon_SemiAutoTracking_02.png)
+![image](../imgs/Mastodon_SemiAutoTracking_03.png)
 
 The tracking stopped after 10 frames, and the last spot added is now in the selection. 
 Each spot is centered on the cell we started with, and it has the same radius that of the first spot we created.
@@ -70,7 +70,7 @@ The **Backtracking** configuration tracks backward in time.
 The other parameters controls the tracker behavior for the configuration currently selected in the top drop-down list. 
 To explain what they do we need first to describe how the semi-automated tracker works:
 
-![Illustration of the semi-automated tracking process.](../imgs/Mastodon_ExplainSemiAutoTracker.png){width="60%"}
+![Illustration of the semi-automated tracking process.](../imgs/Mastodon_ExplainSemiAutoTracker.png)
 
 The semi-automated tracker works by processing only a small neighborhood around the initial spot, (called the *source* spot later).
 This neighborhood is centered on the spot center (in magenta above), but taken in the next time-point (or previous one if you choose to go backward in time). 

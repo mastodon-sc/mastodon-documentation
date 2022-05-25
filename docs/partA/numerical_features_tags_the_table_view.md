@@ -53,8 +53,8 @@ Right now, it appears as an empty table made of two columns.
 This is where you enter tag-sets and tags.
 
 <figure markdown>
-   ![](../imgs/Mastodon_ConfigureTagSet_1.png){width="45%"}
-   ![](../imgs/Mastodon_ConfigureTagSet_2.png){width="45%"}
+   ![](../imgs/Mastodon_ConfigureTagSet_1.png)
+   ![](../imgs/Mastodon_ConfigureTagSet_2.png)
   <figcaption><i>Creating tag-sets and tags. 1. The empty tag-set dialog. 2. After adding two tag-sets and six tags. </i></figcaption>
 </figure> 
 <br/>
@@ -254,7 +254,7 @@ Like for tag-sets, the menu is now updated with items corresponding to the color
 If they are grayed-out, it means that the feature values they depend on is not yet computed. This kind of view immediately reveals important aspect of the data, even at a very high level. 
 For instance with our custom color mode, we can quickly find cells that are the brightest, and visually inspect how the intensity in cells change over time.
 
-![Feature color mode in a BDV view and in a view.](../imgs/Mastodon_FeatureColorBDV.png "fig:")
+![Feature color mode in a BDV view and in a view.](../imgs/Mastodon_FeatureColorBDV.png)
 ![Feature color mode in a BDV view and in a view.](../imgs/Mastodon_FeatureColorTrackScheme.png)
 
 ## The data table views. 
@@ -270,8 +270,8 @@ You can create a new table view by using the menu .
 If you did not compute features and did not define and tag-set, it should look like the table below:
 
 <figure markdown>
-   ![](../imgs/Mastodon_TableView1.png){width="45%"}
-   ![](../imgs/Mastodon_TableView2.png){width="45%"}
+   ![](../imgs/Mastodon_TableView1.png)
+   ![](../imgs/Mastodon_TableView2.png)
   <figcaption><i>The table view, with no features computed and no tags defined. Left: the table for spots. Right: the table for links. </i></figcaption>
 </figure> 
 <br/>
@@ -311,15 +311,15 @@ To add rows to the selection, the default key-bindings are again standard.
 Press `Shift Left-click` to add a range of rows to the selection from a table view, or use `Shift ↑` or `Shift ↓`  or `Shift ⇞` and `Shift ⇟`. 
 By pressing `Control Left-click` or `Command Left-click` you can toggle single rows in and out of the selection. 
 Of course, all of the commands related to the selection we have seen before also apply to the table views.
-The shortcuts to navigate in the table views are summarized in the [table of table shortcuts](table_table_navigation_keys.md).
+The shortcuts to navigate in the table views are summarized in the [table of table shortcuts](../partB/table_table_navigation_keys.md).
 
 Another feature of data tables is that they can be made slave of a spatial context, like for TrackScheme.
 When another BDV view is active, you can select its name in the drop-down list on the top-right part of the table.
 Then the table only shows the data items that are currently displayed in the master BDV view. 
 The notion of spatial context is explained in the [previous tutorial](inspecting_large_datasets.md#spatial-context-in-trackscheme).
 
-![Highlight and selection in the table view.](../imgs/Mastodon_TableView5.png){width="45%"}
-![Highlight and selection in the table view.](../imgs/Mastodon_TableView6.png){width="45%"}
+![Highlight and selection in the table view.](../imgs/Mastodon_TableView5.png)
+![Highlight and selection in the table view.](../imgs/Mastodon_TableView6.png)
 
 ### Sorting rows.
 
@@ -335,8 +335,8 @@ You cannot use it to edit the selection like in the main table.
 However the row you pick in this table will set the focus and highlight in other views. 
 Everything else applies to the selection table.
 
-![The selection table.](../imgs/Mastodon_TableView7.png){width="45%"}
-![The selection table.](../imgs/Mastodon_TableView8.png){width="50%"}
+![The selection table.](../imgs/Mastodon_TableView7.png)
+![The selection table.](../imgs/Mastodon_TableView8.png)
 
 ### Feature-based coloring in table views.
 

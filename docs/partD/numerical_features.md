@@ -71,9 +71,9 @@ It is recommended to use the 'Spot intensity' feature described above when the b
 
 | **Feature name** |  **Projections**  |  **Description** |
 |----|---|---|
-| Link target IDs | Source spot id & <br>Target spot id | Stores the IDs of the two spots the link connects to. In Mastodon, <br>the links are oriented: the source and target are not equivalent. <br>By convention in Mastodon, the source spot is always the <br>first in time, and the target the last in time. |
-| Link displacement | _idem_ | The distance between the source and target spots of the links, <br>in physical units. |
-| Link velocity | _idem_ | The velocity at the time of the link. It is calculated as the link displace- ment divided by the frame interval between the source and target spots (in frame units). |
+| Link target IDs | Source spot id & <br>Target spot id | Stores the IDs of the two spots the link connects to. In <br/>Mastodon, the links are oriented: the source and target <br/>are not equivalent. By convention in Mastodon, the source <br/>spot is always the first in time, and the target the last <br/>in time. |
+| Link displacement | _idem_ | The distance between the source and target spots of the <br/>links, in physical units. |
+| Link velocity | _idem_ | The velocity at the time of the link. It is calculated as the <br>link displacement divided by the frame interval between <br>the source and target spots (in frame units). |
 
 
 ## Track features.
@@ -90,8 +90,8 @@ Because branch-spots link to spots in the core graph, the branch-spot features a
 
 | **Feature name** |  **Projections**  |  **Description** |
 |----|---|---|
-| Branch N successors | _idem_ | Reports the number of successors of a branch spot. That is: how many branches emerge from this branch-spot. The branch-spot of a cell that divides will have a value of 2 for this feature. The end of a track will have a value of 0. The beginning of a track, 1. |
-| Branch depth | _idem_ |  Report the hierarchy level of a branch. The hierarchy of a branch is how many ancestors a branch has. For instance, the first branch of a track has a level of 0. After one cell division, the two daughter branches have a level of 1, _etc_. This feature value is used to build the hierarchy graph.  |
+| Branch N successors | _idem_ | Reports the number of successors of a branch spot. That is: <br/>how many branches emerge from this branch-spot. The <br/>branch-spot of a cell that divides will have a value of 2 for <br/>this feature. The end of a track will have a value of 0. The <br/>beginning of a track, 1. |
+| Branch depth | _idem_ |  Report the hierarchy level of a branch. The hierarchy of a <br/>branch is how many ancestors a branch has. For instance, <br/>the first branch of a track has a level of 0. After one cell <br/>division, the two daughter branches have a level of 1, _etc_. <br/>This feature value is used to build the hierarchy graph.  |
 
 ## Branch link features.
 
@@ -100,7 +100,7 @@ Their features relate mainly to the branch size and extension in time.
 
 | **Feature name** |  **Projections**  |  **Description** |
 |----|---|---|
-|  Branch N Spots | _idem_ | The number of spots in a branch. The count does not include the spots at the beginning of the branch, but includes the last one. This way the sum of this feature values for all the branches of a track equals the number of spots in the track. |
-| Branch duration and displacement | Displacement | Measure the displacement of a branch, that is: the euclidean distance between the first and last spot of the branch. |
-|  | Duration | The time difference between the first and last spot of the branch. |
+|  Branch N Spots | _idem_ | The number of spots in a branch. The count <br/>does not include the spots at the beginning <br/>of the branch, but includes the last one. This <br/>way the sum of this feature values for all the <br/>branches of a track equals the number of <br/>spots in the track. |
+| Branch duration and displacement | Displacement | Measure the displacement of a branch, that is: <br/>the euclidean distance between the first and <br/>last spot of the branch. |
+|  | Duration | The time difference between the first and <br/>last spot of the branch. |
 

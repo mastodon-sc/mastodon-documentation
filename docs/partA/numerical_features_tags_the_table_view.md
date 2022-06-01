@@ -196,7 +196,7 @@ Let's create a color mode that color spots and links based on the mean intensity
 The rest of the configuration panel is made of two parts. 
 The top part configures the spot coloring, or how we color spots. 
 The bottom part configures the link coloring, or how we color links. 
-In Mastodon the data is organized in a [mathematical graph](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics), in which the vertices are the spots, and the edges are the links that connect spots from one frame to another, so you will sometimes find in Mastodon and in this manual the vocables vertex and edge to design a spot and a link respectively.
+In Mastodon the data is organized in a [mathematical graph](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)), in which the vertices are the spots, and the edges are the links that connect spots from one frame to another, so you will sometimes find in Mastodon and in this manual the vocables vertex and edge to design a spot and a link respectively.
 The vertex color mode specifies where do we take colors from. You can
 choose between:
 

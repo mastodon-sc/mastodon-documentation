@@ -104,8 +104,6 @@ The goal of this short tutorial is to track all these cells in Mastodon.
 </figure>
 
 
-
-
 ## Getting Mastodon.
 
 As of today, Mastodon is available as a beta. 

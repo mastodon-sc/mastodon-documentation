@@ -41,7 +41,35 @@ The settings file is loaded when a new BDV window is displayed.
 
 ## View modes in BDV.
 
-TODO TODO TODO
+The BDV views has also four different visibility modes that help making sense of tracks of interest. 
+You can cycle between them by pressing the `V` key with a BDV active.
+These four views are:
+
+**All**. 
+In this mode (the default), all the tracks are visible.
+It follows the display configuration you set with the render settings however.
+
+![](../imgs/Mastodon_visibilities_01.png)
+
+**Track of focused vertex**.
+In this mode, only the track (_e.g._ the whole lineage of a cell) of the currently focused spot is displayed.
+
+![](../imgs/Mastodon_visibilities_02.png)
+
+This visibility mode is particularly useful in conjunction with a TrackScheme window, where you would move the focus across different lineages with the keyboard. 
+Comparing the image above with the image of the previous mode (movie and annotation by Mette Handberg-Thorsager and colleagues in the Tomancak lab), you can see with this visibility mode that the lineage of a progenitor tends to colonize only one side of the embryo.
+
+** Selection only.**
+In this mode, only the content of the current selection is displayed.
+
+![](../imgs/Mastodon_visibilities_03.png)
+
+This visibility mode is best used along with the _Selection creator_, the we describe later, and that lets you set the selection based on various criteria.
+
+**None.**
+In this mode, the tracks are not displayed. 
+
+![](../imgs/Mastodon_visibilities_04.png)
 
 ## Linking several views together.
 

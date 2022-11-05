@@ -29,5 +29,4 @@ markdown_extensions:
 
 plugins:
   - search
-  - pdf-export
-
+  - htmlzip

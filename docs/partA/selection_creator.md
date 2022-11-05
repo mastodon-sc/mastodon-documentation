@@ -117,7 +117,7 @@ First let's try removing the comparison:
 vertexFeature('Spot position', 'X')
 ```
 If we click the `Run` button we get the following error message:
-```
+```text
 Evaluation failed. Got unexpected result: VertexFeature( Spot position → X, 256609 )
 ```
 This is expected. 
@@ -130,7 +130,7 @@ Let's test an expression without specifying the projection name in the `vertexFe
 vertexFeature('Spot position') > 100.
 ```
 Now we get:
-```
+```text
 Evaluation failed. Incorrect syntax: Calling vertexFeature: The projection key 
 'Spot position' is unknown to the feature 'Spot position'.
 ```
@@ -145,7 +145,7 @@ For instance:
 vertexFeature('Tralala', 'X') > 100.
 ```
 returns the error message:
-```
+```text
 Evaluation failed. Incorrect syntax: Calling vertexFeature: The feature 'Tralala' 
 is unknown to the feature model.
 ```
@@ -159,8 +159,7 @@ vertexFeature('Track N spots') < 20
 we would get the same error message (feature unknown).
 To fix this, you need to go to the `Feature computation` tool, make sure the `Track N spots` feature computer is selected and click `Compute`. 
 After this, the expression will evaluate to a selection correctly:
-
-```
+```text
 Evaluation successful. Selection has now 33316 spots and 0 edges.
 ```
 
@@ -174,7 +173,7 @@ For instance, to select all the links that correspond to a cell displacement lar
 edgeFeature('Link displacement') > 3.
 ```
 which results in:
-```
+```text
 Evaluation successful. Selection has now 0 spots and 16855 edges.
 ```
 Note that in this case we called the function with only one function, the feature name.
@@ -203,7 +202,7 @@ tagSet('Reviewed by') == 'JY'
 ```
 will retrieve all the tags in the tag-set called `Reviewed by`, and data items (spots and links) that are tagged with `JY` in this tag-set will be selected. 
 But with our current Mastodon project it returns an error:
-```
+```text
 Evaluation failed. Incorrect syntax: The tag-set 'Reviewed by' is unknown to 
 the tag-set model.
 ```
@@ -243,7 +242,7 @@ So when it comes to selection, this works as in an addition, and we could write 
 vertexFeature('Spot N links') == 1 + vertexFeature('Spot frame') == 25
 ```
 But we get an error:
-```
+```text
 Evaluation failed. Incorrect syntax: Improper use of the 'add' operator, 
 not defined for Integer and VertexFeatureVariable. Use brackets to clarify 
 operator priority.
@@ -253,7 +252,7 @@ We need to use brackets to specify we operate on the results of the feature filt
 ```
 (vertexFeature('Spot N links') == 1) + (vertexFeature('Spot frame') == 25)
 ```
-```
+```text
 Evaluation successful. Selection has now 21814 spots and 0 edges.
 ```
 The `+` operator gives the same results that the `|` operator, they just operate with different priorities. 
@@ -264,7 +263,7 @@ For instance, to remove the spots that belong to the frame 25 from the selection
 ```
 (vertexFeature('Spot N links') == 1) - (vertexFeature('Spot frame') == 25)
 ```
-```
+```text
 Evaluation successful. Selection has now 19397 spots and 0 edges.
 ```
 And of course, you can combine expressions using features or tags:

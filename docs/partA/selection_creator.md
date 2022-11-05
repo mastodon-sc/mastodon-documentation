@@ -131,7 +131,8 @@ vertexFeature('Spot position') > 100.
 ```
 Now we get:
 ```
-Evaluation failed. Incorrect syntax: Calling vertexFeature: The projection key 'Spot position' is unknown to the feature 'Spot position'.
+Evaluation failed. Incorrect syntax: Calling vertexFeature: The projection key 
+'Spot position' is unknown to the feature 'Spot position'.
 ```
 Here the selection creator complains because we did not specify the projection in the call.
 It then tried to find a projection with name identical to the feature name (`Spot position`) and could not find one.
@@ -145,7 +146,8 @@ vertexFeature('Tralala', 'X') > 100.
 ```
 returns the error message:
 ```
-Evaluation failed. Incorrect syntax: Calling vertexFeature: The feature 'Tralala' is unknown to the feature model.
+Evaluation failed. Incorrect syntax: Calling vertexFeature: The feature 'Tralala' 
+is unknown to the feature model.
 ```
 
 Importantly, the same error message is triggered when you call the function **with a feature that has not been computed yet**.
@@ -202,7 +204,8 @@ tagSet('Reviewed by') == 'JY'
 will retrieve all the tags in the tag-set called `Reviewed by`, and data items (spots and links) that are tagged with `JY` in this tag-set will be selected. 
 But with our current Mastodon project it returns an error:
 ```
-Evaluation failed. Incorrect syntax: The tag-set 'Reviewed by' is unknown to the tag-set model.
+Evaluation failed. Incorrect syntax: The tag-set 'Reviewed by' is unknown to 
+the tag-set model.
 ```
 Indeed, the tag-set `Reviewed-by` does not exist.
 
@@ -241,7 +244,9 @@ vertexFeature('Spot N links') == 1 + vertexFeature('Spot frame') == 25
 ```
 But we get an error:
 ```
-Evaluation failed. Incorrect syntax: Improper use of the 'add' operator, not defined for Integer and VertexFeatureVariable. Use brackets to clarify operator priority.
+Evaluation failed. Incorrect syntax: Improper use of the 'add' operator, 
+not defined for Integer and VertexFeatureVariable. Use brackets to clarify 
+operator priority.
 ```
 Here the expression parser is confused due to the classical operation priority of the the `+` and `-` operators. 
 We need to use brackets to specify we operate on the results of the feature filtering:

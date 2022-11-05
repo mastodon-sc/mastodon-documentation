@@ -336,24 +336,24 @@ will select the spots that have 3 links, and return them plus their outgoing lin
 
 | Functions                                               | Usage                                                        |
 | ------------------------------------------------------- | ------------------------------------------------------------ |
-| `vertexFeature('Spot feature name', 'Projection name')` | Returns the values of the specified spot feature and projection. To be used with a comparison operator on a numerical value like `>`, `<`, `>=`, `<=`, `==` or `!=`. |
+| `vertexFeature('Spot feature name', 'Projection name')` | Returns the values of the specified spot feature and projection. <br />To be used with a comparison operator on a numerical value <br />like `>`, `<`, `>=`, `<=`, `==` or `!=`. |
 | `edgeFeature('Spot feature name', 'Projection name')`   | The same, but for link features.                             |
-| `tagSet('Tag set name')`                                | Returns the tag of all data items for the specified tag-set. To be used with the equality operator `==`, comparing to a tag belonging to the specified tag set (`tagSet('TS') == 'T'`). |
+| `tagSet('Tag set name')`                                | Returns the tag of all data items for the specified tag-set. <br />To be used with the equality operator `==`, comparing to <br />a tag belonging to the specified tag set <br />(`tagSet('TS') == 'T'`). |
 | `vertexTagSet('Tag set name')`                          | The same, but only returns the spots in the comparison.      |
 | `edgeTagSet('Tag set name')`                            | The same, but only returns the links in the comparison.      |
 | `selection`                                             | Returns the content of the current selection.                |
 | `vertexSelection`                                       | Returns only the spots in the current selection.             |
 | `edgeSelection`                                         | Returns only the links in the current selection.             |
-| `morph`                                                 | Change the type of data items that are selected, based on their relations. To use with the morphemes described below. |
+| `morph`                                                 | Change the type of data items that are <br />selected, based on their relations. To use <br />with the morphers described below. |
 
 ### Morphers.
 
 | Morpher name | Role |
 | ------------ | ---- |
-| `toVertex` | Include the spots currently selected in the `morph` result. When this morpher is not present, the selected spots are removed from the target selection. |
+| `toVertex` | Include the spots currently selected in the `morph` result. When this <br />morpher is not present, the selected spots are removed from the <br />target selection. |
 | `incomingEdges` | Include the incoming links (backward in time) of the selected spots. |
 | `outgoingEdges` | Include the outgoing links (forward in time) of the selected spots. |
-| `toEdge` | Include the links of the source selection in the target selection. When this morpher is not present, the selected links are removed from the target selection. |
-|`sourceVertex` | Include the source spots of the selected links. The source spot of a link is the one backward in time. |
-| `targetVertex` | Include the target spots of the selected links. The target spot of a link is the one forward in time. |
+| `toEdge` | Include the links of the source selection in the target selection. <br />When this morpher is not present, the selected links are removed <br />from the target selection. |
+|`sourceVertex` | Include the source spots of the selected links. The source spot of a <br />link is the one backward in time. |
+| `targetVertex` | Include the target spots of the selected links. The target spot of a <br />link is the one forward in time. |
 |`wholeTrack` | Include the whole track of the selected spots and links. |

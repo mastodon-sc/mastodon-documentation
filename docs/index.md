@@ -1,6 +1,6 @@
 ![Mastodon-logo_jy-01](imgs/Mastodon-logo_jy-01.png)
 
-# Mastodon documentation.
+# About Mastodon and this documentation.
 
 Mastodon is a large-scale tracking and track-editing framework for large, multi-view images, such as the ones that are typically generated in the domain Development Biology or Stem-Cell Biology or Cell Biology.
 

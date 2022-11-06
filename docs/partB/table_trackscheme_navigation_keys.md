@@ -1,3 +1,5 @@
+# Navigating in the TrackScheme views. 
+
 | **Action**                           | **Key**         |
 | ------------------------------------ | --------------- |
 | **_View._**     |                 |

@@ -51,10 +51,8 @@ The image data are stored in small chunks corresponding to a neighborhood. As th
 On top of this, the image is also stored as a [multi-scale pyramid](https://en.wikipedia.org/wiki/Pyramid_(image_processing)), to speed-up zooming and unzooming.
 The BDV display component exploits this file format in a clever way, and ensures that the view still answers to user interactions (mouse pan, zoom, clicks ) even if the chunks are not fully loaded.
 
-<figure markdown>
-  ![BDV image](../imgs/BdvTikz-pyramidblocks.png)
-  <figcaption><i>Illustration of the BDV file format storage strategy. The image is stored over several resolution levels (multi-scale pyramid) and in chunks.</i></figcaption>
-</figure>
+![BDV image](../imgs/BdvTikz-pyramidblocks.png)
+<figcaption><i>Illustration of the BDV file format storage strategy. The image is stored over several resolution levels (multi-scale pyramid) and in chunks.</i></figcaption>
 
 
 There are several implementations of this strategy, for instance in
@@ -97,11 +95,9 @@ As time progresses, the cells move towards the middle part and bottom (high Y co
 
 The goal of this short tutorial is to track all these cells in Mastodon.
 
-<figure markdown>
-   ![](../imgs/BDV-imageXY.png "fig:"){width="40%"}
-   ![](../imgs/BDV-imageXZ.png "fig:"){width="40%"}
-  <figcaption><i>The tutorial dataset opened in the Fiji BigDataViewer , seen along XY (left) and XZ (right).</i></figcaption>
-</figure>
+![](../imgs/BDV-imageXY.png){width="300px"}
+![](../imgs/BDV-imageXZ.png){width="300px"}
+<figcaption><i>The tutorial dataset opened in the Fiji BigDataViewer , seen along XY (left) and XZ (right).</i></figcaption>
 
 
 ## Getting Mastodon.
@@ -115,7 +111,7 @@ So the first thing to do is to grab [Fiji](https://fiji.sc/), if you do not have
 
 Then launch the [Fiji updater](https://imagej.net/plugins/updater) and once your Fiji is up to date, click on the `Manage update site` button. 
 We will add the [Mastodon update site](https://imagej.net/update-sites/following). 
-You should find the `Mastodon-jungle` site in the list.
+You should find the `Mastodon` site in the list.
 
 ![image](../imgs/Mastodon_UpdateSite.png)
 
@@ -125,16 +121,25 @@ After restarting, you should find the command _Plugins > Mastodon_ at the bottom
 
 ## Creating a new Mastodon project.
 
-After launching the command, this window appears.
+After launching the command, this Mastodon launcher appears.
 
-![The main window of Mastodon.](../imgs/Mastodon_MainWindow.png)
+![The Mastodon launcher.](../imgs/Mastodon_Launcher_01.png){width="50%" align="center"}
 
-Click on XXXXXX, and browse to the `datasethdf5.xml` file of the XML/HDF5 file pair of the tutorial dataset. 
-All the buttons that were grayed out should be now enabled.
+In our case, we want to create a new project from an existing BDV file. 
+Click on the `new Mastodon project` and make sure the `Browse to a BDV file pair (xml/h5 pair)` option is selected.
+Use the `Browse` button to browse to the XML file location.
+
+![](../imgs/Mastodon_Launcher_02.png)
+
+Then click the `create` button.
+You should now see the Mastodon main window, that is used to control the project.
+
+![](../imgs/Mastodon_MainWindow.png){width="50%" align="center"}
+
 Click on the `bdv` button. 
 If a BDV window appears, everything is right.
 
-![image](../imgs/Mastodon_BDV.png){width="50%""}
+![image](../imgs/Mastodon_BDV.png){width="50%" align="center"}
 
 It is almost a regular BDV window and if you already know who to use it and the key bindings you should find your marks quickly. 
 The BDV view displays a *slice* of the image through arbitrary orientation. 
@@ -155,9 +160,8 @@ So if you want to transfer or move a full Mastodon project, you need to take the
 Next time you want to open this project, just click on the button and point the file browser to the `.mastodon` file. 
 The image data will be loaded along with the lineages.
 
+
 ## Detecting cells.
-
-
 
 We want to track automatically all the cells in this dataset, and the first step is therefore to detect them.
 Mastodon ships a wizard to perform cell detection. 
@@ -167,7 +171,7 @@ Also, the basic algorithms are very close to what was in TrackMate, but they hav
 Mastodon windows have their own menus.
 The detection wizard can be launched from the _Plugins > Tracking > Detection..._ menu item. You should have a window like the one depicted below:
 
-![First panel of the detection wizard.](../imgs/Mastodon_DetectionWizard_01.png)
+![First panel of the detection wizard.](../imgs/Mastodon_DetectionWizard_01.png){width="50%" align="center"}
 
 Like for TrackMate, the automated tracking user interface uses *wizards*
 to enter parameters, select algorithms, *etc.* 
@@ -231,7 +235,7 @@ The click on the `Preview` button.
 A preview panel should open shortly, showing detection results on the current frame:
 
 ![Previewing detection results.](../imgs/Mastodon_DoGconfig1.png "fig:"){width="50%"} 
-![Previewing detection results.](../imgs/Mastodon_DoGconfig2.png "fig:"){width="40%""}
+![Previewing detection results.](../imgs/Mastodon_DoGconfig2.png "fig:"){width="40%"}
 
 These values are close to be good but not quite.
 You can see that the diameter value is too small to properly grasps the elongated shape of the cells along Z (the BDV view on the left panel above is rotated to show a YZ
@@ -246,7 +250,7 @@ Note that you can run the preview on any frame. You just have to move the time s
 Once you are happy with the parameters, click on the button. All the frames specified in the ROI (if any) will be processed.
 In our case detection should conclude quickly and the following panel should appear:
 
-![Detectionresults.](../imgs/Mastodon_DetectionResuts.png)
+![Detectionresults.](../imgs/Mastodon_DetectionResuts.png){align="center"}
 
 We now have more than 1000 cells detected and this concludes the detection step.
 Click on the `Finish` button, and the wizard will disappear.
@@ -268,6 +272,7 @@ But some algorithms can accommodate *e.g.* dividing cells (2 outgoing links for 
 There is a vast literature behind tracking algorithms, and it is an active domain of Research. 
 A [paper](https://www.nature.com/articles/nmeth.2808) compares implementation and list some pros and pitfalls of many of them.
 
+
 ### Selecting target spots for linking.
 
 Like for the detection step, linking in Mastodon happens in a wizard.
@@ -275,17 +280,19 @@ And also like for detection, the linking algorithms currently available in Masto
 Launch the wizard from the GUI, with the _Plugins > Tracking > Linking.. ._ menu item. 
 The first panel you are shown lets you select what spots to include in linking:
 
-![The first panel of the linking wizard.](../imgs/Mastodon_LinkingWizard_01.png)
+![The first panel of the linking wizard.](../imgs/Mastodon_LinkingWizard_01.png){align="center"}
 
 There are two modes:
 
 -   Either you take all the spots between a start and and end frame. By default, all frames are selected.
 -   Either you specify you want to link only the spots that are in the selection. 
 This mode offers a lot of flexibility when facing complicated cases. 
-It is best use along with the selection creator, that we will describe later in this manual.
+It is best use along with the [selection creator](selection_creator.md), that we will describe later in this manual.
 
 For now, just leave the parameters as they are, which will include all spots in the linking process, and click next.
 You can now choose between several linking algorithms.
+
+
 
 ### Available linking algorithms in Mastodon.
 
@@ -313,6 +320,7 @@ It can deal specifically with linear motion, or particles moving with a roughly 
 This velocity does not need to be the same for all particles.
 It relies on the [Kalman filter](https://en.wikipedia.org/wiki/Kalman_filter) to predict the most probable position of a particle undergoing (quasi) constant velocity movement.
 
+
 ### How to pick the right linking algorithm?
 
 The right choice of a particle linking algorithm is conditioned by the expected motion of the object you track. 
@@ -325,6 +333,7 @@ As a rule of thumb, you can make a decision following these simple rules:
 In our case, we need the **Simple LAP linker**. 
 Select it and click `Next`.
 
+
 ### Running the Simple LAP linker.
 
 This linker only requires the specification of three parameters.
@@ -335,7 +344,7 @@ For instance, if you know that your objects move by at most 5 µm from one fram
 Distances are expressed in whatever physical units the BDV dataset specified. 
 In our case it is pixels.
 
-![image](../imgs/Mastodon_LinkingWizard_03.png)
+![image](../imgs/Mastodon_LinkingWizard_03.png){align="center"}
 
 In practical cases, it can happen that the detection step might miss an object in some frames, then detect again later. 
 These gaps will result in generating several small tracks for a single objects, which is one of the main course of spurious results when analyzing tracks. 
@@ -352,7 +361,7 @@ Click `Next` and the linking will proceed.
 Click on the `Finish` button to end the tracking process.
 If you have a BDV window opened, it should be updated with the tracking results, like in image below.
 
-![How tracking results are displayed in BDV views.](../imgs/Mastodon_LinkingResults.png)
+![How tracking results are displayed in BDV views.](../imgs/Mastodon_LinkingResults.png){align="center"}
 
 
 By default the tracks are represented by colored lines, extending backward in time. 

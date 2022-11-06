@@ -46,15 +46,15 @@ On the finer level of details, spots are plotted as circles, with the spot label
 As you zoom out, they becomes just empty circles, then points, then they disappear to only show the track as a line. 
 When the zoom level is so low that several tracks coalesce, they are drawn as a gray box.
 
-<figure markdown>
-   ![](../imgs/Mastodon_TrackScheme_Zoom_0.png)
-   ![](../imgs/Mastodon_TrackScheme_Zoom_1.png)
-   ![](../imgs/Mastodon_TrackScheme_Zoom_2.png)
-   ![](../imgs/Mastodon_TrackScheme_Zoom_3.png)
-   ![](../imgs/Mastodon_TrackScheme_Zoom_4.png)
-  <figcaption><i>TrackScheme displays spots and links differently depending on the zoom level. From top to bottom and left to right: 1. At low zoom level tracks that coalesce are shown as gray boxes. 2. Zooming in, the individual tracks appear first as black lines. 3. When they are separated enough, spots appear as black dots. 4. With an even higher zoom level they are shown as empty circles. 5. Until they grow big enough so that the spot labels can be painted. Notice the size of the sliders at the bottom and at the right of the view.</i></figcaption>
-</figure> 
-<br/>
+
+![](../imgs/Mastodon_TrackScheme_Zoom_0.png)
+![](../imgs/Mastodon_TrackScheme_Zoom_1.png){width="45%"}
+![](../imgs/Mastodon_TrackScheme_Zoom_2.png){width="45%"}
+![](../imgs/Mastodon_TrackScheme_Zoom_3.png){width="45%"}
+![](../imgs/Mastodon_TrackScheme_Zoom_4.png){width="45%"}
+<figcaption><i>TrackScheme displays spots and links differently depending on the zoom level. From left to right then top to bottom: 1. At low zoom level tracks that coalesce are shown as gray boxes. 2. Zooming in, the individual tracks appear first as black lines. 3. When they are separated enough, spots appear as black dots. 4. With an even higher zoom level they are shown as empty circles. 5. Until they grow big enough so that the spot labels can be painted. Notice the size of the sliders at the bottom and at the right of the view.</i></figcaption>
+
+
 
 ## The focus and the spot labels.
 
@@ -81,12 +81,9 @@ You can also jumps across branches.
 A branch in a track is a linear section of the track between divisions, fusions or the track end or start. `Alt ↑` and `Alt ↓` will move the focus to the branch start and end. 
 In the case where you could navigate to several branches, for instance you are currently at a cell division and you can go the end of either daughter cells branches, you can navigate to one or the other with or `Alt ↓` or `Control Alt ↓`.
 
-<figure markdown>
-   ![](../imgs/Mastodon_FocusInTrackScheme.png)
-   ![](../imgs/Mastodon_FocusInBDV.png)
-  <figcaption><i>Focused spots are painted in TrackScheme (top) and in BDV (bottom) views as ellipses with a dashed-contour.</i></figcaption>
-</figure> 
-<br/>
+![](../imgs/Mastodon_FocusInTrackScheme.png){width="45%"}
+![](../imgs/Mastodon_FocusInBDV.png){width="45%"}
+<figcaption><i>Focused spots are painted in TrackScheme (top) and in BDV (bottom) views as ellipses with a dashed-contour.</i></figcaption>
 
 
 ### Editing the spot labels.
@@ -96,7 +93,7 @@ Zoom in so that we can see the label of the spots and move the focus to a spot.
 Press `Enter`. 
 A small editing box appears inside the spot and lets you change its label.
 
-![](../imgs/Mastodon_EditSpotLabel.png)
+![](../imgs/Mastodon_EditSpotLabel.png){align="center"}
 
 By default the spot label display the spot ID. 
 If you edit the label then it shows the new label you entered.
@@ -119,7 +116,7 @@ The tracks are arranged from left to right following the alphanumerical order of
 So you can change the tracks arrangement by editing theirs first spot's label. 
 For instance a track named `A` will be laid out to the left of a track named `B`, and a track named `D9` will be put to the left of a track named `D10`.
 
-![](../imgs/Mastodon_TrackSchemeTrackOrder.png)
+![](../imgs/Mastodon_TrackSchemeTrackOrder.png){align="center"}
 
 If you change the track labels now, the tracks will not move immediately in TrackScheme.
 For the new arrangement to happen, you need to either open another TrackScheme window, or to edit the data, which we will see soon.
@@ -147,13 +144,11 @@ If you `Double click` on a spot in any view, all views in sync will translate to
 This is very handy to navigate around in TrackScheme, for instance following a cell over time while the BDV view displays where it is in the sample. 
 You can even combine several BDV views in sync at different magnification to have both an overview of the cell position in the sample and a close view of the cell itself.
 
-<figure markdown>
-   ![](../imgs/Mastodon_Sync1.png)
-   ![](../imgs/Mastodon_Sync2.png)
-   ![](../imgs/Mastodon_Sync3.png)
-  <figcaption><i>Three views of the same dataset in sync. Notice that the lock number 1 is activated on the three views (in yellow). The second view is zoomed in a XY plane. The third view is dezoomed and align with the XZ plane.</i></figcaption>
-</figure> 
-<br/>
+
+![](../imgs/Mastodon_Sync1.png){width="35%"}
+![](../imgs/Mastodon_Sync2.png){width="25%"}
+![](../imgs/Mastodon_Sync3.png){width="35%"}
+<figcaption><i>Three views of the same dataset in sync. Notice that the lock number 1 is activated on the three views (in yellow). The second view is zoomed in a XY plane. The third view is dezoomed and align with the XZ plane.</i></figcaption>
 
 ## The highlight.
 
@@ -162,15 +157,11 @@ You probably already noticed it and used it: the display of spots and links that
 Highlighted spots and links are painted with a thick continuous line.
 To highlight a spot or link you just have to lay the mouse over it. As for the focus, the highlight is common to all views, and if you highlight a spot or a link in a view, its display is changed in all the views that show it.
 
-
-<figure markdown>
-   ![](../imgs/Mastodon_HighlightSpotBDV.png)
-   ![](../imgs/Mastodon_HighlightSpot.png)
-   ![](../imgs/Mastodon_HighlightLinkBDV.png)
-   ![](../imgs/Mastodon_HighlightLink.png)
+![](../imgs/Mastodon_HighlightSpotBDV.png){width="45%"}
+![](../imgs/Mastodon_HighlightSpot.png){width="45%"}
+![](../imgs/Mastodon_HighlightLinkBDV.png){width="45%"}
+![](../imgs/Mastodon_HighlightLink.png){width="45%"}
 <figcaption><i>The highlight in Mastodon. The highlighted spot or link will appear painted with a thicker line, both in the BDV and TrackScheme views.</i></figcaption>
-</figure> 
-<br/>
 
 
 ## Deleting individual spots and links.
@@ -197,14 +188,11 @@ Notice that you cannot add a link between spots in the same frame.
 Also notice that you can toggle links this way.
 If you draw a link between two spots that are already connected, their link will be removed.
 
+![](../imgs/Mastodon_TrackSchemeManualLinking1.png){width="32%"}
+![](../imgs/Mastodon_TrackSchemeManualLinking2.png){width="32%"}
+![](../imgs/Mastodon_TrackSchemeManualLinking3.png){width="32%"}
+<figcaption><i>Manually creating links in TrackScheme. Press and hold </i><code>L</code><i> while hovering the mouse over a spot. Then drag the link in red to the target spot. A new link will be created between the two spots when you release </i><code>L</code><i>. Doing this between two spots that are already connected removes the link between them.</i></figcaption>
 
-<figure markdown>
-   ![](../imgs/Mastodon_TrackSchemeManualLinking1.png)
-   ![](../imgs/Mastodon_TrackSchemeManualLinking2.png)
-   ![](../imgs/Mastodon_TrackSchemeManualLinking3.png)
-   <figcaption><i>Manually creating links in TrackScheme. Press and hold </i><code>L</code><i> while hovering the mouse over a spot. Then drag the link in red to the target spot. A new link will be created between the two spots when you release </i><code>L</code><i>. Doing this between two spots that are already connected removes the link between them.</i></figcaption>
-</figure> 
-<br/>
 
 In BDV views, it is again very similar.
 Move the mouse over a spot until it is highlighted then press and hold the `L` key.
@@ -213,18 +201,16 @@ The link to create will be painted as a white line, and the ghost shape of the s
 Move the mouse to the target spot in this frame until it is highlighted, then release the key. 
 The link is created. If you press `Shift L` in a spot, the BDV view will move to the **previous** frame, and create a backward link.
 
-
-<figure markdown>
-   ![](../imgs/Mastodon_BDVManualLinking1.png)
-   ![](../imgs/Mastodon_BDVManualLinking2.png)
-   ![](../imgs/Mastodon_BDVManualLinking3.png)
-   <figcaption><i>Manually creating links in BDV views. Press and hold </i><code>L</code><i> while hovering the mouse over a spot. 
+![](../imgs/Mastodon_BDVManualLinking1.png){width="32%"}
+![](../imgs/Mastodon_BDVManualLinking2.png){width="32%"}
+![](../imgs/Mastodon_BDVManualLinking3.png){width="32%"}
+<figcaption><i>Manually creating links in BDV views. Press and hold </i><code>L</code><i> while hovering the mouse over a spot. 
 The viewer moves to the next frame and paints the source spot as a dashed, white outline, and the link to create as a white line.
 Then drag the white link to the target spot. 
 A new link will be created between the two spots when you release </i><code>L</code><i>. 
 As for TrackScheme, doing this between two spots that are already connected removes the link between them.</i></figcaption>
-</figure> 
-<br/>You cannot move in Z while creating a link this way.
+
+You cannot move in Z while creating a link this way.
 You must orient the BDV view so that the source and target spot are roughly in the same  displayed slice.
 However you can move in time. 
 While still holding the key, press the or and or key to navigate backward and forward in time.
@@ -256,8 +242,8 @@ Finally there are commands to add a full track from the currently focused spot.
 `Shift ⇞` selects all the spots and links in the track that are forward in time relative
 to the focused spot, and `Shift ⇟` does  the converse backward in time.
 
-![](../imgs/Mastodon_SelectionBox1.png)
-![](../imgs/Mastodon_SelectionBox2.png)
+![](../imgs/Mastodon_SelectionBox1.png){width="48%"}
+![](../imgs/Mastodon_SelectionBox2.png){width="48%"}
 
 The selection is shown in BDV views as red or magenta spots and links by default.
 In BDV views you can only edit the selection via `Shift click`. 
@@ -293,12 +279,14 @@ When it is placed in the desired position, release `A`.
 The new spot is created and linked to the source spot. 
 This way, you can quickly follow a cell or an object and manually creates a track for it by just positioning the mouse with a few presses of `A`.
 
+
 ## Moving spots around.
 
 To move an existing spot we use a similar interaction with the spots.
 In a BDV view, place the mouse cursor inside the spot you want to move, then press and hold `space`.
 While you hold `space` pressed the spot will move where you move the mouse.
 Release the `space` key at the desired location.
+
 
 ## The undo/redo mechanism.
 
@@ -308,17 +296,13 @@ There is no limit to the number of undos you can do.
 And everything can be undone in Mastodon, even tag definitions.
 In our humble opinion, this is one of the nice reasons for Mastodon to exits: a tracking and lineaging software that aims at combining automated and manual approaches, in a very efficient way..
 
+
 ## Putting things in practice.
 
-
-
-<figure markdown>
-   ![](../imgs/Mastodon_ManualTracking_01.png)
-   ![](../imgs/Mastodon_ManualTracking_02.png)
-   ![](../imgs/Mastodon_ManualTracking_03.png)
- <figcaption><i>Manual tracking in Mastodon. From top to bottom: 1. After selecting the spots we added to each time-point. 2. After linking them with </i><code>Shift+K</code><i> 3.  Backtracking a cell with </i><code>Shift+A</code><i>.</i></figcaption>
-</figure> 
-<br/>
+![](../imgs/Mastodon_ManualTracking_01.png)
+![](../imgs/Mastodon_ManualTracking_02.png)
+![](../imgs/Mastodon_ManualTracking_03.png)
+<figcaption><i>Manual tracking in Mastodon. From top to bottom: 1. After selecting the spots we added to each time-point. 2. After linking them with </i><code>Shift+K</code><i> 3.  Backtracking a cell with </i><code>Shift+A</code><i>.</i></figcaption>
 
 Make sure you have one BDV view and one view open, and that both are linked using the same lock. 
 In TrackScheme, select one of the spot or link that belongs to one of the long tracks; the ones that extend from the first time-point to the last.

@@ -59,7 +59,7 @@ In this mode, only the track (_e.g._ the whole lineage of a cell) of the current
 This visibility mode is particularly useful in conjunction with a TrackScheme window, where you would move the focus across different lineages with the keyboard. 
 Comparing the image above with the image of the previous mode (movie and annotation by Mette Handberg-Thorsager and colleagues in the Tomancak lab), you can see with this visibility mode that the lineage of a progenitor tends to colonize only one side of the embryo.
 
-** Selection only.**
+**Selection only.**
 In this mode, only the content of the current selection is displayed.
 
 ![](../imgs/Mastodon_visibilities_03.png)
@@ -75,7 +75,7 @@ In this mode, the tracks are not displayed.
 
 You can generate as many views as you want in Mastodon, and you can link several of them via the lock system. 
 This is a good way to improve the perception of context, by linking several views that display for instance a close-up view of the data and another view displaying a bird-eye view of it.
-We already presented this feature in the [previous tutorial](manual_editing.md#synchronizing-several-views-together). 
+We already presented this feature in the [previous tutorial](manual_editing.md). 
 The figure of this section shows an example of a view configuration with three views in sync, showing each a different level of desired information. 
 We direct you there for details on how to use the lock system.
 
@@ -109,14 +109,14 @@ This is the classic view.
 If you pick an item corresponding to an opened BDV view, then this view will only display the lineages of the cells currently displayed in the target BDV view.
 And the view will be updated (and animated) as you pan, move in Z, zoom or unzoom the BDV view.
 
-<figure markdown>
-   ![](../imgs/Mastodon_Context1.png)
-   ![](../imgs/Mastodon_Context2.png)
-   ![](../imgs/Mastodon_Context3.png)
-  <figcaption><i>Context in Mastodon. The context displayed in TrackScheme (center) and the table (right, detailed in a following tutorial) is determined by what is currently displayed in the BDV window (left). 
+
+![](../imgs/Mastodon_Context1.png){width="30%"}
+![](../imgs/Mastodon_Context2.png){width="30%"}
+![](../imgs/Mastodon_Context3.png){width="30%"}
+<figcaption><i>Context in Mastodon. The context displayed in TrackScheme (center) and the table (right, detailed in the next tutorial) is determined by what is currently displayed in the BDV window (left). 
 The content displayed in and the table is updated live as the view in the BDV window is changed by the user. </i></figcaption>
-</figure> 
-<br/>
+
+
 
 Try it now with the data from the previous tutorial. 
 Open a BDV view and a view. In the view, select the `BigDataViewer 1` item (it might not be 1 in your case). 

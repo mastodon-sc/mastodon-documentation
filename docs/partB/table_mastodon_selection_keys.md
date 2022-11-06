@@ -1,3 +1,5 @@
+# Setting the selection.
+
 | **Action**                 | **Key**         |
 |----------------------------|-----------------|
 | **_Setting selection._**           |                 |

@@ -52,12 +52,9 @@ Pressing it opens the tag-set dialog.
 Right now, it appears as an empty table made of two columns.
 This is where you enter tag-sets and tags.
 
-<figure markdown>
-   ![](../imgs/Mastodon_ConfigureTagSet_1.png)
-   ![](../imgs/Mastodon_ConfigureTagSet_2.png)
-  <figcaption><i>Creating tag-sets and tags. 1. The empty tag-set dialog. 2. After adding two tag-sets and six tags. </i></figcaption>
-</figure> 
-<br/>
+![](../imgs/Mastodon_ConfigureTagSet_1.png)
+![](../imgs/Mastodon_ConfigureTagSet_2.png)
+<figcaption><i>Creating tag-sets and tags. 1. The empty tag-set dialog. 2. After adding two tag-sets and six tags. </i></figcaption>
 
 Press the green `+` button on the left column to create a new tag-set. 
 A default name is shown for the tag-set, that you can edit. 
@@ -80,7 +77,7 @@ When you are finished, press the `OK` button.
 
 ### Assigning tags to data items. 
 
-Tags are set via the selection tool, presented in the [second tutorial](manual_editing.md#the-selection) . 
+Tags are set via the selection tool, presented in the [second tutorial](manual_editing.md) . 
 Once you have some spots and links in the selection, you can assign a tag to it via the menu. 
 The menu content will be updated with the tag-sets and tags you defined in the tag-set dialog, described above.
 This will work in any Mastodon views, BDV or TrackScheme.
@@ -96,12 +93,10 @@ Select the desired tag-set with the `1`, `2`, .. keys.
 The menu now shows the tags defined within this tag-set, that you can select the same way. 
 Note that there is a way to remove all the tags over all the tag-sets on the selection by pressing on the first menu, or just the tags of the selected tag-set by pressing on the second menu.
 
-<figure markdown>
-   ![](../imgs/Mastodon_ColorByTagSet_2.png)
-   ![](../imgs/Mastodon_ColorByTagSet_3.png)
-  <figcaption><i>Assigning tags in . After pressing the `Y` key this floating menu is shown, that can be navigated with the digit keys. </i></figcaption>
-</figure> 
-<br/>
+![](../imgs/Mastodon_ColorByTagSet_2.png)
+![](../imgs/Mastodon_ColorByTagSet_3.png)
+<figcaption><i>Assigning tags in . After pressing the `Y` key this floating menu is shown, that can be navigated with the digit keys. </i></figcaption>
+
 
 ### Coloring views by tag-sets.
 
@@ -116,6 +111,7 @@ You can toggle it on or off and set the location of this legend in the _View >�
 
 ![The coloring menu, updated with the tag-sets.](../imgs/Mastodon_ColorByTagSet_4.png)
 ![Coloring with tag-sets in TrackScheme.](../imgs/Mastodon_ColorByTagSet_5.png)
+
 
 ## Numerical features.
 
@@ -134,15 +130,20 @@ Some numerical feature values are calculated by **feature computers**.
 Feature computers are actually specialized Mastodon plugins, made so that it is easy for a 3rd party (you) to implement their own features in Mastodon.
 We explain you to write your own feature computer in the second part of this documentation, dedicated to technical information.
 
-Because feature computation can take very long on large images, you have to trigger it manually.
+Because some feature computation can take very long on large images, you have to trigger it manually.
 On Mastodon main window, you can find a button `compute features`.
 Pressing it will show the feature computation dialog.
 The feature computers are listed on the left panel.
+
+You see in the panel **only** the feature computers that **takes a significant time to compute**.
+The other ones are computed on the fly and are always visible in the data tables (see below).
+For instance, the `Link displacement` and `Link velocity` are computed on the fly and do not appear in this panel.
+
 Clicking on the computer name displays some information about the feature they compute in the right panel. 
 Note that they are named 'features' on this panel, but they are in reality the feature computers. 
 For instance if you click on the `Spot intensity`, you will see in the information panel that this computer generates a feature for the mean intensity, median intensity, _etc_.
 Note also that they can have dependencies. 
-For instance, the `Link velocity` feature computer depends on the `Link displacement` feature to be present at the time of computation.
+For instance, the `Track N spots` feature computer depends on the `Spot track ID` feature to be present at the time of computation.
 
 ![The feature computation dialog.](../imgs/Mastodon_FeatureComputation_1.png)
 
@@ -207,6 +208,8 @@ This is the link backward in time. If there are no such links or more than one, 
 -   `Outgoing link` is the same thing, but for the link forward in time.
 -   `Default` mode does not rely on feature values but simply uses the default color in the view.
 
+There are also modes that are related to the branch graph (`Branch-spot`, etc.) but we will discuss them in its dedicated tutorial. 
+
 Depending on the mode you chose, the content of the drop-down list below, called `Spot feature`, will change to reflect either the list of spot features or the link features. 
 Select **Spot** as a color mode and **Spot intensity** as feature. 
 Two new drop-down list appear on the right of the feature list.
@@ -248,7 +251,7 @@ mode.
 -   `Default` mode does not rely on feature values but simply uses the default color in the view.
 
 To build our example feature color mode, choose `Source spot` as color mode, and use for instance the `viridis` color-map along with 700 and 1100 for min and max values. 
-Do the same for the spot color mode..
+You can also click on the `Copy from Spot settings` that will automatically configure the link color mode so that it matches what is set for spots.
 
 Like for tag-sets, the menu is now updated with items corresponding to the color modes we created.
 If they are grayed-out, it means that the feature values they depend on is not yet computed. This kind of view immediately reveals important aspect of the data, even at a very high level. 
@@ -267,17 +270,14 @@ There is a nice view to properly inspect and exploit feature values in subsequen
 In practice, the table view is simply a tabular representation of the data items in Mastodon. 
 Spots and links are displayed in a list where a single row corresponds to a data item, and columns to feature values and tags.
 You can create a new table view by using the menu . 
-If you did not compute features and did not define and tag-set, it should look like the table below:
+If you did compute all the features, it should look like the table below:
 
-<figure markdown>
-   ![](../imgs/Mastodon_TableView1.png)
-   ![](../imgs/Mastodon_TableView2.png)
-  <figcaption><i>The table view, with no features computed and no tags defined. Left: the table for spots. Right: the table for links. </i></figcaption>
-</figure> 
-<br/>
+![](../imgs/Mastodon_TableView1.png){width="45%"}
+![](../imgs/Mastodon_TableView2.png){width="45%"}
+<figcaption><i>The table view, with no features computed and no tags defined. Left: the table for spots. Right: the table for links. </i></figcaption>
 
 The view is made of several tables, the first one for spots and the second one for links. 
-We will discuss the others later.
+We will discuss the others, made for the branch-graph, later.
 Right now it is pretty empty.
 The spot and link tables only show the label and ID of the spots and a few feature values that are built-in. 
 But they do not show the spot intensity features we configured above.
@@ -307,6 +307,10 @@ Or you can navigate the desired row and column and set them with the `space` key
 The highlight and selection are also shared with table views. 
 When the table view is not active, selected items are shown with a gray background.
 The highlight spot or link is shown in the table with a thick black border.
+
+![Highlight and selection in the table view.](../imgs/Mastodon_TableView5.png){width="45%"}
+![Highlight and selection in the table view.](../imgs/Mastodon_TableView6.png){width="45%"}
+
 To add rows to the selection, the default key-bindings are again standard. 
 Press `Shift Left-click` to add a range of rows to the selection from a table view, or use `Shift ↑` or `Shift ↓`  or `Shift ⇞` and `Shift ⇟`. 
 By pressing `Control Left-click` or `Command Left-click` you can toggle single rows in and out of the selection. 
@@ -316,10 +320,7 @@ The shortcuts to navigate in the table views are summarized in the [table of tab
 Another feature of data tables is that they can be made slave of a spatial context, like for TrackScheme.
 When another BDV view is active, you can select its name in the drop-down list on the top-right part of the table.
 Then the table only shows the data items that are currently displayed in the master BDV view. 
-The notion of spatial context is explained in the [previous tutorial](inspecting_large_datasets.md#spatial-context-in-trackscheme).
-
-![Highlight and selection in the table view.](../imgs/Mastodon_TableView5.png)
-![Highlight and selection in the table view.](../imgs/Mastodon_TableView6.png)
+The notion of spatial context is explained in the [previous tutorial](inspecting_large_datasets.md).
 
 ### Sorting rows.
 
@@ -335,8 +336,8 @@ You cannot use it to edit the selection like in the main table.
 However the row you pick in this table will set the focus and highlight in other views. 
 Everything else applies to the selection table.
 
-![The selection table.](../imgs/Mastodon_TableView7.png)
-![The selection table.](../imgs/Mastodon_TableView8.png)
+![The selection table.](../imgs/Mastodon_TableView7.png){width="35%"}
+![The selection table.](../imgs/Mastodon_TableView8.png){width="60%"}
 
 ### Feature-based coloring in table views.
 

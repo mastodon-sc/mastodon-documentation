@@ -27,7 +27,11 @@ Indeed:
 ## The selection creator window.
 
 We will be using the TRIF dataset from the cell tracking challenge for this tutorial. 
-You can download the Mastodon file here TODO, that open an image stored on the Pasteur BDV-server and have some basic tracks.
+You can download it from Zenodo:
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7296222.svg)](https://doi.org/10.5281/zenodo.7296222)
+Download the `.mastodon` and the `.xml` files, and put them in the same folder.
+The image data is stored on the Pasteur BDV-server and Mastodon will stream the data from there. 
+
 The selection creator tool can be called from the _Plugins > Selection Creator_ menu, but is also a tab in the Preferences window:
 
 ![image](../imgs/Mastodon_SelectionCreator_01.png)
@@ -338,7 +342,7 @@ will select the spots that have 3 links, and return them plus their outgoing lin
 
 ### Functions and variables.
 
-| Functions                                               | Usage                                                        |
+| Function                                                | Usage                                                        |
 | ------------------------------------------------------- | ------------------------------------------------------------ |
 | `vertexFeature('Spot feature name', 'Projection name')` | Returns the values of the specified spot feature and projection. <br />To be used with a comparison operator on a numerical value <br />like `>`, `<`, `>=`, `<=`, `==` or `!=`. |
 | `edgeFeature('Spot feature name', 'Projection name')`   | The same, but for link features.                             |

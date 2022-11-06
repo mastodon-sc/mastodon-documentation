@@ -33,16 +33,16 @@ Then pick a cell in the top layer, and create a spot, centered on its brightest 
 Adjust its radius and select it.
 Open a TrackScheme window to visualize the tracking progress.
 
-![image](../imgs/Mastodon_SemiAutoTracking_01a.png)
-![image](../imgs/Mastodon_SemiAutoTracking_01b.png)
+![image](../imgs/Mastodon_SemiAutoTracking_01a.png){width="45%"}
+![image](../imgs/Mastodon_SemiAutoTracking_01b.png){width="45%"}
 
 To start semi-automated tracking, press `Control T`.
 A log window should open, and tracking should proceed.
 If the log does not complain about candidates being too far, you should end up with something resembling the images below.
 
 
-![image](../imgs/Mastodon_SemiAutoTracking_02.png)
-![image](../imgs/Mastodon_SemiAutoTracking_03.png)
+![image](../imgs/Mastodon_SemiAutoTracking_02.png){width="45%"}
+![image](../imgs/Mastodon_SemiAutoTracking_03.png){width="45%"}
 
 The tracking stopped after 10 frames, and the last spot added is now in the selection. 
 Each spot is centered on the cell we started with, and it has the same radius that of the first spot we created.
@@ -134,16 +134,16 @@ Instead, they relied on semi-automated tracking, selecting a the cells of intere
 
 Once the tracking was done, they used feature analysis to extract fluorescence intensity over time for each cell in the gene reporter channel.
 
-![image](../imgs/Mastodon_ArianneUseCase_01.png)
-![image](../imgs/Mastodon_ArianneUseCase_02.png)
+![image](../imgs/Mastodon_ArianneUseCase_01.png){width="45%"}
+![image](../imgs/Mastodon_ArianneUseCase_02.png){width="45%"}
 
 ### Stitching small track segments.
 
 The semi-automated tracker can be used with the same configuration to stitch small track segments, which follow the same cell but are separated and spread in time. 
 This might be caused linking with missing detections, and the situation could resemble what is pictured below.
 
-![image](../imgs/Mastodon_Tracklets_01.png)
-![image](../imgs/Mastodon_Tracklets_02.png)
+![image](../imgs/Mastodon_Tracklets_01.png){width="45%"}
+![image](../imgs/Mastodon_Tracklets_02.png){width="45%"}
 
 We can use the semi-automated tracker to connect them, and add the missing detections. 
 We want the tracker to create spots for the cell in time-points when they are missing, and to connect to existing ones it will find by following the cell.
@@ -153,9 +153,9 @@ If we do not, the tracker will stop after connecting the first track segment it 
 Finally, we have to increase the value of the '`N time-points`' parameter, so that the tracker iterate through the full movie.
 After doing this and tracking for the first cell, we get a single track:
 
-![image](../imgs/Mastodon_Tracklets_03.png)
-![image](../imgs/Mastodon_Tracklets_04.png)
-![image](../imgs/Mastodon_Tracklets_05.png)
+![image](../imgs/Mastodon_Tracklets_03.png){width="35%"}
+![image](../imgs/Mastodon_Tracklets_04.png){width="25%"}
+![image](../imgs/Mastodon_Tracklets_05.png){width="35%"}
 
 ### Backtracking, branching on cell divisions. 
 

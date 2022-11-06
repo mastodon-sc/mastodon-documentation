@@ -70,7 +70,7 @@ Such datasets might not be optimal for a first contact with Mastodon.
 So just for this tutorial we will use a smaller dataset. 
 It is a small region cut into a movie following the development of a drosophila embryo, acquired by William Lemon in Patrick Keller lab (HHMI, Janelia Farm).
 This was created from the example dataset released with the [TGMM software](https://www.nature.com/articles/nmeth.3036).
-You can find it on Zenodo hhere:
+You can find it on Zenodo here:
 [![image](../imgs/zenodo3336346.png)](https://doi.org/10.5281/zenodo.3336346)
 
 It is a zip file that contains 3 files:

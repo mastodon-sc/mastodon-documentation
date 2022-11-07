@@ -349,7 +349,7 @@ will select the spots that have 3 links, and return them plus their outgoing lin
 | Function                                                | Usage                                                        |
 | ------------------------------------------------------- | ------------------------------------------------------------ |
 | `vertexFeature('Spot feature name', 'Projection name')` | Returns the values of the specified spot feature and projection. To be used with a comparison operator on a numerical value like `>`, `<`, `>=`, `<=`, `==` or `!=`. |
-| `edgeFeature('Spot feature name', 'Projection name')`   | The same, but for link features.                             |
+| `edgeFeature('Link feature name', 'Projection name')`   | The same, but for link features.                             |
 | `tagSet('Tag set name')`                                | Returns the tag of all data items for the specified tag-set. To be used with the equality operator `==`, comparing to a tag belonging to the specified tag set (`tagSet('TS') == 'T'`). |
 | `vertexTagSet('Tag set name')`                          | The same, but only returns the spots in the comparison.      |
 | `edgeTagSet('Tag set name')`                            | The same, but only returns the links in the comparison.      |

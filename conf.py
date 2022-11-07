@@ -33,3 +33,5 @@ html_theme = 'sphinx_rtd_theme'
 # html_theme = 'insegel'
 
 html_static_path = ['_static']
+
+html_favicon = 'docs/img/favicon.ico'

@@ -354,12 +354,125 @@ mamut.resetSelection()
 ## Showing and configuring views.
 
 Let's visualize the tags we just assigned in a TrackScheme window. 
-We need to 
 We will again use the `WindowManager` gateway, using a python dictionary to configure settings.
-For instance:
+We set the coloring mode to be a certain tag-set like this:
 ```python
-displaySettings = {  'TagSet' : 'Fruits'}
+displaySettings = {'TagSet' : 'Fruits'}
 mamut.getWindowManager().createTrackScheme( displaySettings )
 ```
 
 ![](../imgs/Mastodon_Scripting_05.png){width="80%" align="center"}
+
+## Undo and redo.
+
+The undo and redo operations are also supported with scripting.
+But you have to set the undo points manully.
+The undo points are 'states' of the data where you navigate back and forth with undo / redo. 
+In GUI, they are set automatically, but in the script, you need to specify them yourself.
+To illustrate it, we will need to remove a few spots, then undo this operation.
+
+```python
+# Print some info on the model before we remove spots.
+logger.info( "Before:\n" )
+mamut.info()
+
+# Let's delete 500 spots.
+it = mamut.getModel().getGraph().vertices().iterator()
+for i in range( 500 ):
+	if it.hasNext():
+		spot = it.next()
+mamut.getModel().getGraph().remove ( spot )
+
+# We mark this point as an undo point. Calling undo() / redo()
+# navigates in the stack of these undo points. 
+mamut.getModel().setUndoPoint()
+```
+This yields:
+```text
+Before:
+Data model #4
+ - mastodon project file: Not defined.
+ - dataset: /Users/tinevez/Desktop/datasethdf5.xml
+ - objects: 1248 spots, 1202 links and 46 tracks.
+ - units: pixel and frame
+After deleting some spots:
+Data model #4
+ - mastodon project file: Not defined.
+ - dataset: /Users/tinevez/Desktop/datasethdf5.xml
+ - objects: 748 spots, 702 links and 46 tracks.
+ - units: pixel and frame
+```
+
+Now undoing this is simply a matter of calling `undo()`
+```python
+mamut.undo()
+logger.info( "After undo:\n" )
+mamut.info()
+```
+```text
+After undo:
+Data model #5
+ - mastodon project file: Not defined.
+ - dataset: /Users/tinevez/Desktop/datasethdf5.xml
+ - objects: 1248 spots, 1202 links and 46 tracks.
+ - units: pixel and frame
+```
+
+
+And redoing it:
+```python
+mamut.redo()
+logger.info( "After redo:\n" )
+mamut.info()
+```
+```text
+After redo:
+Data model #5
+ - mastodon project file: Not defined.
+ - dataset: /Users/tinevez/Desktop/datasethdf5.xml
+ - objects: 748 spots, 702 links and 46 tracks.
+ - units: pixel and frame
+```
+
+
+## Saving a Mastodon project.
+
+Saving to an existing Mastodon file is done with the `save()` method. 
+But the project we created since the beginning of this tutorial has never been saved:
+```python
+mamut.save()
+```
+Indeed, we get an error message:
+```text
+Mastodon file not set. Please use #saveAs() first.
+```
+
+We need to provide a path for a new Mastodon file.
+This is done with the `saveAs()` method:
+```python
+newMastodonFile = os.path.join( os.path.expanduser('~'), 'Desktop', 'test_scripting.mastodon' )
+mamut.saveAs( newMastodonFile )
+```
+From now on, any call to `save()` will save to this file.
+```text
+Saving to /Users/tinevez/Desktop/test_scripting.mastodon
+```
+
+
+## Reloading a Mastodon project.
+
+Again, nothing complicated. 
+We need to use the `Mamut` gateway again:
+
+```python
+existingMastodonFile = os.path.join( os.path.expanduser('~'), 'Desktop', 'test_scripting.mastodon' )
+mamut2 = Mamut.open( existingMastodonFile, context )
+mamut2.info()
+```
+```text
+Data model #7
+ - mastodon project file: /Users/tinevez/Desktop/test_scripting.mastodon
+ - dataset: /Users/tinevez/Desktop/datasethdf5.xml
+ - objects: 748 spots, 702 links and 46 tracks.
+ - units: pixel and frame
+```

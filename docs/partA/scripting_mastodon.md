@@ -104,4 +104,5 @@ mamut.getWindowManager().createBigDataViewer()
 ```
 
 You should see this window appearing:
-![](../imgs/Mastodon_Scripting_01.png){width="50%"}
+
+![](../imgs/Mastodon_Scripting_01.png){width="50%" align="center"}

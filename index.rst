@@ -61,7 +61,7 @@ Table of content.
    docs/partA/numerical_features_tags_the_table_view.md
    docs/partA/semi_automated_tracking.md
    docs/partA/selection_creator.md
-   docs/partA/scriptin_mastodon.md
+   docs/partA/scripting_mastodon.md
 
 
 .. toctree::

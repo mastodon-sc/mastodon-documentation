@@ -82,10 +82,9 @@ Table of content.
 
 .. toctree::
    :caption: D. Technical informmation
-   :maxdepth: 2
+   :maxdepth: 4
 
    docs/partD/numerical_features.md
-   docs/partD/scripting_functions.md
    docs/partD/mastodon_graph_data_structure.md
    docs/partD/convex_polytopes.md
    docs/partD/packages.rst

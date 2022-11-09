@@ -412,7 +412,7 @@ select
 
    Such an expression can be:
 
-   .. parsed-literal::
+   .. code-block:: python
 
       mamut.select( "vertexFeature( 'Track N spots' ) < 10" )
 

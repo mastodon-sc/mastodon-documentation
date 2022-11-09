@@ -8,7 +8,7 @@ See `the scripting tutorial <../../../../partA/scripting_mastodon.html>`_ to lea
 .. java:package:: org.mastodon.mamut
 
 .. toctree::
-   :maxdepth: 5
+   :maxdepth: 10
 
    Mamut <Mamut>
    TrackMateProxy <TrackMateProxy>

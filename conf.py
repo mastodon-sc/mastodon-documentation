@@ -25,19 +25,17 @@ source_suffix = {
 
 myst_enable_extensions = ['attrs_image']
 
-# -- Options for HTML output -------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
+html_theme = 'groundwork'
 
-html_theme = 'sphinx_rtd_theme'
-# html_theme = 'groundwork'
-# html_theme = 'insegel'
-
-html_static_path = ['_static']
-
+# Show full TOC in the theme sidebar.
+html_sidebars = {
+   '**': ['globaltoc.html', 'searchbox.html'],
+   'using/windows': ['windowssidebar.html', 'searchbox.html'],
+} 
 html_favicon = 'docs/img/favicon.ico'
 
-# These paths are either relative to html_static_path
-# or fully qualified paths (eg. https://...)
+# Customized the theme.
+html_static_path = ['_static']
 html_css_files = [
     'css/custom.css',
 ]

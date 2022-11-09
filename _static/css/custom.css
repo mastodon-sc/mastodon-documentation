@@ -1,4 +1,28 @@
-.wy-table-responsive table td, .wy-table-responsive table th {
-    white-space: inherit;
+/* For Python syntax coloring. */
+
+/* Background of Python code block. */
+div.highlight-python pre {
+    background-color: rgb(100, 100, 100);
 }
 
+/* Equal and dot signs. */
+.highlight .o {
+    color: #b8b8b8 !important;
+}
+
+/* Python comments. */
+.highlight .c1 {
+    color: #d7a34f;
+    font-style: italic;
+}
+
+/* Part name in the sidebar TOC. */
+div.sphinxsidebar p {
+    font-size: 18px;
+    color: rgb(163, 114, 0)
+}
+
+/* Color of the method name in the API reference. */
+.sig-name {
+    color: rgb(163, 114, 0)
+}

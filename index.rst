@@ -88,9 +88,10 @@ Table of content.
    docs/partD/scripting_functions.md
    docs/partD/mastodon_graph_data_structure.md
    docs/partD/convex_polytopes.md
-
+   docs/partD/packages.rst
 
 Documentation tools.
 ==================================================
 
 * :ref:`search`
+

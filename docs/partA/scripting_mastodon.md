@@ -5,6 +5,8 @@ In the following, we will by using Jython, which is an implementation of Python 
 
 The example script we will be using is [this one](https://github.com/mastodon-sc/mastodon-app/blob/master/scripts/MastodonExampleScript.py) and we will be detailing its section to document the supported functions of Mastodon.
 
+You can find a more comprehensive information on supported scripting functions in the [scripting API reference](../partD/org/mastodon/mamut/package-index), but it is best starting with this tutorial.
+
 ## The required import.
 
 The header of a Mastodon script needs to contain the following:

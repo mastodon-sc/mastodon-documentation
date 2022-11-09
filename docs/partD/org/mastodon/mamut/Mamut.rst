@@ -416,6 +416,7 @@ select
 
       mamut.select( "vertexFeature( 'Track N spots' ) < 10" )
 
+   Check `the selection creator tutorial <../../../../partA/selection_creator.html>`_ to learn how to build such expressions.
    An error message is sent to the logger is there is a problem with the evaluation of the expression.
 
    :param expression: a selection creator expression.

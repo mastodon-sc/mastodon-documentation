@@ -6,6 +6,11 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+import os, sys
+
+# For extensions.
+sys.path.append(os.path.abspath('exts'))
+
 project = 'Mastodon'
 copyright = '2022, Jean-Yves Tinevez'
 author = 'Jean-Yves Tinevez'
@@ -31,7 +36,7 @@ html_theme = 'groundwork'
 html_sidebars = {
    '**': ['globaltoc.html', 'searchbox.html'],
    'using/windows': ['windowssidebar.html', 'searchbox.html'],
-} 
+}
 html_favicon = 'docs/img/favicon.ico'
 
 # Customized the theme.

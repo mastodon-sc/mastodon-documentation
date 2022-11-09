@@ -26,3 +26,14 @@ div.sphinxsidebar p {
 .sig-name {
     color: rgb(163, 114, 0)
 }
+
+/* Margins for the API reference. */
+dl.java.method
+{
+    margin-bottom: 55px;
+}
+dl.java.type
+{
+    margin-top: 35px;
+    margin-bottom: 55px;
+}

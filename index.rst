@@ -87,7 +87,7 @@ Table of content.
    docs/partD/numerical_features.md
    docs/partD/mastodon_graph_data_structure.md
    docs/partD/convex_polytopes.md
-   docs/partD/packages.rst
+   docs/partD/org/mastodon/mamut/package-index.rst
 
 Documentation tools.
 ==================================================

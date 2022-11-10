@@ -145,7 +145,7 @@ For instance if you click on the `Spot intensity`, you will see in the informat
 Note also that they can have dependencies. 
 For instance, the `Track N spots` feature computer depends on the `Spot track ID` feature to be present at the time of computation.
 
-![The feature computation dialog.](../imgs/Mastodon_FeatureComputation_1.png)
+![The feature computation dialog.](../imgs/Mastodon_FeatureComputation_1.png){align="center" width="500px"}
 
 The check-box on the left of each feature computer name triggers whether they will be part of the next feature computation. 
 Press the `Compute` button to trigger computation of features.
@@ -185,7 +185,7 @@ But we will see this later.
 In the sidebar select `Feature Color Modes`. 
 The panel on the right now display the feature color mode configuration panel:
 
-![The feature color mode configuration preference dialog.](../imgs/Mastodon_FeatureColorModeConfig_1.png)
+![The feature color mode configuration preference dialog.](../imgs/Mastodon_FeatureColorModeConfig_1.png){align="center" width="500px"}
 
 Its top line has a drop-down list that contains all the color modes already defined. 
 Right now, there is only one, called **Number of links**. 
@@ -232,7 +232,7 @@ The configuration panel changes according to the number of projections in a feat
 For features that are made of one real value with no multiplicity, the projection list is superfluous and not shown.
 In our case, we simply want the mean of the only channel in the dataset.
 
-![Our custom feature color mode, based on spot intensity.](../imgs/Mastodon_FeatureColorModeConfig_2.png)
+![Our custom feature color mode, based on spot intensity.](../imgs/Mastodon_FeatureColorModeConfig_2.png){align="center" width="500px"}
 
 Coming back to the color mode configuration, next we need to pick a color-map. 
 A color-map acts as the LUT for an image, and maps a color to a certain value.
@@ -257,8 +257,8 @@ Like for tag-sets, the menu is now updated with items corresponding to the color
 If they are grayed-out, it means that the feature values they depend on is not yet computed. This kind of view immediately reveals important aspect of the data, even at a very high level. 
 For instance with our custom color mode, we can quickly find cells that are the brightest, and visually inspect how the intensity in cells change over time.
 
-![Feature color mode in a BDV view and in a view.](../imgs/Mastodon_FeatureColorBDV.png)
-![Feature color mode in a BDV view and in a view.](../imgs/Mastodon_FeatureColorTrackScheme.png)
+![Feature color mode in a BDV view and in a view.](../imgs/Mastodon_FeatureColorBDV.png){align="center"}
+![Feature color mode in a BDV view and in a view.](../imgs/Mastodon_FeatureColorTrackScheme.png){align="center"}
 
 ## The data table views. 
 
@@ -292,7 +292,7 @@ And in the third and last row, the units of each projection is display in bracke
 The header of the tag-set columns are similar. 
 The first row shows the name of the tag-set, and the second row shows each of the tag the set contains, with the tag chosen color as background.
 
-![The table view, with features and tags.](../imgs/Mastodon_TableView3.png)
+![The table view, with features and tags.](../imgs/Mastodon_TableView3.png){align="center"}
 
 The table view can be used to edit in part the data.
 For instance you can edit the spot label directly in the table.
@@ -302,7 +302,7 @@ When you are done editing, press `Enter`.
 The tags are displayed as check-boxes in the table, that you can set directly by clicking on them.
 Or you can navigate the desired row and column and set them with the `space` key.
 
-![After editing spot labels and tags.](../imgs/Mastodon_TableView4.png)
+![After editing spot labels and tags.](../imgs/Mastodon_TableView4.png){align="center"}
 
 The highlight and selection are also shared with table views. 
 When the table view is not active, selected items are shown with a gray background.
@@ -337,14 +337,14 @@ However the row you pick in this table will set the focus and highlight in other
 Everything else applies to the selection table.
 
 ![The selection table.](../imgs/Mastodon_TableView7.png){width="35%"}
-![The selection table.](../imgs/Mastodon_TableView8.png){width="60%"}
+![The selection table.](../imgs/Mastodon_TableView8.png){width="50%"}
 
 ### Feature-based coloring in table views.
 
 Of course, feature based coloring works with the table views.
 And it can give a pleasant display when combined with sorting rows by a feature column.
 
-![Feature-based coloring in table views.](../imgs/Mastodon_TableView9.png)
+![Feature-based coloring in table views.](../imgs/Mastodon_TableView9.png){align="center"}
 
 ### Exporting table data.
 

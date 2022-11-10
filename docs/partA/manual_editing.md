@@ -24,7 +24,7 @@ First, load or retrieve the tracking data of the [previous tutorial](getting_sta
 You should have a few hundreds of tracks.
 To open a TrackScheme view window, press the `trackscheme` button on the main window.
 
-![The TrackSchemewindow.](../imgs/Mastodon_TrackScheme.png)
+![The TrackSchemewindow.](../imgs/Mastodon_TrackScheme.png){width="400px" align="center"}
 
 The TrackScheme view offers a special way of displaying tracks. If you are familiar with TrackMate, you will see that we brought the same kind of features here, but scaled to large data. 
 You can think of TrackScheme as a workbench for tracks, where you will edit, cut, stitch and rename them.
@@ -46,12 +46,11 @@ On the finer level of details, spots are plotted as circles, with the spot label
 As you zoom out, they becomes just empty circles, then points, then they disappear to only show the track as a line. 
 When the zoom level is so low that several tracks coalesce, they are drawn as a gray box.
 
-
-![](../imgs/Mastodon_TrackScheme_Zoom_0.png)
-![](../imgs/Mastodon_TrackScheme_Zoom_1.png){width="45%"}
-![](../imgs/Mastodon_TrackScheme_Zoom_2.png){width="45%"}
-![](../imgs/Mastodon_TrackScheme_Zoom_3.png){width="45%"}
-![](../imgs/Mastodon_TrackScheme_Zoom_4.png){width="45%"}
+![](../imgs/Mastodon_TrackScheme_Zoom_0.png){width="300px"}
+![](../imgs/Mastodon_TrackScheme_Zoom_1.png){width="300px"}
+![](../imgs/Mastodon_TrackScheme_Zoom_2.png){width="300px"}
+![](../imgs/Mastodon_TrackScheme_Zoom_3.png){width="300px"}
+![](../imgs/Mastodon_TrackScheme_Zoom_4.png){width="300px"}
 <figcaption><i>TrackScheme displays spots and links differently depending on the zoom level. From left to right then top to bottom: 1. At low zoom level tracks that coalesce are shown as gray boxes. 2. Zooming in, the individual tracks appear first as black lines. 3. When they are separated enough, spots appear as black dots. 4. With an even higher zoom level they are shown as empty circles. 5. Until they grow big enough so that the spot labels can be painted. Notice the size of the sliders at the bottom and at the right of the view.</i></figcaption>
 
 
@@ -81,8 +80,8 @@ You can also jumps across branches.
 A branch in a track is a linear section of the track between divisions, fusions or the track end or start. `Alt ↑` and `Alt ↓` will move the focus to the branch start and end. 
 In the case where you could navigate to several branches, for instance you are currently at a cell division and you can go the end of either daughter cells branches, you can navigate to one or the other with or `Alt ↓` or `Control Alt ↓`.
 
-![](../imgs/Mastodon_FocusInTrackScheme.png){width="45%"}
-![](../imgs/Mastodon_FocusInBDV.png){width="45%"}
+![](../imgs/Mastodon_FocusInTrackScheme.png){width="300px"}
+![](../imgs/Mastodon_FocusInBDV.png){width="300px"}
 <figcaption><i>Focused spots are painted in TrackScheme (top) and in BDV (bottom) views as ellipses with a dashed-contour.</i></figcaption>
 
 

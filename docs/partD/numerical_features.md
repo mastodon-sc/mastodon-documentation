@@ -35,7 +35,7 @@ This feature has six projections per channel:
 
 These 6 projections are multiplied by the number of channels or sources in the image. You will find the projection names appended by `ch 1`, `ch 2`, _etc_, as exemplified below on an image with one channel.
 
-![](../imgs/Mastodon_Features_01.png)
+![](../imgs/Mastodon_Features_01.png){width="600px" align="center"}
 
 The values are floating point numbers, with the dimension `INTENSITY`.
 These projections give the mean, max, min, ... intensity at over all the pixels inside the spot ellipsoid. 
@@ -47,7 +47,7 @@ Computes the intensity at the center of spots by taking the mean of pixel intens
 The gaussian weights are centered on the spot, and have a sigma value equal to the minimal radius of the ellipsoid divided by 2.
 The image below illustrates how these weights look like inside spots and what pixels contribute the average reported by this feature.
 
-![](../imgs/Mastodon_GaussMeanIntensityWeights.png)
+![](../imgs/Mastodon_GaussMeanIntensityWeights.png){width="600px" align="center"}
 
 ## Spot quick mean.
 

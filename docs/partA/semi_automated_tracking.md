@@ -60,7 +60,7 @@ Depending on where you position the initial spot, it might fail, for instance st
 The parameters that control for instance the tracker search radius can be set in the semi-automated tracking configuration dialog, in the . The window show in _Plugins > Tracking > Configure semi-automatic tracker_.
 The following window should appear.
 
-![The semi-automated tracking configuration panel.](../imgs/Mastodon_SemiAutoTracking_04.png)
+![The semi-automated tracking configuration panel.](../imgs/Mastodon_SemiAutoTracking_04.png){width="600px" align="center"}
 
 This dialog is very similar to the one used to configure feature color modes, that we
 have seen the tutorial just before.
@@ -70,7 +70,7 @@ The **Backtracking** configuration tracks backward in time.
 The other parameters controls the tracker behavior for the configuration currently selected in the top drop-down list. 
 To explain what they do we need first to describe how the semi-automated tracker works:
 
-![Illustration of the semi-automated tracking process.](../imgs/Mastodon_ExplainSemiAutoTracker.png)
+![Illustration of the semi-automated tracking process.](../imgs/Mastodon_ExplainSemiAutoTracker.png){width="600px" align="center"}
 
 The semi-automated tracker works by processing only a small neighborhood around the initial spot, (called the *source* spot later).
 This neighborhood is centered on the spot center (in magenta above), but taken in the next time-point (or previous one if you choose to go backward in time). 

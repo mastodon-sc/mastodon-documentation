@@ -51,7 +51,7 @@ The image data are stored in small chunks corresponding to a neighborhood. As th
 On top of this, the image is also stored as a [multi-scale pyramid](https://en.wikipedia.org/wiki/Pyramid_(image_processing)), to speed-up zooming and unzooming.
 The BDV display component exploits this file format in a clever way, and ensures that the view still answers to user interactions (mouse pan, zoom, clicks ) even if the chunks are not fully loaded.
 
-![BDV image](../imgs/BdvTikz-pyramidblocks.png)
+![BDV image](../imgs/BdvTikz-pyramidblocks.png){align="center" width="50%"}
 <figcaption><i>Illustration of the BDV file format storage strategy. The image is stored over several resolution levels (multi-scale pyramid) and in chunks.</i></figcaption>
 
 
@@ -75,7 +75,7 @@ You can find it on Zenodo here:
 
 It is a zip file that contains 3 files:
 
-``` sh
+```text
     14M  datasethdf5.h5
    2.7K  datasethdf5.settings.xml
    8.7K  datasethdf5.xml
@@ -113,7 +113,7 @@ Then launch the [Fiji updater](https://imagej.net/plugins/updater) and once your
 We will add the [Mastodon update site](https://imagej.net/update-sites/following). 
 You should find the `Mastodon` site in the list.
 
-![image](../imgs/Mastodon_UpdateSite.png)
+![image](../imgs/Mastodon_UpdateSite.png){width="500px" align="center"}
 
 Select it, update Fiji and restart it.
 After restarting, you should find the command _Plugins > Mastodon_ at the bottom of the _Plugins_ menu.
@@ -123,23 +123,23 @@ After restarting, you should find the command _Plugins > Mastodon_ at the bottom
 
 After launching the command, this Mastodon launcher appears.
 
-![The Mastodon launcher.](../imgs/Mastodon_Launcher_01.png){width="50%" align="center"}
+![The Mastodon launcher.](../imgs/Mastodon_Launcher_01.png){width="400px" align="center"}
 
 In our case, we want to create a new project from an existing BDV file. 
 Click on the `new Mastodon project` and make sure the `Browse to a BDV file pair (xml/h5 pair)` option is selected.
 Use the `Browse` button to browse to the XML file location.
 
-![](../imgs/Mastodon_Launcher_02.png)
+![](../imgs/Mastodon_Launcher_02.png){width="500px" align="center"}
 
 Then click the `create` button.
 You should now see the Mastodon main window, that is used to control the project.
 
-![](../imgs/Mastodon_MainWindow.png){width="50%" align="center"}
+![](../imgs/Mastodon_MainWindow.png){width="200px" align="center"}
 
 Click on the `bdv` button. 
 If a BDV window appears, everything is right.
 
-![image](../imgs/Mastodon_BDV.png){width="50%" align="center"}
+![image](../imgs/Mastodon_BDV.png){width="300px" align="center"}
 
 It is almost a regular BDV window and if you already know who to use it and the key bindings you should find your marks quickly. 
 The BDV view displays a *slice* of the image through arbitrary orientation. 
@@ -171,7 +171,7 @@ Also, the basic algorithms are very close to what was in TrackMate, but they hav
 Mastodon windows have their own menus.
 The detection wizard can be launched from the _Plugins > Tracking > Detection..._ menu item. You should have a window like the one depicted below:
 
-![First panel of the detection wizard.](../imgs/Mastodon_DetectionWizard_01.png){width="50%" align="center"}
+![First panel of the detection wizard.](../imgs/Mastodon_DetectionWizard_01.png){width="300px" align="center"}
 
 Like for TrackMate, the automated tracking user interface uses *wizards*
 to enter parameters, select algorithms, *etc.* 
@@ -234,8 +234,8 @@ Try with 10 pixels for `Estimated diameter` and 0 for the `Quality threshold`.
 The click on the `Preview` button. 
 A preview panel should open shortly, showing detection results on the current frame:
 
-![Previewing detection results.](../imgs/Mastodon_DoGconfig1.png "fig:"){width="50%"} 
-![Previewing detection results.](../imgs/Mastodon_DoGconfig2.png "fig:"){width="40%"}
+![Previewing detection results.](../imgs/Mastodon_DoGconfig1.png "fig:"){width="35%"} 
+![Previewing detection results.](../imgs/Mastodon_DoGconfig2.png "fig:"){width="50%"}
 
 These values are close to be good but not quite.
 You can see that the diameter value is too small to properly grasps the elongated shape of the cells along Z (the BDV view on the left panel above is rotated to show a YZ
@@ -250,7 +250,7 @@ Note that you can run the preview on any frame. You just have to move the time s
 Once you are happy with the parameters, click on the button. All the frames specified in the ROI (if any) will be processed.
 In our case detection should conclude quickly and the following panel should appear:
 
-![Detectionresults.](../imgs/Mastodon_DetectionResuts.png){align="center"}
+![Detectionresults.](../imgs/Mastodon_DetectionResuts.png){align="center" width="250px"}
 
 We now have more than 1000 cells detected and this concludes the detection step.
 Click on the `Finish` button, and the wizard will disappear.
@@ -280,7 +280,7 @@ And also like for detection, the linking algorithms currently available in Masto
 Launch the wizard from the GUI, with the _Plugins > Tracking > Linking.. ._ menu item. 
 The first panel you are shown lets you select what spots to include in linking:
 
-![The first panel of the linking wizard.](../imgs/Mastodon_LinkingWizard_01.png){align="center"}
+![The first panel of the linking wizard.](../imgs/Mastodon_LinkingWizard_01.png){align="center" width="250px"}
 
 There are two modes:
 
@@ -344,7 +344,7 @@ For instance, if you know that your objects move by at most 5 µm from one fram
 Distances are expressed in whatever physical units the BDV dataset specified. 
 In our case it is pixels.
 
-![image](../imgs/Mastodon_LinkingWizard_03.png){align="center"}
+![image](../imgs/Mastodon_LinkingWizard_03.png){align="center" width="250px"}
 
 In practical cases, it can happen that the detection step might miss an object in some frames, then detect again later. 
 These gaps will result in generating several small tracks for a single objects, which is one of the main course of spurious results when analyzing tracks. 
@@ -361,7 +361,7 @@ Click `Next` and the linking will proceed.
 Click on the `Finish` button to end the tracking process.
 If you have a BDV window opened, it should be updated with the tracking results, like in image below.
 
-![How tracking results are displayed in BDV views.](../imgs/Mastodon_LinkingResults.png){align="center"}
+![How tracking results are displayed in BDV views.](../imgs/Mastodon_LinkingResults.png){align="center"  width="50%"}
 
 
 By default the tracks are represented by colored lines, extending backward in time. 

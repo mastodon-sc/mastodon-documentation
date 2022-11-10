@@ -107,8 +107,8 @@
 .. java:import:: mpicbg.spim.data SpimDataException
 
 
-org.mastodon.mamut.Mamut
-========================
+Mamut
+=====
 
 .. java:package:: org.mastodon.mamut
    :noindex:

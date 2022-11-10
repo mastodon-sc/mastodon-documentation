@@ -26,8 +26,8 @@
 
 .. java:import:: org.scijava.log Logger
 
-org.mastodon.mamut.TrackMateProxy
-=================================
+TrackMateProxy
+==============
 
 .. java:package:: org.mastodon.mamut
    :noindex:

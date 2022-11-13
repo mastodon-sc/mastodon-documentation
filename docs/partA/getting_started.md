@@ -151,7 +151,7 @@ configuration.
 In the [BDV navigation shortcuts](../partB/table_bdv_navigation_keys.md) table you will find the key bindings to navigate through the image data.
 
 Now you want to save the project. 
-Go back to the main window, and click on the XXX button. 
+Go back to the main window, and click on the `save as...` button. 
 This will create a single file, called for instance `drosophila_crop.mastodon` file. 
 This file is actually a zip file that contains the tracks and *links* to the image data. 
 The image data is kept separate from the Mastodon file, which allows for using it with another software, independently. 

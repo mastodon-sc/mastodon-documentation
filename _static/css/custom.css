@@ -1,8 +1,18 @@
-/* For Python syntax coloring. */
+/* For syntax coloring. */
 
 /* Background of Python code block. */
 div.highlight-python pre {
     background-color: rgb(100, 100, 100);
+}
+
+/* Background of Java code block. */
+div.highlight-java pre   {
+    background-color: rgb(100, 100, 100);
+}
+
+/* Do not underline white space in Java code. */
+.highlight .w {
+    text-decoration: none;
 }
 
 /* Equal and dot signs. */
@@ -37,3 +47,4 @@ dl.java.type
     margin-top: 35px;
     margin-bottom: 55px;
 }
+

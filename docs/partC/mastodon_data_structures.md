@@ -32,6 +32,40 @@ Model model = mamutAppModel.getModel();
 The `model` contains everything about the tracking data, from the individual objects, tracks, tags and numerical feature values. 
 It also controls the undo / redo mechanisms.
 
+### The tracking data. The `ModelGraph` class.
+
+The tracks, that is the objects we follow, their shape and position, and how they evolve over time, are stored as a [mathematical graph](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)).
+Precisely, the graph we use in Mastodon is a simple, directed graph: the edges have a direction, and there is at most one edge between two vertices. 
+The vertices of the graph are the objects we track: cells or organelles, and they are represented by spots, described below.
+One spot, of the `Spot` class represents one cell or one object at one time-point.
+The edges of the graph link objects over time. 
+They are represented by the `Link` class, also described below.
+Two spots `s1` and `s2` that represent the same cell at time-points `t1` and `t2=t1+1` are linked together by an edge that goes from `s1` to `s2` labeled `l1=s1→s2`.
+The direction of the edge important. 
+In Mastodon, the edges are always oriented forward in time: the source spot of the edge is always in a time-points that is strictly lower than the target spot of the edge.
+So there cannot be an edge oriented backward in time, and there cannot be an edge between two spots that are in the same time-point.
+
+The class of the graph we use in Mastodon is [ModelGraph](https://github.com/mastodon-sc/mastodon/blob/master/src/main/java/org/mastodon/mamut/model/ModelGraph.java).
+It is based on a special data structure to manage large graphs that we developed speically for Mastodon, and describe [elsewhere in this documentation](../partD/mastodon_graph_data_structure.md).
+The graph instance can be obtained as follow:
+```java
+ModelGraph graph = model.getGraph();
+```
+
+This graph class if often required by Mastodon algorithms and plugins, but is not the first entry point to browse and navigate the data from a user point-of view. 
+You can access the links of a spot directly with the spot class, and the collections of spots in a time-point via the index.
+
+#### The index. The `SpatioTemporalIndex` class.
+
+The model maintains an index of the spots that are presents in each time-point, in the [SpatioTemporalIndex](https://github.com/mastodon-sc/mastodon-graph/blob/master/src/main/java/org/mastodon/spatial/SpatioTemporalIndex.java) class and its implementation.
+You can get the index from the model with
+```java
+SpatioTemporalIndex< Spot > index = model.getSpatioTemporalIndex();
+```
+
+The 
+
+
 #### The data objects. The `Spot` class.
 
 The data objects are stored as spots with the [`Spot`](https://github.com/mastodon-sc/mastodon/blob/master/src/main/java/org/mastodon/mamut/model/Spot.java) class. 

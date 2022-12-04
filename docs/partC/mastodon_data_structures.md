@@ -46,7 +46,7 @@ In Mastodon, the edges are always oriented forward in time: the source spot of t
 So there cannot be an edge oriented backward in time, and there cannot be an edge between two spots that are in the same time-point.
 
 The class of the graph we use in Mastodon is [ModelGraph](https://github.com/mastodon-sc/mastodon/blob/master/src/main/java/org/mastodon/mamut/model/ModelGraph.java).
-It is based on a special data structure to manage large graphs that we developed speically for Mastodon, and describe [elsewhere in this documentation](../partD/mastodon_graph_data_structure.md).
+It is based on a special data structure to manage large graphs that we developed specifically for Mastodon, and described [elsewhere in this documentation](../partD/mastodon_graph_data_structure.md).
 The graph instance can be obtained as follow:
 ```java
 ModelGraph graph = model.getGraph();
@@ -54,16 +54,6 @@ ModelGraph graph = model.getGraph();
 
 This graph class if often required by Mastodon algorithms and plugins, but is not the first entry point to browse and navigate the data from a user point-of view. 
 You can access the links of a spot directly with the spot class, and the collections of spots in a time-point via the index.
-
-#### The index. The `SpatioTemporalIndex` class.
-
-The model maintains an index of the spots that are presents in each time-point, in the [SpatioTemporalIndex](https://github.com/mastodon-sc/mastodon-graph/blob/master/src/main/java/org/mastodon/spatial/SpatioTemporalIndex.java) class and its implementation.
-You can get the index from the model with
-```java
-SpatioTemporalIndex< Spot > index = model.getSpatioTemporalIndex();
-```
-
-The 
 
 
 #### The data objects. The `Spot` class.
@@ -87,6 +77,62 @@ The collection returned by `edges()` is the union of the collections returned by
 
 #### The `Link` class.
 
-#### The track graph. The `ModelGraph` class.
 
-#### 
+#### The index. The `SpatioTemporalIndex` and `SpatialIndex` classes.
+
+The model maintains an index of the spots that are presents in each time-point, in the [SpatioTemporalIndex](https://github.com/mastodon-sc/mastodon-graph/blob/master/src/main/java/org/mastodon/spatial/SpatioTemporalIndex.java) class and its implementation.
+You can get the index from the model with
+```java
+SpatioTemporalIndex< Spot > index = model.getSpatioTemporalIndex();
+```
+
+The index class has a generic parameter: `<Spot>`. 
+This just indicates that for the data model we deal with in the Mastodon application, the objects we deal with are of the `Spot` class. 
+
+The main use of the index is to retrieve all the spots at one specific time-point:
+```java
+// Retrieve all the spots in the 3rd time-point.
+int tp = 2;
+SpatialIndex< Spots > spatialIndex = index.getSpatialIndex( tp );
+```
+
+We get a `SpatialIndex` instance, which can be iterated over **all** the spots it contains:
+```java
+for (Spot spot : spatialIndex)
+{
+	// Do something with the spot.
+}
+```
+The methods `isEmpty()` and `size()` methods can tell whether the collection is empty or its size. 
+But the main interest of this `SpatialIndex` class is that it offers efficient methods to query the spots that are in specified volume, or the closest spots around a position.
+The method:
+```java
+NearestNeighborSearch< Spot > nn = spatialIndex.getNearestNeighborSearch();
+```
+returns a class that can perform efficient nearest-neighbor search. 
+Here is an example of its use:
+```java
+import net.imglib2.RealPoint;
+
+// ...
+
+// Get the NN instance for this time-point.
+SpatioTemporalIndex< Spot > index = model.getSpatioTemporalIndex();
+int tp = 2;
+SpatialIndex< Spots > spatialIndex = index.getSpatialIndex( tp );
+NearestNeighborSearch< Spot > nn = spatialIndex.getNearestNeighborSearch();
+
+// Search the closest spot to a position.
+// (We use a RealPoint. It could have been a Spot since a Spot is a RealLocalizable.)
+RealLocalizable pos = new RealPoint(1.2, 5.6, 7.8);
+
+// Perform the search 
+nn.search( pos );
+
+// Get search results.
+Spot target = nn.getSampler().get();
+double distance = nn.getDistance();
+```
+
+The `SpatialIndex` class can also return a `IncrementalNearestNeighborSearch`, which also perform nearest-neighbor search, but can be iterated to return the N closest spots to a position.
+

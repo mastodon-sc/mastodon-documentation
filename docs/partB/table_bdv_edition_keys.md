@@ -1,4 +1,4 @@
-# Editing spots in the BDV views. 
+# Editing spots and links in the BDV views. 
 
 See also the _'Linking spots'_ and _'Manually adding spots and linking them'_ sections in [this tutorial](../partA/manual_editing.md).
 
@@ -14,6 +14,12 @@ See also the _'Linking spots'_ and _'Manually adding spots and linking them'_ se
 | Link one spot to an existing one in the _previous_ frame. | Same procedure, but press `Shift L`. |
 | Add and link to a spot in the _next_ frame. | Put the mouse **inside** a source spot, and press and hold `A`.<br>The viewer moves to the next time-point, creates a spot there and links it to the source spot<p>While holding `A`, move the new spot to the desired location, and release `A`. |
 | Add and link to a spot in the _previous_ frame. | Same procedure, but press `Shift A`. |
-| Toggle the auto-linking mode. | `Control L`. |
+| Toggle the auto-linking mode. | `Control L` |
+| _**Removing links**_. |  |
+| Delete a link. | Put the mouse over the link to delete and press `D`. |
+| _**Selection editing**_. |  |
+| Add a spot / link to the selection. | `Shift click` on a spot or a link to add / remove it to / from the selection. |
+| Clearing the selection. | Click on an empty place of the image. |
+| Remove selection content. | `Shift delete` |
 | **_Undo / Redo_.**  |                         |
-| Undo / Redo                                               | `Control Z` / `Control Shift Z`.                             |
+| Undo / Redo                                               | `Control Z` / `Control Shift Z`                              |

@@ -1,4 +1,4 @@
-# Navigating in the BDV views. 
+# Moving around in the BDV views. 
 
 | **Action**                      | **Key**  |
 |---------------------------------|---------------|

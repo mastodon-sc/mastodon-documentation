@@ -1,4 +1,4 @@
-# Navigating in the table views. 
+# Shortcuts for the table views.
 
 | **Action**                                                   | **Key**         |
 | ------------------------------------------------------------ | --------------- |

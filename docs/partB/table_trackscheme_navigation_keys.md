@@ -1,4 +1,4 @@
-# Navigating in the TrackScheme views. 
+# Moving around in the TrackScheme views. 
 
 | **Action**                           | **Key**         |
 | ------------------------------------ | --------------- |

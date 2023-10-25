@@ -1,13 +1,15 @@
-# Navigation with the Focus.
+# Track navigation with the Focus.
+
+In BDV and TrackScheme views, the focused spot is the last one selected.
 
 | **Action**                 | **Key**         |
 |----------------------------|-----------------|
-| **_Navigation with the Focus._**           |                 |
+| **_Navigation with the Focus in BDV views._** |                 |
 | Follow a spot across time within a track with the focus.     | `↓` and `↑`     |
 | Jump to the beginning of a branch.| `Alt ↑`         |
 | Jump to the end of a branch.      | `Alt ↓`         |
 | Jump to the beginning of another branch.  | `Control Alt ↑` |
 | Jump to the end of another branch.        | `Control Alt ↓` |
-| **_Focus in TrackScheme._** |                 |
+| **_Navigation with the Focus in TrackScheme._** |                 |
 | Move the focus around from one track or one track branch to another. | `←` and `→`     |
 | Edit the label of the focused spot.       | `Enter`         |

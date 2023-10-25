@@ -277,7 +277,14 @@ While you keep pressed, you can move the target spot around.
 When it is placed in the desired position, release `A`. 
 The new spot is created and linked to the source spot. 
 This way, you can quickly follow a cell or an object and manually creates a track for it by just positioning the mouse with a few presses of `A`.
+If you press `Shift A` while in the source spot, the new spot will be added in the **previous** frame.
 
+Another equivalent possibility is to use the **auto-linking mode**. 
+To toggle this mode on or off, press `Control L` (the viewer will display a message stating whether it is on or off).
+When the auto-linking mode is on, everytime a spot is added (`A`), it is _automatically linked to the previously selected spot_, **if** there is exactly one spot in the selection.
+The newly created spot then becomes selected so that all spots added in succession while in this mode are linked to together.
+The links are created whether new spots are forward of backward in time, which can be difficult to visualize sometimes.
+It is wise having a TrackScheme window opened linked to the BDV in which you are doing the editing.
 
 ## Moving spots around.
 
@@ -349,7 +356,7 @@ We created a bunch of spots, but they are not linked.
 Move to the TrackScheme view.
 You will find the spots you last created there always at rightmost part of the view.
 Since they are not linked, they should appear each in their separate column, in a stairway manner. 
-Select them all by dragging a selection box around them and press . 
+Select them all by dragging a selection box around them and press `Shift K`.
 They should now link together into a new track.
 With one of the spot of this newly created track selected, press to jump to the first spot in the track.
 Then press to edit its name into something like _My first track_.
@@ -358,7 +365,7 @@ We can create a track directly.
 Let's do this by backtracking a cell from the last time-point to the first. 
 In a BDV view, move to the last time-point, and place the mouse cursor over an annotated cell. 
 Create a spot over it by pressing and center and resize it until satisfaction.
-Now keep the mouse cursor inside this spot, and press and hold the key.
+Now keep the mouse cursor inside this spot, and press and hold `Shift A`.
 The BDV view moves to the previous time-point and creates a new spot there, already linked to the other one.
 By repeating this you can create a track that will backtrack the cell until it appears in the movie.
 

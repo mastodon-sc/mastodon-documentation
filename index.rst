@@ -69,6 +69,7 @@ Table of content.
    :maxdepth: 2
 
    docs/partB/table_bdv_navigation_keys.md
+   docs/partB/table_bdv_edition_keys.md
    docs/partB/table_trackscheme_navigation_keys.md
    docs/partB/table_table_navigation_keys.md
    docs/partB/table_focus_navigation.md

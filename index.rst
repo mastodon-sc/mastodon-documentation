@@ -71,6 +71,7 @@ Table of content.
    docs/partB/table_bdv_navigation_keys.md
    docs/partB/table_bdv_edition_keys.md
    docs/partB/table_trackscheme_navigation_keys.md
+   docs/partB/table_trackscheme_edition_keys.md
    docs/partB/table_table_navigation_keys.md
    docs/partB/table_focus_navigation.md
    docs/partB/table_mastodon_selection_keys.md

@@ -257,7 +257,7 @@ Feature computation started.
 Feature computation finished.
 ```
 
-Not the features values are available.
+Now the features values are available.
 You get them with a table view, or directly in a text table using the `echo()` method.
 ```python
 # To display 2 tables with the first 10 spots and links:
@@ -383,7 +383,7 @@ it = mamut.getModel().getGraph().vertices().iterator()
 for i in range( 500 ):
 	if it.hasNext():
 		spot = it.next()
-mamut.getModel().getGraph().remove ( spot )
+		mamut.getModel().getGraph().remove ( spot )
 
 # We mark this point as an undo point. Calling undo() / redo()
 # navigates in the stack of these undo points. 

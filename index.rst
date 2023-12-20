@@ -78,9 +78,11 @@ Table of content.
 
 .. toctree::
    :caption: C. Extending Mastodon
-   :maxdepth: 2
+   :maxdepth: 3
 
    docs/partC/mastodon_data_structures.md
+   docs/partC/existing_plugins.md
+   docs/partC/mastodon_deep_lineage.md
 
 .. toctree::
    :caption: D. Technical informmation

@@ -17,6 +17,8 @@ nav:
     - Keyboard shortcuts for the selection: partB/table_mastodon_selection_keys.md
   - Extending Mastodon:
     - Mastodon data structures: partC/mastodon_data_structures.md
+    - Mastodon plugins: partC/existing_plugins.md
+    - Mastodon plugins: partC/mastodon_deep_lineage.md
   - Technical information:
     - Mastodon numerical features: partD/numerical_features.md
     - The graph data structure of Mastodon: partD/mastodon_graph_data_structure.md

@@ -1,5 +1,5 @@
-.. image:: docs/imgs/Mastodon-logo_jy-01.png
-   :width: 800
+.. image:: docs/img/android-chrome-192x192.png
+   :width: 192
 
 About Mastodon and this documentation.
 ======================================
@@ -96,7 +96,7 @@ Table of content.
    docs/partD/mastodon_data_structures.md
 
 .. toctree::
-   :caption: E. Technical informmation
+   :caption: E. Technical information
    :maxdepth: 4
 
    docs/partE/numerical_features.md

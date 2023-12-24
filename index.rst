@@ -31,16 +31,22 @@ This also where we introduce all the user-oriented features, such as numerical f
 If you are new to Mastodon, it is best starting with this part, and reading the tutorial in order.
 
 
-
 **B.** The second part contains tables that summarize the main keyboard shortcuts of Mastodon.
 They are put in a separate section to facilitate browsing to them quickly.
 
 
+**C.** The third path documents the various plugins, extensions and miscellaneous functionality of Mastodon.
+Some of the features documented there are already shipped with Mastodon, others are distributed via optional update sites.
+They are all based on the extension mechanisms described in the next part.
 
-**C.** The third part is aimed at developers, that want to extend Mastodon.
-Mastodon, like [TrackMate](https://imagej.net/plugins/trackmate/), is a software platform meant to be extended by you so that new features and algorithms can be added to it in a relatively simpler manner. This part detail the plugin interface of Mastodon and the discovery mechanism.
 
-**D.** The last part is made of technical information that serve as a reference for the specificities of algorithms and features currently implemented in Mastodon.
+**D.** The fourth part is aimed at developers, that want to extend Mastodon.
+Mastodon, like [TrackMate](https://imagej.net/plugins/trackmate/), is a software platform meant to be extended by you so that new features and algorithms can be added to it in a relatively simpler        manner. This part detail the plugin interface of Mastodon and the discovery mechanism.
+
+
+**E.** The last part is made of technical information that serve as a reference for the specificities of algorithms and features currently implemented in Mastodon.
+
+
 
 .. Mastodon documentation master file, created by
    sphinx-quickstart on Sun Nov  6 11:11:53 2022.
@@ -77,21 +83,26 @@ Table of content.
    docs/partB/table_mastodon_selection_keys.md
 
 .. toctree::
-   :caption: C. Extending Mastodon
-   :maxdepth: 3
+    :caption: C. Mastodon functionalities 
+    :maxdepth: 3
 
-   docs/partC/mastodon_data_structures.md
-   docs/partC/existing_plugins.md
-   docs/partC/mastodon_deep_lineage.md
+    docs/partC/existing_plugins.md
+    docs/partC/mastodon_deep_lineage.md
 
 .. toctree::
-   :caption: D. Technical informmation
+   :caption: D. Extending Mastodon
+   :maxdepth: 2
+
+   docs/partD/mastodon_data_structures.md
+
+.. toctree::
+   :caption: E. Technical informmation
    :maxdepth: 4
 
-   docs/partD/numerical_features.md
-   docs/partD/mastodon_graph_data_structure.md
-   docs/partD/convex_polytopes.md
-   docs/partD/org/mastodon/mamut/package-index.rst
+   docs/partE/numerical_features.md
+   docs/partE/mastodon_graph_data_structure.md
+   docs/partE/convex_polytopes.md
+   docs/partE/org/mastodon/mamut/package-index.rst
 
 Documentation tools.
 ==================================================

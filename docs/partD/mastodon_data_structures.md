@@ -46,7 +46,7 @@ In Mastodon, the edges are always oriented forward in time: the source spot of t
 So there cannot be an edge oriented backward in time, and there cannot be an edge between two spots that are in the same time-point.
 
 The class of the graph we use in Mastodon is [ModelGraph](https://github.com/mastodon-sc/mastodon/blob/master/src/main/java/org/mastodon/mamut/model/ModelGraph.java).
-It is based on a special data structure to manage large graphs that we developed specifically for Mastodon, and described [elsewhere in this documentation](../partD/mastodon_graph_data_structure.md).
+It is based on a special data structure to manage large graphs that we developed specifically for Mastodon, and described [elsewhere in this documentation](../partE/mastodon_graph_data_structure.md).
 The graph instance can be obtained as follow:
 ```java
 ModelGraph graph = model.getGraph();

@@ -34,8 +34,14 @@ If you are new to Mastodon, it is best starting with this part, and reading the 
 They are put in a separate section to facilitate browsing to them quickly.
 
 
+**C.** The third path documents the various plugins, extensions and miscellaneous functionality of Mastodon.
+Some of the features documented there are already shipped with Mastodon, others are distributed via optional update sites.
+They are all based on the extension mechanisms described in the next part.
 
-**C.** The third part is aimed at developers, that want to extend Mastodon.
+
+**D.** The fourth part is aimed at developers, that want to extend Mastodon.
 Mastodon, like [TrackMate](https://imagej.net/plugins/trackmate/), is a software platform meant to be extended by you so that new features and algorithms can be added to it in a relatively simpler manner. This part detail the plugin interface of Mastodon and the discovery mechanism.
 
-**D.** The last part is made of technical information that serve as a reference for the specificities of algorithms and features currently implemented in Mastodon.
+
+**E.** The last part is made of technical information that serve as a reference for the specificities of algorithms and features currently implemented in Mastodon.
+

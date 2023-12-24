@@ -30,7 +30,7 @@ source_suffix = {
 
 myst_enable_extensions = ['attrs_image']
 
-html_theme = 'groundwork'
+html_theme = 'sphinx_material'
 
 # Show full TOC in the theme sidebar.
 html_sidebars = {

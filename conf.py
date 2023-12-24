@@ -7,6 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 import os, sys
+import sphinx_material
 
 # For extensions.
 sys.path.append(os.path.abspath('exts'))
@@ -33,11 +34,18 @@ myst_enable_extensions = ['attrs_image']
 html_theme = 'sphinx_material'
 
 # Show full TOC in the theme sidebar.
+
+html_show_sourcelink = True
 html_sidebars = {
-   '**': ['globaltoc.html', 'searchbox.html'],
-   'using/windows': ['windowssidebar.html', 'searchbox.html'],
+    "**": ["logo-text.html", "globaltoc.html", "localtoc.html", "searchbox.html"]
 }
+
+extensions.append("sphinx_material")
+html_theme_path = sphinx_material.html_theme_path()
+html_context = sphinx_material.get_html_context()
+
 html_favicon = 'docs/img/favicon.ico'
+html_logo = 'docs/img/android-chrome-192x192.png'
 
 # Customized the theme.
 html_static_path = ['_static']

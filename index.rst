@@ -94,6 +94,7 @@ Table of content.
    :maxdepth: 2
 
    docs/partD/mastodon_data_structures.md
+   docs/partD/create_custom_mastodon_plugins.md
 
 .. toctree::
    :caption: E. Technical information

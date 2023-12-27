@@ -29,7 +29,7 @@ source_suffix = {
     '.md': 'markdown',
 }
 
-myst_enable_extensions = ['attrs_image']
+myst_enable_extensions = ['attrs_inline']
 
 html_theme = 'sphinx_material'
 

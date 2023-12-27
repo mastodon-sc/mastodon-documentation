@@ -171,6 +171,10 @@ The next part of the code simply creates, stores and returns an instance of this
 
 ```
 
+![](../imgs/Mastodon_ExampleFeature_06.png){align="center" width="600"}
+
+
+
 ### Implementing the feature projection.
 
 Now we can code and instantiate the projection.

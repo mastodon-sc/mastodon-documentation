@@ -424,3 +424,7 @@ The feature values can be used in a color mode to follow cell motion direction o
 And in the `C.elegans` dataset, it looks like this:
 
 ![](../imgs/Mastodon_ExampleFeature_04.png){align="center" width="500"}
+
+Because in this case the values are computed on the fly, the resulting link color will be updated live when you move a spot around, as examplified in the video below.
+
+![](../imgs/Mastodon_ExampleFeature_05.mp4){align="center" width="500"}

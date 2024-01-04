@@ -5,7 +5,7 @@ This page will walk you through the data structure in Mastodon from a Java progr
 
 ## The data model.
 
-All the data is aggregated in the [`MamutAppModel`](https://github.com/mastodon-sc/mastodon/blob/master/src/main/java/org/mastodon/mamut/MamutAppModel.java) class. 
+All the data is aggregated in the [`ProjectModel`](https://github.com/mastodon-sc/mastodon/blob/master/src/main/java/org/mastodon/mamut/ProjectModel.java) class. 
 This is the class you will access for instance when you write a plugin, and it contains many things that relate to the image, the tracking data and the user-interface.
 We document below its most important components.
 
@@ -14,8 +14,9 @@ We document below its most important components.
 The image data is stored in a special class [`SharedBigDataViewerData`](https://github.com/mastodon-sc/mastodon/blob/master/src/main/java/org/mastodon/views/bdv/SharedBigDataViewerData.java). 
 It aggregates several objects and information from the BDV ecosystem.
 You can access the list of sources and the `SpimData` objects from it.
+
 ```java
-SharedBigDataViewerData imageData = mamutAppModel.getSharedBigDataViewerData();
+SharedBigDataViewerData imageData = projectModel.getSharedBdvData();
 AbstractSpimData< ? > spimData = imageData.getSpimData();
 List< SourceAndConverter< ? > > imageData.getSources();
 ```

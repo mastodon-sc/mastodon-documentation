@@ -41,7 +41,7 @@ They are all based on the extension mechanisms described in the next part.
 
 
 **D.** The fourth part is aimed at developers, that want to extend Mastodon.
-Mastodon, like [TrackMate](https://imagej.net/plugins/trackmate/), is a software platform meant to be extended by you so that new features and algorithms can be added to it in a relatively simpler        manner. This part detail the plugin interface of Mastodon and the discovery mechanism.
+Mastodon, like `TrackMate <https://imagej.net/plugins/trackmate/>`_, is a software platform meant to be extended by you so that new features and algorithms can be added to it in a relatively simpler        manner. This part detail the plugin interface of Mastodon and the discovery mechanism.
 
 
 **E.** The last part is made of technical information that serve as a reference for the specificities of algorithms and features currently implemented in Mastodon.

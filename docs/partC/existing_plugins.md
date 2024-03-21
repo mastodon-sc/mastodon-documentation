@@ -24,4 +24,4 @@ Mastodon plugin for fitting ellipsoids around spots
 
 A collection of plugins to analyse lineages of tracked objects in Mastodon,
 e.g. Lineage Tree Classification, Export of ellipsoids as image, some more
-numerical features for Spots and BranchSpots. See the [Mastodon Deep Lineage](mastodon_deep_lineage.md).
+numerical features for Spots and BranchSpots. See the [Mastodon Deep Lineage](deep_lineage/readme).

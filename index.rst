@@ -87,7 +87,7 @@ Table of content.
     :maxdepth: 3
 
     docs/partC/existing_plugins.md
-    docs/partC/mastodon_deep_lineage.md
+    docs/partC/deep_lineage/readme.md
 
 .. toctree::
    :caption: D. Extending Mastodon

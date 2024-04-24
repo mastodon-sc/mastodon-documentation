@@ -23,4 +23,4 @@
 
 Before mid-2023, the brightness and source visibility dialogs were configured in dialogs which visibility were toggled with the `F` and `F6`  shortcuts respectively. With the new version of BDV, they are configured with a side-pane in a BDV window that can be toggled by placing the mouse ofther right part of the images:
 
-![BDV side pane position](/Users/tinevez/Development/MastodonWS/mastodon-documentation/docs/imgs/Mastodon_BD-sidepane.gif)
+![BDV side pane position](../imgs/Mastodon_BD-sidepane.gif)

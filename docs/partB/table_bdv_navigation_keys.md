@@ -18,7 +18,9 @@
 | Recall a bookmark orientation.  | Press `O` then the key of the bookmark. Only the orientation of the bookmark will be restored. |
 | **_Image display_.**            |                         |
 | Select source 1, 2 ...          | Press `1` / `2` ...     |
-| Brightness and color dialog.    | Press `S`. <br />In this dialog you can adjust the min & max for each source, select to what sources these min & max apply and pick a color for each source. |
 | Toggle fused mode.              | Press `F`. <br /> In fused mode, several sources are overlaid. Press `Shift` + `1` / `Shift` + `2` ... to add / remove the source to the view. In single-source mode, only one source is shown.          |
-| Visibility and grouping dialog. | Press `F6`.<br /> In this dialog you can define what sources are visible in fused mode, and define groups of sources for use in the grouping mode.         |
 | Save / load display settings.   | `F11` / `F12`. <br />This will create a _XYZ_settings.xml_ file in which the display settings and bookmarks will be saved.                                               |
+
+Before mid-2023, the brightness and source visibility dialogs were configured in dialogs which visibility were toggled with the `F` and `F6`  shortcuts respectively. With the new version of BDV, they are configured with a side-pane in a BDV window that can be toggled by placing the mouse ofther right part of the images:
+
+![BDV side pane position](/Users/tinevez/Development/MastodonWS/mastodon-documentation/docs/imgs/Mastodon_BD-sidepane.gif)

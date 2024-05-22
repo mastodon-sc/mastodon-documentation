@@ -1,0 +1,14 @@
+https://latex.codecogs.com/eqneditor/editor.php
+
+\\
+k := \text{number of spots of a branch}
+\\
+\vec{s_i} := \text{vector of i}^{th} \text{spot position}
+\\
+\vec{d_b} := \text{branch movement}
+\\
+\vec{d_b} = \vec{s_k} - \vec{s_1}
+\\
+\vec{n_b} := \text{branch movement direction }
+\\
+\vec{n_b} = \frac{\vec{d_b}}{\left | \vec{d_b} \right |  }

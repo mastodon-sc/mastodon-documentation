@@ -7,7 +7,8 @@
 * The cost function applied for the tree edit distance uses the attribute branch spot duration, which is computed as a
   difference of time points between to subsequent divisions reflecting the start and the end of a spot's lifetime.
 * Thus, the linage classification operates on Mastodon's branch graph.
-* The Zhang unordered edit distance allows the following edit operations:
+* The Zhang unordered edit distance allows the following edit operations. The edit operations are defined in a way that
+  they satisfy the constraints elaborated in section 3.1 ("Constrained Edit Distance Mappings") of the paper:
 
 ```
   Note: The prefix T may represent a node or a complete subtree. Nodes without this prefix are just nodes.
@@ -15,14 +16,14 @@
   1. Change label
  
         A         A'
-       / \  -&gt;   / \
+       / \  -->  / \
       TB TC     TB TC
  
  
   2a: Delete subtree (opposite of 2b)
  
         A         A
-       / \   -&gt;   |
+       / \   -->  |
       TB TC       TB
  
   2b: Insert subtree (opposite of 2a)
@@ -65,6 +66,17 @@
                                  TB and TC become the children of D)
 ```
 
+As an example, the following case explicitly does not fulfill the constraints mentioned in the paper:
+
+```
+ Delete a node without deleting one of its children
+          A            A
+         / \   -->   / | \
+        B  TC      TD TE TC
+       / \
+      TD TE        (delete B, TD and TE become children of A and TC remains)
+```
+
 * A basic example of the tree edit distance:
 
 ```
@@ -105,17 +117,16 @@ Tree2
     * Number of spots
 * Crop start
 * Crop end
-* Number of classes (minimum 2)
+* Number of classes
+  * Must not be greater than the number of lineage trees
 * Minimum number of divisions
+  * The minimum number of divisions a lineage tree must have to be considered in the classification
 * Similarity measures:
-  1. (default) ![normalized_zhang_distance.gif](normalized_zhang_distance.gif)<sup>1</sup>
+  1. (default) ![normalized_zhang_distance.gif](normalized_zhang_distance.gif)<sup>1,2</sup>
   2. ![per_branch_zhang_distance.gif](per_branch_zhang_distance.gif)<sup>1</sup>
-  3. [Zhang](https://doi.org/10.1007/BF01975866) Tree Edit Distance<sup>1</sup>
-  4. [Guignard et al.](https://doi.org/10.1126/science.aar5663) Tree Edit
-     Distance ![guignard_zhang_distance.gif](guignard_zhang_distance.gif)<sup>2</sup>
-
+  3. [Zhang](https://doi.org/10.1007/BF01975866) Tree Edit Distance<sup>1,2</sup>
   * <sup>1</sup>Local cost function: ![local_cost.gif](local_cost.gif)
-  * <sup>2</sup>Local cost function: ![local_cost_normalized.gif](local_cost_normalized.gif)
+  * <sup>2</sup>Local cost function with normalization: ![local_cost_normalized.gif](local_cost_normalized.gif)
 * Linkage strategy for hierarchical clustering,
   cf. [linkage methods](https://en.wikipedia.org/wiki/Hierarchical_clustering#Cluster_Linkage)
     1. Average (default)
@@ -137,7 +148,10 @@ Tree2
   similar to each other, but dissimilar to the other
   trees. ![Trackscheme](trackscheme.png)
 * The lineage classification dialog. ![Settings](settings.png)
-* The resulting dendrogram. ![Dendrogram](dendrogram.png)
+* The resulting dendrogram.
+  * User can toggle on/off root labes, tags, classification threshold and median of the tree edit distances.
+  * Export options to SVG and PNG accessible via a context menu.
+  * ![Dendrogram](dendrogram.png)
 * The resulting tag set used for coloring the track
   scheme. ![Trackscheme with tags](trackscheme_with_tags.png)
 * The resulting tag set used for coloring the track scheme branch

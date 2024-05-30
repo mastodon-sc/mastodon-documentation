@@ -8,6 +8,10 @@ Automated tracking algorithms for Mastodon.
 
 Small collection of plugins developed for the research led in the Institut Pasteur, Paris, but of general utility.
 
+- [CSV importer](csv-importer)
+- [Statistics on nearest neighbors](stats-on-nearest-neighbors)
+- [Track image](track-image)
+
 ## Mastodon Selection Creator
 
 Mastodon plugin to create selections from mathematical expressions.

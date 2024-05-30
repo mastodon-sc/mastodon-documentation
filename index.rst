@@ -88,6 +88,9 @@ Table of content.
 
     docs/partC/existing_plugins.md
     docs/partC/deep_lineage/readme.md
+    docs/partC/csv-importer.md
+    docs/partC/stats-on-nearest-neighbors.md
+    docs/partC/track-image.md
 
 .. toctree::
    :caption: D. Extending Mastodon

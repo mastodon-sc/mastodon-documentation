@@ -13,7 +13,7 @@ import sphinx_material
 sys.path.append(os.path.abspath('exts'))
 
 project = 'Mastodon'
-copyright = '2022, Jean-Yves Tinevez'
+copyright = '2022 - 2024, Jean-Yves Tinevez'
 author = 'Jean-Yves Tinevez'
 
 # -- General configuration ---------------------------------------------------
@@ -48,7 +48,20 @@ html_favicon = 'docs/img/favicon.ico'
 html_logo = 'docs/img/android-chrome-192x192.png'
 
 # Customized the theme.
-html_static_path = ['_static']
-html_css_files = [
-    'css/custom.css',
-]
+# html_static_path = ['_static']
+# html_css_files = [
+#     'css/custom.css',
+# ]
+
+html_theme_options = {
+    'base_url': 'http://bashtage.github.io/sphinx-material/',
+    'repo_url': 'https://github.com/mastodon-sc/',
+    'repo_name': 'Mastodon',
+    # 'html_minify': True,
+    # 'css_minify': True,
+    'logo_icon': '&#xe88a',
+    'nav_title': 'Mastodon',
+    'globaltoc_depth': 3
+}
+
+

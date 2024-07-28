@@ -101,8 +101,10 @@ This is done via the `WindowManager` gateway.
 For instance, to create a BDV view with the current project, we write:
 
 ```python
+from org.mastodon.mamut.views.bdv import MamutViewBdv
+
 # A new BDV window.
-mamut.getWindowManager().createBigDataViewer()
+mamut.getWindowManager().createView( MamutViewBdv )
 ```
 
 You should see this window appearing:
@@ -212,7 +214,7 @@ This is simply done with:
 # Run the full tracking process.
 trackmate.run()
 # Show results.
-mamut.getWindowManager().createBigDataViewer()
+mamut.getWindowManager().createView( MamutViewBdv )
 ```
 
 We get results that are slightly different from the previous run, as we changed the detection radius.
@@ -359,8 +361,10 @@ Let's visualize the tags we just assigned in a TrackScheme window.
 We will again use the `WindowManager` gateway, using a python dictionary to configure settings.
 We set the coloring mode to be a certain tag-set like this:
 ```python
+from org.mastodon.mamut.views.trackscheme import MamutViewTrackScheme
+
 displaySettings = {'TagSet' : 'Fruits'}
-mamut.getWindowManager().createTrackScheme( displaySettings )
+mamut.getWindowManager().createView( MamutViewTrackScheme, displaySettings )
 ```
 
 ![](../imgs/Mastodon_Scripting_05.png){width="80%" align="center"}

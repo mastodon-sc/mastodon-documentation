@@ -1,30 +1,43 @@
 # Existing plugins
 
-## Mastodon Tracking
+This part documents the functionalities of Mastodon that have been implemented as plugins.
+They can typically be found in the _Plugins_ submenu. 
+The page below lists them all and links to specific documentation page for each plugin.
+Information on how to extend Mastodon yourself be creating such plugins can be found in the next part of this documentation. 
 
-Automated tracking algorithms for Mastodon.
+## Core plugins
 
-## Mastodon Pasteur
+The following plugins are available with the core of Mastodon.
 
-Small collection of plugins developed for the research led in the Institut Pasteur, Paris, but of general utility.
+### Imports
 
 - [CSV importer](csv-importer)
-- [Statistics on nearest neighbors](stats-on-nearest-neighbors)
+- [Import GraphML](import-graphml)
+
+### Exports
+
 - [Track image](track-image)
 
-## Mastodon Selection Creator
+### Numerical feature operations
 
-Mastodon plugin to create selections from mathematical expressions.
+- [Statistics on nearest neighbors](stats-on-nearest-neighbors)
 
-## Mastodon Tomancak
+### Selection operations
 
-Various Mastodon plugins for use in Tomancak lab projects
+- [Selection creator](selection-creator)
 
-## Ellipsoid Fitting
 
-Mastodon plugin for fitting ellipsoids around spots
+### Detection & Tracking
 
-## Mastodon Deep Lineage
+- [Semi-automatic tracking](semi-automatic-tracking)
+- [Cell detection wizard](cell-detection-wizard)
+- [Cell tracking wizard](cell-tracking-wizard)
+- [Ellipsoid Fitting](ellipsoid-fitting)
+
+
+## Extra plugins
+
+### Mastodon Deep Lineage
 
 A collection of plugins to analyse lineages of tracked objects in Mastodon,
 e.g. Lineage Tree Classification, Export of ellipsoids as image, some more

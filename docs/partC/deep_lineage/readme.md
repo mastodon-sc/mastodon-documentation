@@ -19,9 +19,9 @@
     * [Usage](#usage)
     * [Description](#description)
     * [Parameters](#parameters)
-* [Imports](#imports)
+* [Import](#import)
     * [Import Spots from Label Image](#import-spots-from-label-image)
-* [Exports](#exports)
+* [Export](#export)
     * [Label Image Exporter](#label-image-exporter)
     * [GraphML Exporter](#graphml-exporter)
 
@@ -66,7 +66,7 @@ the plugin menu: ![](features/relativemovement.png)
 
 ## Hierarchical Clustering of Lineage Trees
 
-* Menu Location: `Plugins > Hierarchical Clustering of Lineage Trees`
+* Menu Location: `Plugins > Lineage Analysis > Hierarchical Clustering of Lineage Trees`
 * This command is capable of grouping similar lineage trees together.
 * The linage clustering operates on Mastodon's branch graph.
 * Lineage trees are considered similar, if they share a similar structure and thus represent a similar cell division
@@ -356,11 +356,11 @@ The example above has been generated using the [
 tgmm-mini](https://github.com/mastodon-sc/mastodon-example-data/tree/master/tgmm-mini) dataset, which is included in
 the Mastodon repository.
 
-## Imports
+## Import
 
 ### Import Spots from Label Image
 
-* Menu Location: `Plugins > Imports > Import spots from label image`
+* Menu Location: `File > Import > Import spots from label image`
 * You can use the plugin to import spots from a label image representing an instance segmentation into Mastodon. This
   may be useful if you have an instance segmentation of cells or other objects, and you want to track them using
   Mastodon.
@@ -372,7 +372,8 @@ the Mastodon repository.
 * The resulting spots are ellipsoids with the semi axes computed from the variance covariance matrix of this pixel
   positions of each label.
 * Labels with only one pixel are ignored. This is because the variance covariance matrix is not defined for a single
-  point. If you want to import single pixel spots, you can use the `Import Spots from CSV` plugin.
+  point. If you want to import single pixel spots, you can use the [
+  `Import Spots from CSV`](https://mastodon.readthedocs.io/en/latest/docs/partC/csv-importer.html) plugin.
 * The resulting spots may be linked using the linker plugin in Mastodon (`Plugins > Tracking > Linking...`)
   or [Elephant](https://elephant-track.github.io/#/?id=linking-workflow).
 
@@ -387,7 +388,7 @@ the Mastodon repository.
 #### Label image as active image in ImageJ
 
 * The label image can be opened in ImageJ and the plugin can be called from the
-  menu: ![Plugin Import Menu](imports/label_image/imagej/plugin_import_imagej_menu.png)
+  menu: `File > Import > Import spots from label image > Import spots from ImageJ image`
 * Please make sure that the label image is the active image in ImageJ.
 * Please make sure that the label image has the same dimensions as the image data in Mastodon.
     * You can use the `Image > Properties` command ImageJ to check (and) set the dimensions of the label image.
@@ -400,24 +401,24 @@ the Mastodon repository.
     * Import the image sequence with the actual image into ImageJ contained in folder `Fluo-C3DL-MDA231/01/`
         * `File > Import > Image Sequence...`
     * Set the dimensions of the image sequence to 512x512x1x30x12 (XYCTZ) using `Image > Properties`
-    * ![plugin_import_example_1.png](imports/label_image/imagej/plugin_import_example_1.png)
+  * ![plugin_import_example_1.png](import/label_image/imagej/plugin_import_example_1.png)
         * Open Mastodon from Fiji and create a new project with the image sequence
             * `Plugins > Mastodon > new Mastodon project > Use an image opened in ImageJ > Create`
-            * ![plugin_import_example_2.png](imports/label_image/imagej/plugin_import_example_2.png)
+    * ![plugin_import_example_2.png](import/label_image/imagej/plugin_import_example_2.png)
         * Import the image sequence encoding the label images into ImageJ contained in
           folder: `Fluo-C3DL-MDA231/01_ERR_SEG/`
         * Set the dimensions of the label image to 512x512x1x30x12 (XYCTZ) using `Image > Properties`
-            * ![plugin_import_example_3.png](imports/label_image/imagej/plugin_import_example_3.png)
+    * ![plugin_import_example_3.png](import/label_image/imagej/plugin_import_example_3.png)
         * Open Import window in
-          Mastodon: `Plugins > Imports > Import spots from label image > Import spots from ImageJ image`
+    Mastodon: `File > Import > Import spots from label image > Import spots from ImageJ image`
         * Select the channel in Big Data Viewer containing the image that has been used to create the label image.
             * Click `OK` and the spots are imported into Mastodon.
-                * ![plugin_import_example_4.png](imports/label_image/imagej/plugin_import_example_4.png)
+    * ![plugin_import_example_4.png](import/label_image/imagej/plugin_import_example_4.png)
 
 #### Label image as BDV channel
 
 * The plugin can be called from the
-  menu: ![Plugin Import Menu](imports/label_image/imagej/plugin_import_imagej_menu.png)
+  menu: `File > Import > Import spots from label image > Import spots from BDV channel`
 
 ##### Example
 
@@ -427,40 +428,39 @@ the Mastodon repository.
     * Import the image sequence with the actual image into ImageJ contained in folder `Fluo-C3DL-MDA231/01/`
         * `File > Import > Image Sequence...`
     * Set the dimensions of the image sequence to 512x512x1x30x12 (XYCTZ) using `Image > Properties`
-    * ![plugin_import_example_1.png](imports/label_image/imagej/plugin_import_example_1.png)
+  * ![plugin_import_example_1.png](import/label_image/imagej/plugin_import_example_1.png)
         * Import the image sequence encoding the label images into ImageJ contained in
           folder: `Fluo-C3DL-MDA231/01_ERR_SEG/`
-        * Set the dimensions of the label image to 512x512x1x30x12 (XYCTZ) using `Image > Properties`
-            * ![plugin_import_example_3.png](imports/label_image/imagej/plugin_import_example_3.png)
-        * Merge the 2 images into a single image using the `Image > Color > Merge Channels...` command
-            * ![plugin_import_example_5.png](imports/label_image/imagej/plugin_import_example_5.png)
-        * Open Mastodon from Fiji and create a new project with merged image
-            * `Plugins > Mastodon > new Mastodon project > Use an image opened in ImageJ > Create`
-            * ![plugin_import_example_6.png](imports/label_image/imagej/plugin_import_example_6.png)
-        * Open Import window: `Plugins > Imports > Import spots from label image > Import spots from BDV channel`
-        * Select the BDV channel containing the label image
-        * Click `OK` and the spots are imported into Mastodon.
-            * ![plugin_import_example_7.png](imports/label_image/imagej/plugin_import_example_7.png)
+  * Set the dimensions of the label image to 512x512x1x30x12 (XYCTZ) using `Image > Properties`
+    * ![plugin_import_example_3.png](import/label_image/imagej/plugin_import_example_3.png)
+  * Merge the 2 images into a single image using the `Image > Color > Merge Channels...` command
+    * ![plugin_import_example_5.png](import/label_image/imagej/plugin_import_example_5.png)
+  * Open Mastodon from Fiji and create a new project with merged image
+      * `Plugins > Mastodon > new Mastodon project > Use an image opened in ImageJ > Create`
+    * ![plugin_import_example_6.png](import/label_image/imagej/plugin_import_example_6.png)
+  * Open Import window: `File > Import > Import spots from label image > Import spots from BDV channel`
+      * Select the BDV channel containing the label image
+      * Click `OK` and the spots are imported into Mastodon.
+          * ![plugin_import_example_7.png](import/label_image/imagej/plugin_import_example_7.png)
 
-## Exports
+## Export
 
 ### Label Image Exporter
 
-* Menu Location: `Plugins > Exports > Export label image using ellipsoids`
+* Menu Location: `File > Export > Export label image using ellipsoids`
 * The Label image exporter is capable of saving a label image to a file using the existing ellipsoids in Mastodon.
 * For the labels, the _spot ids_, _branch spot ids_ or the _track ids_ that correspond to the spots / ellipsoids may be
   used. Since these Ids are counted zero based in Mastodon, an **offset of 1** is added to all Ids so that no label
   clashes with the background of zero.
 * The recommended export format is '*.tif'-files. However, it should work also for other formats supported by ImageJ.
 * The export uses an image with signed integer value space, thus the maximum allowed id is 2.147.483.646.
-* Exporter can be found here:  ![Plugin Export Menu](exports/label_image/plugin_export_menu.png)
-* The dialog:  ![Plugin Export Dialog](exports/label_image/plugin_export_dialog.png)
+* The dialog:  ![Plugin Export Dialog](export/label_image/plugin_export_dialog.png)
 
 #### Parameters
 
 * Label Id: The id that is used for the labels. The default is the Spot track Id.
     * The ids correspond to the highlighted columns in the feature
-      table: ![Feature Table](exports/label_image/plugin_export_table.png)
+      table: ![Feature Table](export/label_image/plugin_export_table.png)
 * Frame rate reduction: Only export every n-th frame. 1 means no reduction. Value must be >= 1.
     * The frame number corresponds to the _Spot frame_ column in the feature table.
 * Resolution level: Spatial resolution level of export. 0 means highest resolution. Value > 0 mean lower resolution.
@@ -470,13 +470,13 @@ the Mastodon repository.
 
 * Demo data: [Example data set](https://github.com/mastodon-sc/mastodon-example-data/tree/master/tgmm-mini)
 * The timelapse with the ellipsoids in
-  BigDataViewer: ![BigDataViewer](exports/label_image/bdv_timelapse.gif)
+  BigDataViewer: ![BigDataViewer](export/label_image/bdv_timelapse.gif)
 * The exported tif imported into [Napari](https://napari.org/stable/) 3D
-  view: ![Napari](exports/label_image/napari_timelapse.gif)
+  view: ![Napari](export/label_image/napari_timelapse.gif)
 
 ### GraphML Exporter
 
-* Menu Location: `Plugins > Exports > Export GraphML (Branches)`
+* Menu Location: `File > Export > Export to GraphML (branches)`
 * Exports the branch graph to a [GraphML](http://graphml.graphdrawing.org/) file.
     * The graph is directed. The branch spots are the vertices and the branch links are the edges.
     * The vertices receive a label attribute with the branch spot name. The vertices receive a duration attribute with
@@ -486,7 +486,6 @@ the Mastodon repository.
   or [Gephi](https://gephi.org/).
 * GraphML can be processed in Java using the [JGraphT](https://jgrapht.org/) library.
 * GraphML can be processed in Python using the [NetworkX](https://networkx.org/) library.
-* Exporter can be found here:  ![Plugin Export Dialog](exports/graphml/plugin_export_menu.png)
 
 #### Options
 
@@ -507,5 +506,5 @@ the Mastodon repository.
 #### Example
 
 * Demo data: [Example data set](https://github.com/mastodon-sc/mastodon-example-data/tree/master/tgmm-mini)
-* The resulting file loaded into yEd: ![yEd](exports/graphml/yed_graphml.png)
-* The resulting file loaded into Cytoscape: ![Cytoscape](exports/graphml/cytoscape_graphml.png)
+* The resulting file loaded into yEd: ![yEd](export/graphml/yed_graphml.png)
+* The resulting file loaded into Cytoscape: ![Cytoscape](export/graphml/cytoscape_graphml.png)

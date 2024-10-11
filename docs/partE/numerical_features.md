@@ -86,21 +86,21 @@ It is recommended to use the 'Spot intensity' feature described above when the b
 
 ## Branch-spot features.
 
-Because branch-spots link to spots in the core graph, the branch-spot features all relate to the hierarchy or neighborhood in the branch-graph.
+Some of the branch-spot features relate to the hierarchy or neighborhood in the branch-graph.
+Further branch-spot features are related to the branch duration and displacement.
 
-| **Feature name** |  **Projections**  |  **Description** |
-|----|---|---|
-| Branch N successors | _idem_ | Reports the number of successors of a branch spot. That is: how many branches emerge from this branch-spot. The branch-spot of a cell that divides will have a value of 2 for this feature. The end of a track will have a value of 0. The beginning of a track, 1. |
-| Branch depth | _idem_ |  Report the hierarchy level of a branch. The hierarchy of a branch is how many ancestors a branch has. For instance, the first branch of a track has a level of 0. After one cell division, the two daughter branches have a level of 1, _etc_. This feature value is used to build the hierarchy graph.  |
+| **Feature name**                 | **Projections** | **Description**                                                                                                                                                                                                                                                                                         |
+|----------------------------------|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Branch N successors              | _idem_          | Reports the number of successors of a branch spot. That is: how many branches emerge from this branch-spot. The branch-spot of a cell that divides will have a value of 2 for this feature. The end of a track will have a value of 0. The beginning of a track, 1.                                     |
+| Branch depth                     | _idem_          | Report the hierarchy level of a branch. The hierarchy of a branch is how many ancestors a branch has. For instance, the first branch of a track has a level of 0. After one cell division, the two daughter branches have a level of 1, _etc_. This feature value is used to build the hierarchy graph. |
+| Branch N Spots                   | _idem_          | The number of spots in a branch. The count does not include the spots at the beginning of the branch, but includes the last one. This way the sum of this feature values for all the branches of a track equals the number of spots in the track.                                                       |
+| Branch duration and displacement | Displacement    | Measure the displacement of a branch, that is: the euclidean distance between the first and last spot of the branch.                                                                                                                                                                                    |
+|                                  | Duration        | The time difference between the first and last spot of the branch.                                                                                                                                                                                                                                      |
 
-## Branch link features.
+## Branch-link features.
 
-The branch-links represent a full branch from start to finish. 
-Their features relate mainly to the branch size and extension in time.
+The branch-links represent a full branch from start to finish.
 
-| **Feature name** |  **Projections**  |  **Description** |
-|----|---|---|
-|  Branch N Spots | _idem_ | The number of spots in a branch. The count does not include the spots at the beginning of the branch, but includes the last one. This way the sum of this feature values for all the branches of a track equals the number of spots in the track. |
-| Branch duration and displacement | Displacement | Measure the displacement of a branch, that is: the euclidean distance between the first and last spot of the branch. |
-|  | Duration | The time difference between the first and last spot of the branch. |
+| **Feature name** | **Projections** | **Description** |
+|------------------|-----------------|-----------------|
 

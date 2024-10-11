@@ -53,6 +53,7 @@ Mastodon, like `TrackMate <https://imagej.net/plugins/trackmate/>`_, is a softwa
 
 .. image:: https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg
    :target: https://creativecommons.org/licenses/by/4.0/
+
 `Mastodon documentation <https://mastodon.readthedocs.io/>`_ © 2022 by `Jean-Yves Tinevez & contributors <https://github.com/mastodon-sc/mastodon-documentation/graphs/contributors>`_ is licensed under `CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/>`_
 
 
@@ -123,4 +124,3 @@ Documentation tools.
 ==================================================
 
 * :ref:`search`
-

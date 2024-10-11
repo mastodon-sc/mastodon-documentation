@@ -30,7 +30,7 @@ source_suffix = {
 }
 
 myst_enable_extensions = ['attrs_inline']
-
+myst_heading_anchors = 7
 html_theme = 'sphinx_material'
 
 # Show full TOC in the theme sidebar.
@@ -64,4 +64,4 @@ html_theme_options = {
     'globaltoc_depth': 3
 }
 
-
+exclude_patterns = [ 'README.md' ]

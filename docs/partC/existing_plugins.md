@@ -12,7 +12,7 @@ The following plugins are available with the core of Mastodon.
 ### Imports
 
 - [CSV importer](csv-importer)
-- [Import GraphML](import-graphml)
+<!-- - [Import GraphML](import-graphml) -->
 
 ### Exports
 
@@ -24,15 +24,15 @@ The following plugins are available with the core of Mastodon.
 
 ### Selection operations
 
-- [Selection creator](selection-creator)
+<!-- - [Selection creator](selection-creator) -->
 
 
 ### Detection & Tracking
 
-- [Semi-automatic tracking](semi-automatic-tracking)
-- [Cell detection wizard](cell-detection-wizard)
-- [Cell tracking wizard](cell-tracking-wizard)
-- [Ellipsoid Fitting](ellipsoid-fitting)
+<!-- - [Semi-automatic tracking](semi-automatic-tracking) -->
+<!-- - [Cell detection wizard](cell-detection-wizard) -->
+<!-- - [Cell tracking wizard](cell-tracking-wizard) -->
+<!-- - [Ellipsoid Fitting](ellipsoid-fitting) -->
 
 
 ## Extra plugins

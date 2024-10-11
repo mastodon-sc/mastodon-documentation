@@ -102,6 +102,3 @@ More features are available in the [Mastodon-DeepLineage](../partC/deep_lineage/
 
 The branch-links represent a full branch from start to finish.
 
-| **Feature name** | **Projections** | **Description** |
-|------------------|-----------------|-----------------|
-

@@ -524,6 +524,10 @@ class JavaDomain(Domain):
             if fn == docname:
                 del self.data['objects'][fullname]
 
+    def resolve_any_xref(self, env, fromdocname, builder, target, node, contnode):
+        return self.resolve_xref(env, fromdocname, builder, [''], target, node, contnode)
+
+
     def resolve_xref(self, env, fromdocname, builder, typ, target, node, contnode):
         objects = self.data['objects']
         package = node.get('java:package')
@@ -579,7 +583,7 @@ class JavaDomain(Domain):
             ref.append(contnode)
             return ref
         else:
-            return None
+            return []
 
     def get_objects(self):
         for refname, (docname, type, _) in self.data['objects'].items():

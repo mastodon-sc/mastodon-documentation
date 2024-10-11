@@ -58,31 +58,31 @@ It is recommended to use the 'Spot intensity' feature described above when the b
 
 ## Other spot features.
 
-| **Feature name** |  **Projections**  |  **Description** |
-|----|---|---|
-| Spot frame | _idem_ | The spot frame. |
-| Spot N links | _idem_ | The total number of links, incoming and outgoing, of the spot. |
-| Spot position | X & Y &  Z | The spot center position, in physical units. |
-| Spot radius | _idem_ | The spot radius in physical units. For spots that are ellipsoids, returns a radius using the geometric mean of the spot ellipsoid radiuses. This approximation is such that the sphere with the reported radius and the spot ellipsoid have the same volume. |
-| Spot track ID | _idem_ | The ID of the track the spot belongs to. Track IDs are positive integer numbers starting from 0. |
+| **Feature name** | **Projections** | **Description**                                                                                                                                                                                                                                              |
+|------------------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Spot frame       | _idem_          | The spot frame.                                                                                                                                                                                                                                              |
+| Spot N links     | _idem_          | The total number of links, incoming and outgoing, of the spot.                                                                                                                                                                                               |
+| Spot position    | X & Y &  Z      | The spot center position, in physical units.                                                                                                                                                                                                                 |
+| Spot radius      | _idem_          | The spot radius in physical units. For spots that are ellipsoids, returns a radius using the geometric mean of the spot ellipsoid radiuses. This approximation is such that the sphere with the reported radius and the spot ellipsoid have the same volume. |
+| Spot track ID    | _idem_          | The ID of the track the spot belongs to. Track IDs are positive integer numbers starting from 0.                                                                                                                                                             |
 
 
 ## Link features.
 
-| **Feature name** |  **Projections**  |  **Description** |
-|----|---|---|
-| Link target IDs | Source spot id & Target spot id | Stores the IDs of the two spots the link connects to. In Mastodon, the links are oriented: the source and target are not equivalent. By convention in Mastodon, the source spot is always the first in time, and the target the last in time. |
-| Link displacement | _idem_ | The distance between the source and target spots of the links, in physical units. |
-| Link velocity | _idem_ | The velocity at the time of the link. It is calculated as the link displacement divided by the frame interval between the source and target spots (in frame units). |
+| **Feature name**  | **Projections**                 | **Description**                                                                                                                                                                                                                               |
+|-------------------|---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Link target IDs   | Source spot id & Target spot id | Stores the IDs of the two spots the link connects to. In Mastodon, the links are oriented: the source and target are not equivalent. By convention in Mastodon, the source spot is always the first in time, and the target the last in time. |
+| Link displacement | _idem_                          | The distance between the source and target spots of the links, in physical units.                                                                                                                                                             |
+| Link velocity     | _idem_                          | The velocity at the time of the link. It is calculated as the link displacement divided by the frame interval between the source and target spots (in frame units).                                                                           |
 
 
 ## Track features.
 
 ’Track’ is the vocable we use in Mastodon for the weakly connected components of the graph. A track is made of all the links and spots that can be reached by jumping across links in any direction. In a lineage, a track corresponds to a single cell and all its daughters, grand-daughters, etc . Track features are value that are defined for a whole track. An example would be the number of spots in a track. In Mastodon, there is no special place to store track feature values. Track feature values are stored in the spots of the tracks, and listed in spot features. By convention, their name starts with **Track** and spot features starts with **Spot**.
 
-| **Feature name** |  **Projections**  |  **Description** |
-|----|---|---|
-| Track N spots | _idem_ |  The number of spots in a track. |
+| **Feature name** | **Projections** | **Description**                 |
+|------------------|-----------------|---------------------------------|
+| Track N spots    | _idem_          | The number of spots in a track. |
 
 ## Branch-spot features.
 

@@ -58,49 +58,50 @@ It is recommended to use the 'Spot intensity' feature described above when the b
 
 ## Other spot features.
 
-| **Feature name** |  **Projections**  |  **Description** |
-|----|---|---|
-| Spot frame | _idem_ | The spot frame. |
-| Spot N links | _idem_ | The total number of links, incoming and outgoing, of the spot. |
-| Spot position | X & Y &  Z | The spot center position, in physical units. |
-| Spot radius | _idem_ | The spot radius in physical units. For spots that are ellipsoids, returns a radius using the geometric mean of the spot ellipsoid radiuses. This approximation is such that the sphere with the reported radius and the spot ellipsoid have the same volume. |
-| Spot track ID | _idem_ | The ID of the track the spot belongs to. Track IDs are positive integer numbers starting from 0. |
+| **Feature name** | **Projections** | **Description**                                                                                                                                                                                                                                              |
+|------------------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Spot frame       | _idem_          | The spot frame.                                                                                                                                                                                                                                              |
+| Spot N links     | _idem_          | The total number of links, incoming and outgoing, of the spot.                                                                                                                                                                                               |
+| Spot position    | X & Y &  Z      | The spot center position, in physical units.                                                                                                                                                                                                                 |
+| Spot radius      | _idem_          | The spot radius in physical units. For spots that are ellipsoids, returns a radius using the geometric mean of the spot ellipsoid radiuses. This approximation is such that the sphere with the reported radius and the spot ellipsoid have the same volume. |
+| Spot track ID    | _idem_          | The ID of the track the spot belongs to. Track IDs are positive integer numbers starting from 0.                                                                                                                                                             |
 
 
 ## Link features.
 
-| **Feature name** |  **Projections**  |  **Description** |
-|----|---|---|
-| Link target IDs | Source spot id & Target spot id | Stores the IDs of the two spots the link connects to. In Mastodon, the links are oriented: the source and target are not equivalent. By convention in Mastodon, the source spot is always the first in time, and the target the last in time. |
-| Link displacement | _idem_ | The distance between the source and target spots of the links, in physical units. |
-| Link velocity | _idem_ | The velocity at the time of the link. It is calculated as the link displacement divided by the frame interval between the source and target spots (in frame units). |
+| **Feature name**  | **Projections**                 | **Description**                                                                                                                                                                                                                               |
+|-------------------|---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Link target IDs   | Source spot id & Target spot id | Stores the IDs of the two spots the link connects to. In Mastodon, the links are oriented: the source and target are not equivalent. By convention in Mastodon, the source spot is always the first in time, and the target the last in time. |
+| Link displacement | _idem_                          | The distance between the source and target spots of the links, in physical units.                                                                                                                                                             |
+| Link velocity     | _idem_                          | The velocity at the time of the link. It is calculated as the link displacement divided by the frame interval between the source and target spots (in frame units).                                                                           |
 
 
 ## Track features.
 
 ’Track’ is the vocable we use in Mastodon for the weakly connected components of the graph. A track is made of all the links and spots that can be reached by jumping across links in any direction. In a lineage, a track corresponds to a single cell and all its daughters, grand-daughters, etc . Track features are value that are defined for a whole track. An example would be the number of spots in a track. In Mastodon, there is no special place to store track feature values. Track feature values are stored in the spots of the tracks, and listed in spot features. By convention, their name starts with **Track** and spot features starts with **Spot**.
 
-| **Feature name** |  **Projections**  |  **Description** |
-|----|---|---|
-| Track N spots | _idem_ |  The number of spots in a track. |
+| **Feature name** | **Projections** | **Description**                 |
+|------------------|-----------------|---------------------------------|
+| Track N spots    | _idem_          | The number of spots in a track. |
 
 ## Branch-spot features.
 
-Because branch-spots link to spots in the core graph, the branch-spot features all relate to the hierarchy or neighborhood in the branch-graph.
+Some of the branch-spot features relate to the hierarchy or neighborhood in the branch-graph.
+Further branch-spot features are related to the branch duration and displacement.
+More features are available in the [Mastodon-DeepLineage](../partC/deep_lineage/readme.md#branch-features) extension.
 
-| **Feature name** |  **Projections**  |  **Description** |
-|----|---|---|
-| Branch N successors | _idem_ | Reports the number of successors of a branch spot. That is: how many branches emerge from this branch-spot. The branch-spot of a cell that divides will have a value of 2 for this feature. The end of a track will have a value of 0. The beginning of a track, 1. |
-| Branch depth | _idem_ |  Report the hierarchy level of a branch. The hierarchy of a branch is how many ancestors a branch has. For instance, the first branch of a track has a level of 0. After one cell division, the two daughter branches have a level of 1, _etc_. This feature value is used to build the hierarchy graph.  |
+| **Feature name**                 | **Projections** | **Description**                                                                                                                                                                                                                                                                                         |
+|----------------------------------|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Branch N successors              | _idem_          | Reports the number of successors of a branch spot. That is: how many branches emerge from this branch-spot. The branch-spot of a cell that divides will have a value of 2 for this feature. The end of a track will have a value of 0. The beginning of a track, 1.                                     |
+| Branch depth                     | _idem_          | Report the hierarchy level of a branch. The hierarchy of a branch is how many ancestors a branch has. For instance, the first branch of a track has a level of 0. After one cell division, the two daughter branches have a level of 1, _etc_. This feature value is used to build the hierarchy graph. |
+| Branch N Spots                   | _idem_          | The number of spots in a branch. The count does not include the spots at the beginning of the branch, but includes the last one. This way the sum of this feature values for all the branches of a track equals the number of spots in the track.                                                       |
+| Branch duration and displacement | Displacement    | Measure the displacement of a branch, that is: the euclidean distance between the first and last spot of the branch.                                                                                                                                                                                    |
+|                                  | Duration        | The time difference between the first and last spot of the branch.                                                                                                                                                                                                                                      |
 
-## Branch link features.
+## Branch-link features.
 
-The branch-links represent a full branch from start to finish. 
-Their features relate mainly to the branch size and extension in time.
+The branch-links represent a full branch from start to finish.
 
-| **Feature name** |  **Projections**  |  **Description** |
-|----|---|---|
-|  Branch N Spots | _idem_ | The number of spots in a branch. The count does not include the spots at the beginning of the branch, but includes the last one. This way the sum of this feature values for all the branches of a track equals the number of spots in the track. |
-| Branch duration and displacement | Displacement | Measure the displacement of a branch, that is: the euclidean distance between the first and last spot of the branch. |
-|  | Duration | The time difference between the first and last spot of the branch. |
+| **Feature name** | **Projections** | **Description** |
+|------------------|-----------------|-----------------|
 

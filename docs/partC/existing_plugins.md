@@ -9,14 +9,14 @@ Information on how to extend Mastodon yourself be creating such plugins can be f
 
 The following plugins are available with the core of Mastodon.
 
-### Imports
+### Importers
 
 - [CSV importer](csv-importer)
 <!-- - [Import GraphML](import-graphml) -->
 
-### Exports
+### Image data
 
-- [Track image](track-image)
+- [Export to CSV](track-image)
 
 ### Numerical feature operations
 

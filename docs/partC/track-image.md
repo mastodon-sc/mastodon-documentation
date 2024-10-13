@@ -1,8 +1,8 @@
-# Track image
+# Spot trajectory image extractor
 
-|  Track image | |
+|  Spot trajectory image extractor | |
 | ---------------- | ------------------------------ |
-| Menu location | *Plugins > Track image* |
+| Menu location | *Plugins > Image data > Spot trajectory image extractor* |
 | Description | Create a new image in Fiji displaying a neiborhood centered on a cell tracked over time. |
 | Command name     | `show spot track image dialog` |
 | Default bindings | Not mapped                     |

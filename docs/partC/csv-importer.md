@@ -2,7 +2,7 @@
 
 |  Track image | |
 | ---------------- | ------------------------------ |
-| Menu location | *Plugins > Imports > CSV Importer* |
+| Menu location | *File > Import > CSV Importer* |
 | Description | Import spots from coordinates stored in a CSV file. |
 | Command name     | `show csv importer dialog` |
 | Default bindings | Not mapped                     |

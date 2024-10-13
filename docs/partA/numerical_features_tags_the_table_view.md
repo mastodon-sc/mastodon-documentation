@@ -349,7 +349,7 @@ And it can give a pleasant display when combined with sorting rows by a feature 
 ### Exporting table data.
 
 The data currently displayed in a table view can be exported to CSV.
-When a table window is active, select the menu item `File > Export to CSV`.
+When a table window is active, select the menu item `File > Export > Export to CSV`.
 You will have to specify a saving location and a name. 
 Only the data displayed in the currently visible table are saved, and ordered as in the view. 
 This means that if you call the command from a selection table, only the current selection will be saved.

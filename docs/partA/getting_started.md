@@ -116,7 +116,7 @@ You should find the `Mastodon` site in the list.
 ![image](../imgs/Mastodon_UpdateSite.png){width="500px" align="center"}
 
 Select it, update Fiji and restart it.
-After restarting, you should find the command _Plugins > Mastodon_ at the bottom of the _Plugins_ menu.
+After restarting, you should find the command _Plugins > Tracking > Mastodon > Mastodon Launcher_ in the _Plugins_ menu.
 
 
 ## Creating a new Mastodon project.

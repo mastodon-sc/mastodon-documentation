@@ -17,7 +17,7 @@
   they satisfy the constraints elaborated in section 3.1 ("Constrained Edit Distance Mappings") of the
   paper: [Zhang, K. Algorithmica 15, 205–222, 1996](https://doi.org/10.1007/BF01975866)
 
-```
+```text
   Note: The prefix T may represent a node or a complete subtree. Nodes without this prefix are just nodes.
  
   1. Change label
@@ -75,7 +75,7 @@
 
 As an example, the following case explicitly does not fulfill the constraints mentioned in the paper:
 
-```
+```text
  Delete a node without deleting one of its children
           A            A
          / \   -->   / | \
@@ -86,7 +86,7 @@ As an example, the following case explicitly does not fulfill the constraints me
 
 * A basic example of the tree edit distance:
 
-```
+```text
 Tree1
                             node1(node_weight=13)
                    ┌──────────┴─────────────┐
@@ -94,7 +94,7 @@ Tree1
                  node2(node_weight=203)   node3(node_weight=203)
 ```
 
-```
+```text
 Tree2
                             node1(node_weight=12)
                    ┌──────────┴─────────────┐

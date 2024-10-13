@@ -24,3 +24,4 @@ Mastodon Deep Lineage - a collection of plugins to analyse lineages of tracked o
     deep_lineage/hierarchical_clustering_of_lineage_trees
     deep_lineage/dimensionality_reduction
     deep_lineage/importers
+    deep_lineage/exporters

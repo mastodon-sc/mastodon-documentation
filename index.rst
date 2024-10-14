@@ -2,7 +2,12 @@
    :width: 192
 
 About Mastodon and this documentation.
-======================================
+########################################
+
+
+Mastodon presentation.
+**********************
+
 
 Mastodon is a large-scale tracking and track-editing framework for large, multi-view images, such as the ones that are typically generated in the domain Development Biology or Stem-Cell Biology or Cell Biology.
 
@@ -17,15 +22,35 @@ They will make interacting and analyzing the data especially difficult.
 
 **Mastodon** is our effort to provide a tool that can harness these challenges. 
 
+.. Elephant doc: https://github.com/elephant-track/elephant-track.github.io
+
+Mastodon is a comprehensive, open-source tracking software designed for managing large-scale tracking data in biological imaging datasets. It features an intuitive and interactive GUI with interconnected windows, offering a variety of visualisation and analysis tools.
+
+Users can generate, edit, and explore tracking data seamlessly across multiple interconnected windows, including the `BigDataViewer` window for image data visualisation, the `TrackScheme` window for organising, editing and inspecting cell lineages, and the `Grapher` window for plotting features like velocity and intensity. 
+
+.. image:: https://global.discourse-cdn.com/flex015/uploads/imagej/original/3X/2/7/274b734f53ac88fa3c2edc76c62def29ed5ab2c2.png
+
+The software supports automated, semi-automated, and manual tracking methods in 3D, allowing users to correct tracking errors inside millions of annotations, and it has flexible import and output options. 
+
+Mastodon is extensible, and can be customised with plugins and extensions to add new features and algorithms.
+Notably, users can also leverage a recently developed deep learning tracking platform called `Elephant <https://github.com/elephant-track/elephant-track.github.io>`_, which is fully integrated with Mastodon.
+
+For enhanced 3D visualisations, Mastodon integrates the free and open-source 3D graphics software Blender, providing two different windows for interactive exploration and high-performance rendering of tracking data. The software’s plugin system allows for custom-made extensions, enabling users to add specific functionalities without modifying the core code. Notable plugins include the `Selection Creator Parser` for advanced spot selection, the `Lineage Registration` plugin for exploring tracking data of multiple embryos with stereotypical development, and the `Classification of Lineage Trees` plugin for analysing the architecture of cell lineage trees.
+
+
+
+About this documentation.
+*************************
+
 This pages centralize the user and developer documentation for Mastodon.
 It is divided in four parts, that group sections by interest.
 
 **A.** The first part, *Using mastodon* contains tutorials, aimed at end-users and focused on cell tracking. 
 They are meant to guide users with the Mastodon software and cover three applications of cell tracking in Mastodon:
 
-  -   automated cell or particle tracking;
-  -   manual curation and correction of tracking results;
-  -   manual and semi-automatic tracking.
+-   automated cell or particle tracking;
+-   manual curation and correction of tracking results;
+-   manual and semi-automatic tracking.
 
 This also where we introduce all the user-oriented features, such as numerical features, tags, navigation facilities, data export *etc*.
 If you are new to Mastodon, it is best starting with this part, and reading the tutorial in order.

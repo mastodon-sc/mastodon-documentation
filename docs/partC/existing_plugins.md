@@ -40,5 +40,14 @@ The following plugins are available with the core of Mastodon.
 ### Mastodon Deep Lineage
 
 A collection of plugins to analyse lineages of tracked objects in Mastodon,
-e.g. Lineage Tree Classification, Export of ellipsoids as image, some more
-numerical features for Spots and BranchSpots. See the [Mastodon Deep Lineage](deep_lineage.rst).
+e.g.:
+
+* Additional Features for Spots and Links
+* Additional Features for Branches
+* Hierarchical Clustering of Lineage Trees
+* Import of segmented images as tracks
+* Export of ellipsoids to segmented images
+* Export of TrackScheme Branch View to GraphML
+* Dimensionality Reduction (UMAP)
+
+* See [Mastodon Deep Lineage](deep_lineage.rst).

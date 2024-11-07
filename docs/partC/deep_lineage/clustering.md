@@ -7,6 +7,7 @@
   pattern. The structure of a lineage tree is represented by the tree topology.
   This tree topology consists of the actual branching pattern and the cell lifetimes,
   i.e. the time points between two subsequent cell divisions.
+* Functionality in a nutshell: ![nutshell.gif](clustering/nutshell.gif)
 
 ## Zhang Tree Edit Distance
 

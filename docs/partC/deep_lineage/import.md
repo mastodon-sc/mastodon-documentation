@@ -39,23 +39,21 @@
 
 * Example
   dataset: [Fluo-C3DL-MDA231 from Cell Tracking Challenge](http://data.celltrackingchallenge.net/training-datasets/Fluo-C3DL-MDA231.zip)
-    * Extract the file to a folder named `Fluo-C3DL-MDA231`
-    * Import the image sequence with the actual image into ImageJ contained in folder `Fluo-C3DL-MDA231/01/`
-        * `File > Import > Image Sequence...`
-    * Set the dimensions of the image sequence to 512x512x1x30x12 (XYCTZ) using `Image > Properties`
+* Extract the file to a folder named `Fluo-C3DL-MDA231`
+* Import the image sequence with the actual image into ImageJ contained in folder `Fluo-C3DL-MDA231/01/`
+  * `File > Import > Image Sequence...`
+* Set the dimensions of the image sequence to 512x512x1x30x12 (XYCTZ) using `Image > Properties`
   * ![plugin_import_example_1.png](import/label_image/imagej/plugin_import_example_1.png)
-        * Open Mastodon from Fiji and create a new project with the image sequence
-            * `Plugins > Mastodon > new Mastodon project > Use an image opened in ImageJ > Create`
-    * ![plugin_import_example_2.png](import/label_image/imagej/plugin_import_example_2.png)
-        * Import the image sequence encoding the label images into ImageJ contained in
-          folder: `Fluo-C3DL-MDA231/01_ERR_SEG/`
-        * Set the dimensions of the label image to 512x512x1x30x12 (XYCTZ) using `Image > Properties`
-    * ![plugin_import_example_3.png](import/label_image/imagej/plugin_import_example_3.png)
-        * Open Import window in
-    Mastodon: `File > Import > Import spots from label image > Import spots from ImageJ image`
-        * Select the channel in Big Data Viewer containing the image that has been used to create the label image.
-            * Click `OK` and the spots are imported into Mastodon.
-    * ![plugin_import_example_4.png](import/label_image/imagej/plugin_import_example_4.png)
+* Open Mastodon from Fiji and create a new project with the image sequence
+  * `Plugins > Mastodon > new Mastodon project > Use an image opened in ImageJ > Create`
+  * ![plugin_import_example_2.png](import/label_image/imagej/plugin_import_example_2.png)
+* Import the image sequence encoding the label images into ImageJ contained in folder: `Fluo-C3DL-MDA231/01_ERR_SEG/`
+  * Set the dimensions of the label image to 512x512x1x30x12 (XYCTZ) using `Image > Properties`
+  * ![plugin_import_example_3.png](import/label_image/imagej/plugin_import_example_3.png)
+* Open Import window in Mastodon: `File > Import > Import spots from label image > Import spots from ImageJ image`
+  * Select the channel in Big Data Viewer containing the image that has been used to create the label image.
+  * Click `OK` and the spots are imported into Mastodon.
+  * ![plugin_import_example_4.png](import/label_image/imagej/plugin_import_example_4.png)
 
 ###  Label image as BDV channel
 
@@ -66,21 +64,21 @@
 
 * Example
   dataset: [Fluo-C3DL-MDA231 from Cell Tracking Challenge](http://data.celltrackingchallenge.net/training-datasets/Fluo-C3DL-MDA231.zip)
-    * Extract the file to a folder named `Fluo-C3DL-MDA231`
-    * Import the image sequence with the actual image into ImageJ contained in folder `Fluo-C3DL-MDA231/01/`
-        * `File > Import > Image Sequence...`
-    * Set the dimensions of the image sequence to 512x512x1x30x12 (XYCTZ) using `Image > Properties`
+* Extract the file to a folder named `Fluo-C3DL-MDA231`
+* Import the image sequence with the actual image into ImageJ contained in folder `Fluo-C3DL-MDA231/01/`
+  * `File > Import > Image Sequence...`
+* Set the dimensions of the image sequence to 512x512x1x30x12 (XYCTZ) using `Image > Properties`
   * ![plugin_import_example_1.png](import/label_image/imagej/plugin_import_example_1.png)
-        * Import the image sequence encoding the label images into ImageJ contained in
-          folder: `Fluo-C3DL-MDA231/01_ERR_SEG/`
+* Import the image sequence encoding the label images into ImageJ contained in folder: `Fluo-C3DL-MDA231/01_ERR_SEG/`
   * Set the dimensions of the label image to 512x512x1x30x12 (XYCTZ) using `Image > Properties`
-    * ![plugin_import_example_3.png](import/label_image/imagej/plugin_import_example_3.png)
+  * ![plugin_import_example_3.png](import/label_image/imagej/plugin_import_example_3.png)
   * Merge the 2 images into a single image using the `Image > Color > Merge Channels...` command
-    * ![plugin_import_example_5.png](import/label_image/imagej/plugin_import_example_5.png)
-  * Open Mastodon from Fiji and create a new project with merged image
-      * `Plugins > Mastodon > new Mastodon project > Use an image opened in ImageJ > Create`
-    * ![plugin_import_example_6.png](import/label_image/imagej/plugin_import_example_6.png)
-  * Open Import window: `File > Import > Import spots from label image > Import spots from BDV channel`
-      * Select the BDV channel containing the label image
-      * Click `OK` and the spots are imported into Mastodon.
-          * ![plugin_import_example_7.png](import/label_image/imagej/plugin_import_example_7.png)
+  * ![plugin_import_example_5.png](import/label_image/imagej/plugin_import_example_5.png)
+* Open Mastodon from Fiji and create a new project with merged image
+  * `Plugins > Mastodon > new Mastodon project > Use an image opened in ImageJ > Create`
+  * ![plugin_import_example_6.png](import/label_image/imagej/plugin_import_example_6.png)
+* Open Import window
+  * `File > Import > Import spots from label image > Import spots from BDV channel`
+  * Select the BDV channel containing the label image
+  * Click `OK` and the spots are imported into Mastodon.
+  * ![plugin_import_example_7.png](import/label_image/imagej/plugin_import_example_7.png)

@@ -1,6 +1,6 @@
-# Exporters
+# Export
 
-## Label Image Exporter
+## Label Image Export
 
 * Menu Location: `File > Export > Export label image using ellipsoids`
 * The Label image exporter is capable of saving a label image to a file using the existing ellipsoids in Mastodon.
@@ -29,7 +29,7 @@
 * The exported tif imported into [Napari](https://napari.org/stable/) 3D
   view: ![Napari](export/label_image/napari_timelapse.gif)
 
-## GraphML Exporter
+## GraphML Export
 
 * Menu Location: `File > Export > Export to GraphML (branches)`
 * Exports the branch graph to a [GraphML](http://graphml.graphdrawing.org/) file.

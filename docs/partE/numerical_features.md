@@ -88,7 +88,6 @@ It is recommended to use the 'Spot intensity' feature described above when the b
 
 Some of the branch-spot features relate to the hierarchy or neighborhood in the branch-graph.
 Further branch-spot features are related to the branch duration and displacement.
-More features are available in the [Mastodon-DeepLineage](../partC/deep_lineage.rst) extension.
 
 | **Feature name**                 | **Projections** | **Description**                                                                                                                                                                                                                                                                                         |
 |----------------------------------|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -102,3 +101,6 @@ More features are available in the [Mastodon-DeepLineage](../partC/deep_lineage.
 
 The branch-links represent a full branch from start to finish.
 
+## More features.
+
+More features are available in the [Mastodon-DeepLineage](../partC/deep_lineage.rst) extension.

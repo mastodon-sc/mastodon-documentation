@@ -8,6 +8,8 @@ For instance there are feature for the number of links that touch a spot, or the
 You can find them within Mastodon because it is convenient, but also because they are very useful for the interactive exploration of your data.
 Coupled with feature-based coloring, the display and sorting of values in the table view and the selection creator tool, they can considerably accelerate and facilitate making sense of the data.
 
+Overview of available numerical features: [numerical features](../partE/numerical_features.md)
+
 Numerical features are numbers that classically relate to a physical quantity.
 When we need to *categorize* items, we rely on *tags*. 
 We describe them just below.

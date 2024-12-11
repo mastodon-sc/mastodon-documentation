@@ -1,4 +1,4 @@
-Mastodon Deep Lineage - analysis tools for tracked objects in Mastodon
+Mastodon Tomancak - editing, analysis and visualising tools for tracked objects in Mastodon
 ==================================================================================================
 
 .. image:: https://img.shields.io/badge/License-BSD%202--Clause-orange.svg

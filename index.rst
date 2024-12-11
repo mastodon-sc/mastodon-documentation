@@ -102,6 +102,7 @@ Table of content.
     docs/partC/stats-on-nearest-neighbors.md
     docs/partC/track-image.md
     docs/partC/deep_lineage.rst
+    docs/partC/tomancak.rst
 
 .. toctree::
    :caption: D. Extending Mastodon

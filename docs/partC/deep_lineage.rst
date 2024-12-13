@@ -1,4 +1,4 @@
-Track analysis, import and export add-ons (Deep Lineage)
+Track analysis, import and export add-ons (DeepLineage)
 ==================================================================================================
 
 .. image:: https://img.shields.io/badge/License-BSD%202--Clause-orange.svg

@@ -1,4 +1,4 @@
-Mastodon Tomancak - editing, analysis and visualising tools for tracked objects in Mastodon
+Mastodon Tomancak - track editing, analysis and export add-ons
 ==================================================================================================
 
 .. image:: https://img.shields.io/badge/License-BSD%202--Clause-orange.svg

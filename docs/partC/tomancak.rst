@@ -1,4 +1,4 @@
-Mastodon Tomancak - track editing, analysis and export add-ons
+Track editing, analysis and export add-ons (Tomancak)
 ==================================================================================================
 
 .. image:: https://img.shields.io/badge/License-BSD%202--Clause-orange.svg

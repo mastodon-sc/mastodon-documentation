@@ -1,4 +1,4 @@
-Mastodon Deep Lineage - track analysis, import and export add-ons
+Track analysis, import and export add-ons (Deep Lineage)
 ==================================================================================================
 
 .. image:: https://img.shields.io/badge/License-BSD%202--Clause-orange.svg

@@ -12,3 +12,5 @@ Mastodon Tomancak - editing, analysis and visualising tools for tracked objects 
 
     tomancak/installation
     tomancak/spotsmanagement
+    tomancak/tags
+    tomancak/treesmanagement

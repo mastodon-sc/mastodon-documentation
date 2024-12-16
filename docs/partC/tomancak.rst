@@ -14,3 +14,4 @@ Track editing, analysis and export add-ons (Tomancak)
     tomancak/spotsmanagement
     tomancak/tags
     tomancak/treesmanagement
+    tomancak/export

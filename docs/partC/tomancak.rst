@@ -15,3 +15,4 @@ Track editing, analysis and export add-ons (Tomancak)
     tomancak/tags
     tomancak/treesmanagement
     tomancak/export
+    deep_lineage/mergeprojects

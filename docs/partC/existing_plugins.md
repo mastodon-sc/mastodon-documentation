@@ -37,17 +37,30 @@ The following plugins are available with the core of Mastodon.
 
 ## Extra plugins
 
-### Mastodon Deep Lineage
+### Track analysis, import and export add-ons (DeepLineage)
 
-A collection of plugins to analyse lineages of tracked objects in Mastodon,
-e.g.:
+A collection of tools that extend Mastodon, e.g.:
 
-* Additional Features for Spots and Links
-* Additional Features for Branches
-* Hierarchical Clustering of Lineage Trees
+* Additional features for spots and links
+* Additional features for branches
+* Hierarchical clustering of lineage trees
 * Import of segmented images as tracks
 * Export of ellipsoids to segmented images
-* Export of TrackScheme Branch View to GraphML
-* Dimensionality Reduction (UMAP)
+* Export of TrackScheme branch view to GraphML
+* Dimensionality reduction (UMAP, PCA, t-SNE)
 
-* See [Mastodon Deep Lineage](deep_lineage.rst).
+* See [Deep Lineage](deep_lineage.rst).
+
+### Track editing, analysis and export add-ons (Tomancak)
+
+A collection of tools that extend Mastodon, e.g.:
+
+* Spot renaming and transformation
+* Sorting TrackScheme
+* Advanced track editing
+* Find, locate and edit tags
+* Export tree measurements
+* Merge projects
+* Spatial track matching
+
+* See [Tomancak](tomancak.rst).

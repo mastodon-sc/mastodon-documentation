@@ -64,3 +64,5 @@ A collection of tools that extend Mastodon, e.g.:
 * Spatial track matching
 
 * See [Tomancak](tomancak.rst).
+
+### Visualization add-ons (Blender-View)

@@ -20,7 +20,7 @@ They will make interacting and analyzing the data especially difficult.
 This pages centralize the user and developer documentation for Mastodon.
 It is divided in four parts, that group sections by interest.
 
-**A.** The first part, *Using mastodon* contains tutorials, aimed at end-users and focused on cell tracking. 
+**A.** The first part, *Using mastodon* contains (video) tutorials, aimed at end-users and focused on cell tracking.
 They are meant to guide users with the Mastodon software and cover three applications of cell tracking in Mastodon:
 
   -   automated cell or particle tracking;
@@ -79,6 +79,7 @@ Table of content.
    docs/partA/semi_automated_tracking.md
    docs/partA/selection_creator.md
    docs/partA/scripting_mastodon.md
+   docs/partA/video_tutorials.md
 
 
 .. toctree::

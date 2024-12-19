@@ -113,6 +113,7 @@ Table of content.
    docs/partD/mastodon_data_structures.md
    docs/partD/create_custom_mastodon_plugins.md
    docs/partD/custom_mastodon_simple_features.md
+   docs/partD/create_custom_mastodon_detectors.md
 
 .. toctree::
    :caption: E. Technical information

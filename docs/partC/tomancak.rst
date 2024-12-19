@@ -16,3 +16,4 @@ Track editing, analysis and export add-ons (Tomancak)
     tomancak/treesmanagement
     tomancak/export
     tomancak/mergeprojects
+    tomancak/spatialtrackmatching

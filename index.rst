@@ -104,6 +104,7 @@ Table of content.
     docs/partC/track-image.md
     docs/partC/deep_lineage.rst
     docs/partC/tomancak.rst
+    docs/partC/blender_view.rst
 
 .. toctree::
    :caption: D. Extending Mastodon

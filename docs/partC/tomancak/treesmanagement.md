@@ -86,3 +86,10 @@
 *
 
 Example: ![sort_lineage_tree_cell_life_cycle_duration.gif](treesmanagement/sort_lineage_tree_cell_life_cycle_duration.gif)
+
+### Show compact lineage
+
+* Menu Location: `Plugins > Trees management > Show compact lineage`
+* Shows a compact representation of the lineage tree, i.e. only the roots, leaves and spots immediately before a
+  division are shown.
+* Example: ![show_compact_lineage.gif](treesmanagement/show_compact_lineage.gif)

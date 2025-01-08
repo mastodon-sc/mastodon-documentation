@@ -32,7 +32,7 @@ Now, the active time points and the active spot are synchronized between Blender
 
 ### Example of a visualization
 
-![mastodon_blender_linked.gif](usage/mastodon_blender_linked.gif)
+![mastodon_blender_linked.gif](https://github.com/user-attachments/assets/1dbc0058-901e-43c7-8347-c568e8c0a156)
 
 ## Blender View (Advanced Visuals)
 
@@ -56,7 +56,7 @@ Now, the active time points and the active spot are synchronized between Blender
 
 ### Example of a visualization of feature color modes
 
-* ![blender_advanced_visuals_example.gif](usage/blender_advanced_visuals_example.gif)
+* ![blender_advanced_visuals_example.gif](https://github.com/user-attachments/assets/a581a8eb-3e35-4d9d-b4ee-d6568d1b1ade)
 
 ### Example of a movie rendering created with the Blender View
 

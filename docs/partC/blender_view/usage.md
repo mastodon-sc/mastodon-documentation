@@ -52,6 +52,8 @@ Now, the active time points and the active spot are synchronized between Blender
   updated in the Blender View. It can handle large datasets efficiently. It is possible to modify the visualization
   in Blender.
 * Preferred option for high quality rendering of movies.
+* The timescale in Blender is increased by a factor of 10 compared to Mastodon. This is done to make the visualization
+  more appealing. 1 frame in Blender corresponds to 10 frames in Mastodon.
 * The data can be rotated and shown from all angles.
 
 ### Example of a visualization of feature color modes

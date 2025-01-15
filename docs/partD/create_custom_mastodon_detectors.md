@@ -22,17 +22,21 @@ The detector example we will use in this tutorial are in the package:
 
 ([Or online](https://github.com/mastodon-sc/mastodon-plugin-example/tree/main/src/main/java/org/mastodon/mamut/example/detection).)
 
-You will find two classes there, the purpose of which we will explain shortly.
+You will find three classes there, the purpose of which we will explain shortly.
 They implement a dummy detector that creates spots at random locations in the source image.
 
 ## The detector class hierarchies.
 
-The two classes you find there are named:
+Two classes are needed for the detector itself:
 
 > `RandomSpotDetectorOp`
 > `RandomSpotDetectionExampleMamut`
 
 The `RandomSpotDetectionExampleMamut` is almost empty, while the `RandomSpotDetectorOp` is quite fledged. 
+
+The last class is used for the UI panel:
+> `RandomSpotDetectorDescriptor`
+
 We need first to explain why the two classes for one detector.
 It is again to achieve some generality and facilitate reuse beyond Mastodon.
 
@@ -50,7 +54,7 @@ It is a SciJava "op" that accepts:
 - a `DetectionCreatorFactory`, which will be use to actually add the objects this detector will find in the source image,
 - and a `List< SourceAndConverter< ? > > sources` which represents the input image. The list represents the possibly multiple channels or sources in BDV linguo.
 
-### 
+### `SpotDetectorOp`
 
 `RandomSpotDetectionExampleMamut` implements `SpotDetectorOp`.
 It is also a SciJava op, but accepts:
@@ -373,10 +377,10 @@ This is enough to write a generic detector.
 
 Now we want to write the part specific to the Mastodon 'Mamut' app. 
 This is done in the `RandomSpotDetectionExampleMamut` class, which has a separate hierarchy. 
-But by implementing a convenient abstrac class, the code can be made really short:
+But by implementing a convenient abstract class, the code can be made really short:
 
 ```java
-@Plugin( `, priority = Priority.LOW, name = "Random detector",
+@Plugin( SpotDetectorOp.class, priority = Priority.LOW, name = "Random detector",
 		description = "<html>"
 				+ "This example detector generates a fixed number of spots at random "
 				+ "locations."
@@ -388,7 +392,7 @@ public class RandomSpotDetectionExampleMamut extends AbstractSpotDetectorOp
 ```
 
 We also have a `@Plugin` annotation, with a specific hierarchy (`type = SpotDetectorOp.class`).
-By extending `AbstractSpotDetectorOp`, we just have one method to implement:
+By extending `AbstractSpotDetectorOp`, we just have two methods to implement:
 
 ```java
 	@Override
@@ -404,7 +408,28 @@ But  the mother class contains a convenience `exec` method that makes it simple:
 	{
 		exec( sources, graph, RandomSpotDetectorOp.class );
 	}
-} // end of the RandomSpotDetectionExampleMamut class
+```
+This is enough to create a `RandomSpotDetectorOp` detector, run it on the source image with the configured parameters, and convert its output to `Spot`s. 
+
+The second method is used to specify default settings. 
+This is important for Mastodon to discover what parameters are needed, what name they have and what type they accept.
+This is done via the method `getDefaultSettings()` method.
+You should create a map with all the required parameters for your detectors (and only them) and set a default value of the right class. 
+Ideally, if you have parameters that are the same that for the built-in detectors, you should re-use the parameter names and default values for them.
+
+``` java
+	@Override
+	public Map< String, Object > getDefaultSettings()
+	{
+		final Map< String, Object > ds = new HashMap< String, Object >();
+		ds.put( KEY_SETUP_ID, DEFAULT_SETUP_ID );
+		ds.put( KEY_MIN_TIMEPOINT, DEFAULT_MIN_TIMEPOINT );
+		ds.put( KEY_MAX_TIMEPOINT, DEFAULT_MAX_TIMEPOINT );
+		ds.put( KEY_RADIUS, DEFAULT_RADIUS );
+		ds.put( KEY_N_SPOTS, 30 );
+		return ds;
+	}
+} // end of class RandomSpotDetectionExampleMamut
 ```
 
 That's it.
@@ -412,7 +437,4 @@ This is sufficient to plug our detector in the Mastodon app.
 
 The next (big) step is to write a config panel that can be shown in the detection wizard.
 But we could also call this detector programmatically.
-
-## Running the detector programmatically
-
 

@@ -438,3 +438,207 @@ This is sufficient to plug our detector in the Mastodon app.
 The next (big) step is to write a config panel that can be shown in the detection wizard.
 But we could also call this detector programmatically.
 
+
+
+
+## Making a user interface for configuring the detector
+
+In Mastodon the main way we run the detection is actually via the wizard UI, that users run with the _Plugins > Tracking > Detection..._ command.
+In the third panel of this wizard, Mastodon lists all the detectors it found, _and_ that have a config panel.
+For our dummy detector to appear in this list, we need to create such a config panel.
+Let's do this.
+
+For the wizard UI, we need to create a 'descriptor'. 
+A descriptor is a class that represents a 'card' in the sequence of panels shown by the UI. 
+The one we will make has only one responsibility: offer the user to configure the random spot detector, and pass these settings to the detection runner.
+For this it creates a UI panel, specific to the detector.
+It also has several methods to get and store setting values, and to inform Mastodon about the detector it relates to.
+
+We don't have to go into details here, but it turns out that the class in charge of running the automated detection and linking processes is called [`TrackMate`](https://github.com/mastodon-sc/mastodon-tracking/blob/master/src/main/java/org/mastodon/tracking/mamut/trackmate/TrackMate.java).
+It stores the detection and linking settings, and will modify the data model. 
+We just have to worry about the detection settings, eveything else is taken care of.
+
+The full class of this descriptor is in the example repository [here](https://github.com/mastodon-sc/mastodon-plugin-example/blob/main/src/main/java/org/mastodon/mamut/example/detection/RandomSpotDetectorDescriptor.java). 
+We describe its content below.
+
+First, your descriptor must extend the `SpotDetectorDescriptor` abstract class.
+It has several fields and methods that simplify writing a custom one.
+Second, the descriptor also uses the SciJava discovery mechanism, so it needs the `@Plugin` annotation, like the two other classes above. 
+We will see soon how Mastodon associate a descriptor with the right detector it can configure.
+
+```java
+@Plugin( type = SpotDetectorDescriptor.class, name = "Random spot dummy detector configuration descriptor" )
+public class RandomSpotDetectorDescriptor extends SpotDetectorDescriptor
+{
+```
+
+Also this descriptor has only one specific field, the tracking settings to configure:
+
+```java
+	private Settings settings;
+```
+
+In the descriptor constructor, you need to specify a unique ID, and create the UI panel with the elements to configure the settings
+
+```java
+	public RandomSpotDetectorDescriptor()
+	{
+		/*
+		 * A descriptor represents a 'card' in the wizard we have in Mastodon.
+		 * For the wizard to run properly, you need to give it a unique
+		 * identifier and a UI panel when you create it.
+		 */
+
+		this.panelIdentifier = "Configure random spot detector";
+		this.targetPanel = new ConfigPanel(); // described just below.
+	}
+```
+
+The UI panel can be anything you want (it must extend `JPanel`) but we recommend emulating the size, look and feel of the other ones.
+For this example we copy / pasted an existing one and removed everything not needed. 
+It contains only two `JFormattedTextField` to set the diameter and the number of random spots to create. 
+
+Normally our detector requires more parameters to be configured: we need to tell what channel (setup ID) to run the detection on, the min and max time-point as well. 
+But in the wizard, this is actually done in the first two panels, and we don't have to worry about them.
+
+```java
+
+	/*
+	 * The UI part, stored as a private static class. We need to show only two
+	 * controls that can configure the number of spots we want to generate and
+	 * their diameter.
+	 */
+	private static class ConfigPanel extends JPanel
+	{
+		// ... see content in the file directly.
+	}
+```
+
+After that comes the method to handle the wizard process, that is: the user 'moving' in the panel or leaving it.
+
+```java
+	@Override
+	public void setTrackMate( final TrackMate trackmate )
+	{
+		/*
+		 * This method is called when the panel is shown, when the user 'enters'
+		 * the config panel. It receives the instance of TrackMate that will run
+		 * the detection, and that this panel needs to configure. We use the
+		 * method for two things:
+		 * 
+		 * 1/ Get the settings map to configure. The TrackMate instance stores
+		 * the detector settings in a map. We will need to update it with the
+		 * values set by the user on the panel when they 'leave' the panel, so
+		 * we store a reference to it in the descriptor.
+		 */
+
+		this.settings = trackmate.getSettings();
+
+		/*
+		 * 2/ We want to display the detector settings values, either the
+		 * default ones, or the one that were set previously. For this, we read
+		 * these values from the TrackMate instance we receive.
+		 */
+
+		if ( null == settings )
+			return;
+
+		// Get the values.
+		final Map< String, Object > detectorSettings = settings.values.getDetectorSettings();
+		final double diameter;
+		final Object objRadius = detectorSettings.get( KEY_RADIUS );
+		if ( null == objRadius )
+			diameter = 2. * DetectorKeys.DEFAULT_RADIUS;
+		else
+			diameter = 2. * ( double ) objRadius;
+
+		final int nSpots;
+		final Object nSpotsObj = detectorSettings.get( KEY_N_SPOTS );
+		if ( null == nSpotsObj )
+			nSpots = 30; // default
+		else
+			nSpots = ( int ) nSpotsObj;
+
+		// Show them in the config panel.
+		final ConfigPanel panel = ( ConfigPanel ) targetPanel;
+		panel.diameter.setValue( diameter );
+		panel.nSpots.setValue( nSpots );
+		// Also the spatial units because we are nice.
+		final String unit = DetectionUtil.getSpatialUnits( settings.values.getSources() );
+		panel.lblDiameterUnit.setText( unit );
+	}
+```
+
+and when the user click the 'Next' button:
+
+```java
+
+	@Override
+	public void aboutToHidePanel()
+	{
+		/*
+		 * This method is run when the user 'leaves' the panel going 'forward'.
+		 * This is the step just before running the full detection. The only
+		 * thing we have to do is to grab the setting values from the panel, and
+		 * store them in the settings instance we got when we entered the panel.
+		 */
+
+		if ( null == settings )
+			return;
+
+		/*
+		 * In the wizard, the settings map should already contain the parameter
+		 * values for the target channel and min and max time-point to run the
+		 * detector on (KEY_SETUP_ID, KEY_MIN_TIMEPOINT and KEY_MAX_TIMEPOINT).
+		 * We just have to add the parameters specific to this detector.
+		 */
+
+		// Cast the panel field to the right class.
+		final ConfigPanel panel = ( ConfigPanel ) targetPanel;
+		// Update settings map for the detector.
+		final Map< String, Object > detectorSettings = settings.values.getDetectorSettings();
+		detectorSettings.put( KEY_RADIUS, ( ( Number ) panel.diameter.getValue() ).doubleValue() / 2. );
+		detectorSettings.put( KEY_N_SPOTS, ( ( Number ) panel.nSpots.getValue() ).intValue() );
+	}
+```
+
+Then there is a method to tell Mastodon what detector this descriptor can configure:
+
+```java
+	@Override
+	public Collection< Class< ? extends SpotDetectorOp > > getTargetClasses()
+	{
+		/*
+		 * This method is used to tell Mastodon what detectors this wizard
+		 * descriptor can configure. This one is only suitable for our dummy
+		 * detector, which yields:
+		 */
+		return Collections.singleton( RandomSpotDetectionExampleMamut.class );
+	}
+```
+
+The last method is useful only if you want to do fancy things in your config panel:
+
+```java
+	@Override
+	public void setAppModel( final ProjectModel appModel )
+	{
+		/*
+		 * This method is used to receive the project model. Other detector
+		 * descriptors use it to run a preview of the detection, or to display
+		 * information about it.
+		 * 
+		 * In our case we don't do preview, so we don't need to keep a reference
+		 * to the project model. This method does then nothing.
+		 */
+	}
+} // end of class RandomSpotDetectorDescriptor
+```
+
+If you add this class, compile it and add the resulting jar to Fiji, this should be enough to have the custom detector appear and run in the wizard UI:
+
+![](../imgs/Mastodon_ExampleDetector_10.png){align="center"}
+![](../imgs/Mastodon_ExampleDetector_11.png){align="center"}
+![](../imgs/Mastodon_ExampleDetector_12.png){align="center"}
+![](../imgs/Mastodon_ExampleDetector_13.png){align="center"}
+

@@ -71,8 +71,6 @@ Now, the active time points and the active spot are synchronized between Blender
 * Menu Location: `Window > Blender Views > Export CSV for Blender`
 * Exports the current spot data to a CSV file. The CSV file contains the spot IDs, the spot labels, the time point, the
   x, y, z coordinates, the radius of the spot and potential tag and feature values. The CSV file, which is created by
-  this command, is the same file that is used with [Blender View (Advanced Visuals)](#Blender-View-Advanced-Visuals).
-* To import the CSV file into Blender manually, the
-  script [read_csv.py](https://github.com/mastodon-sc/mastodon-blender-view/blob/master/src/main/resources/csv/read_csv.py)
-  can be used.
+  this command, is the same file that is used with `Blender View (Advanced Visuals)`.
+* To import the CSV file into Blender manually, the script [read_csv.py](https://github.com/mastodon-sc/mastodon-blender-view/blob/master/src/main/resources/csv/read_csv.py) can be used.
 

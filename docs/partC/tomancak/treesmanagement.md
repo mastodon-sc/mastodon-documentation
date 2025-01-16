@@ -17,7 +17,7 @@
 * The command creates a new tag set with the name "Conflicting Spots" that contains tags for all the detected conflicts.
 * Two spots are considered to be in conflict if they overlap to a certain degree.
     * More precisely, the Hellinger
-      distance <sup>[1](https://en.wikipedia.org/wiki/Hellinger_distance), [2]("https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3582582/figure/F11/)</sup>
+      distance <sup>[1](https://en.wikipedia.org/wiki/Hellinger_distance), [2](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3582582/figure/F11/)</sup>
       between the ellipsoids of the spots is computed.
     * The spots are considered to be in overlapping / in conflict, if the distance is below a threshold that can be set
       by the user:

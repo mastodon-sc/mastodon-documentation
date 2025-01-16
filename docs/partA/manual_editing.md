@@ -166,9 +166,8 @@ To highlight a spot or link you just have to lay the mouse over it. As for the f
 ## Deleting individual spots and links.
 
 The highlight is especially important for track editing. 
-The commands that delete a single object are actually applied to the highlighted spot
-or link.
-For instance, to delete a spot or a link in , simply move the mouse cursor over it so that it is highlighted and press `D`. 
+The commands that delete a single object are actually applied to the highlighted spot or link.
+For instance, to delete a spot or a link, simply move the mouse cursor over it so that it is highlighted and press `D`. 
 You should see the tracks being rearranged following the deletion. 
 In a BDV view, the highlight and deletion mechanism is the same.
 

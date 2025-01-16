@@ -410,9 +410,122 @@ But  the mother class contains a convenience `exec` method that makes it simple:
 That's it.
 This is sufficient to plug our detector in the Mastodon app.
 
-The next (big) step is to write a config panel that can be shown in the detection wizard.
+The next step would be to write a config panel that can be shown in the detection wizard.
 But we could also call this detector programmatically.
+
+## Compiling and installing the code
+
+We will assume here that you are working from the template repository we linked at the start of this page (`mastodon-plugin-example`).
+If you have it installed or derived from it, the compilation is done as for moany other Fiji projects, with `maven`.
+
+``` sh
+❯ cd mastodon-plugin-example
+❯ mvn
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< org.mastodon:mastodon-plugin-example >----------------
+[INFO] Building Mastodon Plugin Example 1.0.0-beta-23-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+...
+```
+This will create a jar in the `target` folder:
+```sh
+❯ ls target
+mastodon-plugin-example-1.0.0-beta-23-SNAPSHOT.jar
+...
+```
+
+Copy this file (not the one ending in `-sources` or `-tests`) to the `jars/` folder of a Fiji installation with Mastodon installed:
+
+```sh
+❯ cp target/mastodon-plugin-example-1.0.0-beta-23-SNAPSHOT.jar ~/Applications/Fiji.app/jars
+❯ ls -1  ~/Applications/Fiji.app/jars/mastodon*
+/Users/tinevez/Applications/Fiji.app/jars/mastodon-1.0.0-beta-33.jar
+/Users/tinevez/Applications/Fiji.app/jars/mastodon-app-1.0.0-beta-25.jar
+/Users/tinevez/Applications/Fiji.app/jars/mastodon-blender-view-0.3.2.jar
+/Users/tinevez/Applications/Fiji.app/jars/mastodon-collection-1.0.0-beta-29.jar
+/Users/tinevez/Applications/Fiji.app/jars/mastodon-ctc-0.1.3.jar
+/Users/tinevez/Applications/Fiji.app/jars/mastodon-ctc-baseline-0.0.9.jar
+/Users/tinevez/Applications/Fiji.app/jars/mastodon-deep-lineage-0.4.3.jar
+/Users/tinevez/Applications/Fiji.app/jars/mastodon-ellipsoid-fitting-0.7.1.jar
+/Users/tinevez/Applications/Fiji.app/jars/mastodon-graph-1.0.0-beta-29.jar
+/Users/tinevez/Applications/Fiji.app/jars/mastodon-pasteur-1.0.0-beta-12.jar
+/Users/tinevez/Applications/Fiji.app/jars/mastodon-plugin-example-1.0.0-beta-23-SNAPSHOT.jar
+/Users/tinevez/Applications/Fiji.app/jars/mastodon-selection-creator-0.0.11.jar
+/Users/tinevez/Applications/Fiji.app/jars/mastodon-tomancak-0.6.3.jar
+/Users/tinevez/Applications/Fiji.app/jars/mastodon-tracking-1.0.0-beta-18.jar
+```
+
+This should be enough to make all the plugins and detectors we have been working on in this tutorial visible there.
+For instance:
+
+![](../imgs/Mastodon_ExampleDetector_01.png){align="center"}
+![](../imgs/Mastodon_ExampleDetector_02.png){align="center"}
+![](../imgs/Mastodon_ExampleDetector_03.png){align="center"}
+
+And of course our detector as well.
+To make it visible, in the wizard user-interface, we will need to create a configuration panel for it.
+But we can already test it via the scripting interface.
+
 
 ## Running the detector programmatically
 
+Still in Fiji, open the script editor, and select `Python (Jython)` as a language. 
+Mastodon can be scripted from there, as explained in the section dedicated to [scripting](../partA/scripting_mastodon.md).
+We will suppose you are working with the file created during this tutorial.
+The following script will open this file as a Mastodon project:
 
+```python
+#@ Context context
+
+from org.mastodon.mamut import Mamut
+import os
+
+existingMastodonFile = os.path.join( os.path.expanduser('~'), 'Desktop', 'test_scripting.mastodon' )
+mamut = Mamut.open( existingMastodonFile, context )
+mamut.info()
+```
+And in the console you should see something along these lines:
+```
+Data model #4
+ - mastodon project file: /Users/tinevez/Desktop/test_scripting.mastodon
+ - dataset: /Users/tinevez/Desktop/datasethdf5.xml
+ - objects: 1622 spots, 1449 links and 173 tracks.
+ - units: pixel and frame
+```
+
+Now we can interogate what detectors are visible by Mastodon:
+
+```python
+trackmate = mamut.createTrackMate()
+trackmate.infoDetectors()
+```
+Our new detector appears at the end of the list:
+
+```
+Available detectors:
+[... the other detectors]
+
+ 3: 'Random detector'
+-----------------------
+Description:
+    This example detector generates a fixed number of spots at random
+    locations. It is only used as an example to show how to implement a
+    custom detector in Mastodon. 
+Parameters:
+    Name                                     Type                 Default value       
+    ----                                     ----                 -------------       
+    MAX_TIMEPOINT                            Integer              0                   
+    MIN_TIMEPOINT                            Integer              0                   
+    N_SPOTS                                  Integer              30                  
+    RADIUS                                   Double               5.0                 
+    SETUP                                    Integer              0  
+```
+
+We also get the list of parameters to provide in the settings dictionary. 
+To run the detector on a fresh data we do:
+
+```python
+
+```

@@ -13,7 +13,7 @@ import sphinx_material
 sys.path.append(os.path.abspath('exts'))
 
 project = 'Mastodon'
-copyright = '2022 - 2024, Jean-Yves Tinevez'
+copyright = '2022 - 2025, Jean-Yves Tinevez'
 author = 'Jean-Yves Tinevez'
 
 # -- General configuration ---------------------------------------------------

@@ -1,6 +1,6 @@
-## Installation
+# Installation
 
-### Setup Blender Addon...
+## Setup Blender Addon...
 
 * Pre-requisites:
     * Install [Fiji](https://imagej.net/downloads) and [Blender](https://blender.org/download) on your computer.
@@ -13,7 +13,7 @@
 * In Mastodon's main menu, you will find an entry ```Window > Blender Views > Setup Blender Addon ...```, click it and
   follow the instructions to install the Mastodon Blender Plugin.
 
-### Configure Blender Template Files...
+## Configure Blender Template Files...
 
 * Menu Location: `Window > Blender Views > Configure Blender Template Files...`
 * This command allows you to configure the Blender template files that are used when opening a new Blender window. This

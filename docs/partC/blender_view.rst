@@ -13,4 +13,3 @@ Interactive 3D viewer for tracking data (Blender View)
     blender_view/installation
     blender_view/about
     blender_view/usage
-    blender_view/project_details

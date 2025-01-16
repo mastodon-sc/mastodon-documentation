@@ -1,4 +1,4 @@
-## Merge Projects
+# Merge Projects
 
 * Menu Location: in FIJI (not in Mastodon) `Plugins > Tracking > Mastodon > Merge Two Projects`
 * The command is able to merge tracking data from two projects that refer to the same image data.

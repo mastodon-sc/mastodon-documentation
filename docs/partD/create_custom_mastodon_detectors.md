@@ -642,3 +642,26 @@ If you add this class, compile it and add the resulting jar to Fiji, this should
 ![](../imgs/Mastodon_ExampleDetector_12.png){align="center"}
 ![](../imgs/Mastodon_ExampleDetector_13.png){align="center"}
 
+## Summary and stragegies
+
+What we described here is a means to implement a detector that will work by finding spots on the image:
+
+- `RandomSpotDetectorOp` does the main job of processing the image and generating a list of X,Y,Z coordinates per time-point.
+- `RandomSpotDetectionExampleMamut` reuses it to convert these lists to create Mastodon `Spot` object and add them to the data model. It also specifies what parameters are needed to configure the detector.
+
+This is enough the run the detector from scripts.
+
+- `RandomSpotDetectorDescriptor` deals with the user interface and integration inside the tracking wizard.
+
+Using a `DetectorOp` and `SpotDetectorOp` allows to make your detector general and seperate concers (first one performs generic detection, second one takes care about integration into Mastodon data structures).
+However you can skip the generic part, and immediately make a detector that would work only for the Mastodon app data structures, by only implementing the `SpotDetectorOp` interface (of better extending the `AbstractSpotDetectorOp` abstract class).
+In that case you would do the heavy lifting in the 
+```java
+public void compute( final List< SourceAndConverter< ? > > sources, final ModelGraph graph )
+```
+method, process the image and add the created `Spot`s object to the `ModelGraph`.
+This would be particularly suitable if you want to use algorithms that do not work by finding X,Y,Z detections, as we did above. 
+That would be the case for detectors based on StarDist for instance, that return the shape of objects, and that could be encoded in the `Spot` ellipsoids. 
+
+To go further, do not hesitate to study the builtin detectors, such as the DoG detector to see [how we use imglib2 algorithms to build a detector ](https://github.com/mastodon-sc/mastodon-tracking/blob/master/src/main/java/org/mastodon/tracking/detection/DoGDetectorOp.java) and [how we put a preview button in the UI](https://github.com/mastodon-sc/mastodon-tracking/blob/master/src/main/java/org/mastodon/tracking/mamut/trackmate/wizard/descriptors/DoGDetectorDescriptor.java).
+

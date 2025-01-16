@@ -21,6 +21,6 @@
 | Toggle fused mode.              | Press `F`. <br /> In fused mode, several sources are overlaid. Press `Shift` + `1` / `Shift` + `2` ... to add / remove the source to the view. In single-source mode, only one source is shown.          |
 | Save / load display settings.   | `F11` / `F12`. <br />This will create a _XYZ_settings.xml_ file in which the display settings and bookmarks will be saved.                                               |
 
-Before mid-2023, the brightness and source visibility dialogs were configured in dialogs which visibility were toggled with the `F` and `F6`  shortcuts respectively. With the new version of BDV, they are configured with a side-pane in a BDV window that can be toggled by placing the mouse ofther right part of the images:
+Before mid-2023, the brightness and source visibility dialogs were configured in dialogs which visibility were toggled with the `F` and `F6`  shortcuts respectively. With the new version of BDV, they are configured with a side-pane in a BDV window that can be toggled by clicking on a button made visible when the mouse hovers over the right part of the window:
 
 ![BDV side pane position](../imgs/Mastodon_BD-sidepane.gif)

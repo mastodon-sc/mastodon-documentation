@@ -6,7 +6,7 @@ A Mastodon plugin is a piece of code that implements a functionality that you ca
 We built the plugin system and documented it so that extending Mastodon can be done without the core developers intervention, or even without us knowing about it.
 To achieve this, we rely on [SciJava](https://imagej.net/libs/scijava#plugin-framework).
 This core library offers a very simple and efficient plugin discovery mechanism.
-WIth it, you can write some code in Java, compile it in a jar file, drop the jar file in Fiji, and Mastodon will automatically pick it up, and integrate the functionality it ships.
+With it, you can write some code in Java, compile it in a jar file, drop the jar file in Fiji, and Mastodon will automatically pick it up, and integrate the functionality it ships.
 As an example, all [TrackMate components](https://imagej.net/plugins/trackmate/#trackmate-components) use the same mechanism, making it fast and easy to add new functionality to this software.
 
 As opposed to other ways of extending Mastodon reviewed next, a Mastodon plugin is very generic. 

@@ -53,9 +53,8 @@ If you have more than one cell in the selection, they will be tracked one after 
 
 ## Configuring the semi-automated tracker.
 
-
 The tracking does not always succeed. 
-Depending on where you position the initial spot, it might fail, for instance stating in the log that if found a suitable spot, but outside the tolerance radius. 
+Depending on where you position the initial spot, it might fail, for instance stating in the log that it found a suitable spot, but outside the tolerance radius. 
 (In this example movie, this happens often because the cells are very elongated along the Z direction, and the tracker tends to find candidates near the top, brightest part of the cell.) 
 The parameters that control for instance the tracker search radius can be set in the semi-automated tracking configuration dialog, in the . The window show in _Plugins > Tracking > Configure semi-automatic tracker_.
 The following window should appear.
@@ -115,7 +114,7 @@ However, the next 3 parameters allow to add exceptions:
 -   `Link even if target has outgoing links`
 -   `Continue tracking if source and target spots are already linked`
 
-Their selection have important consequences when you are tracking along existing spots. 
+Their selection has important consequences when you are tracking along existing spots. 
 They are best exemplified by several different use-cases.
 
 ## Main use-cases for semi-automated tracking.
@@ -175,4 +174,3 @@ Hence we enable the '`Link even if target has outgoing links`' setting.
 Because we want to stop tracking there (the rest of the track is good already), we do not
 enable any of the two other settings.
 
-### Sparse linking over dense spots.

@@ -63,7 +63,7 @@ This is laid out in memory as follows
 
 ![](../imgs/gds_example_02.png){width="50%"}
 
-The links between vertex *B* and it's adjacent edges *a*, *b*, *c* have been highlighted.
+The links between vertex *B* and its adjacent edges *a*, *b*, *c* have been highlighted.
 Let's look at that in more detail: 
 Vertex _B_ is stored at element index 1 in the vertex memory array.
 _B_ has one incoming edge _a_. 
@@ -102,7 +102,7 @@ After removing _c, d, D_ the memory layout looks like this:
 The element 3 in the vertex memory array as well as elements 2 and 3 in the edge memory array have been marked as free. 
 This is done by putting the magic number "-2" into the first 4 bytes of the element.
 In vertices and edges the first 4 bytes are always occupied by a (positive) index or a −1 index list terminator. 
-Therefore, occupied and free blocks can not be confused.
+Therefore, occupied and free blocks cannot be confused.
 The next 4 bytes of a freed element are the index of the next freed element in the (same) memory array, or _-1_ if there is no next freed element. 
 Each memory array remembers the index `free` of the first freed element.
 

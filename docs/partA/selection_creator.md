@@ -96,7 +96,7 @@ Anyway, we need to remember that the `vertexFeature` function will return a scal
 In the last part of the expression, we have a boolean comparison resulting in a boolean result: `> 100.` (the dot only stresses that 100 is floating point number).
 So with this expression, all the spots that have a X position larger than 100 will evalute to `true` with this expression, and therefore will be added to the selection. 
 
-We use the**strictly great than** operator `>`, but any comparison operator would have worked:
+We use the **strictly greater than** operator `>`, but any comparison operator would have worked:
 
 - `>` strictly greater than
 

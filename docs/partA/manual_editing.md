@@ -33,7 +33,7 @@ Tracks are displayed hierarchically, discarding the spatial location of each spo
 Each track is laid out going through time from top to bottom.
 One horizontal line corresponds to a single time-point in the movie. 
 One vertical column corresponds to a single track, that is all the spots that are connected by links over time, including divisions and merges.
-It is a great tool inp artiular when studying and editing cell lineages.
+It is a great tool in particular when studying and editing cell lineages.
 
 When opened, the view in TrackScheme is scaled so that the full data is shown, all tracks over all time-points. 
 Even on our small dataset, most of the tracks and spots appear as single lines or dense boxes. 

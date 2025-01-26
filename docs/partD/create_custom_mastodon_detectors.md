@@ -25,73 +25,52 @@ The detector example we will use in this tutorial are in the package:
 You will find three classes there, the purpose of which we will explain shortly.
 They implement a dummy detector that creates spots at random locations in the source image.
 
-## The detector class hierarchies.
+One class is needed for the detector itself and one for the integration in the detection wizard.
 
-Two classes are needed for the detector itself:
-
-> `RandomSpotDetectorOp`
 > `RandomSpotDetectionExampleMamut`
-
-The `RandomSpotDetectionExampleMamut` is almost empty, while the `RandomSpotDetectorOp` is quite fledged. 
-
-The last class is used for the UI panel:
 > `RandomSpotDetectorDescriptor`
 
-We need first to explain why the two classes for one detector.
-It is again to achieve some generality and facilitate reuse beyond Mastodon.
-
-You may remember from the [previous dev tutorial](https://mastodon.readthedocs.io/en/latest/docs/partD/create_custom_mastodon_plugins.html#the-interface-to-implement) that we tend to separate code that is generic to the Mastodon API, and code that is specific to the Mastodon application (which is the one users see).
-We suffixed everything specific to the Mastodon app with `Mamut`.
-Normally we also put them in the package `org.mastodon.mamut`, while everything that is generic and not specific to tracking can live in `org.mastodon`.
-Here we did the same: `RandomSpotDetectorOp` is generic and `RandomSpotDetectionExampleMamut` uses it to make it specific to the `Spot`s and `Link`s we use in the Mastodon app.
-
-For the hierarchies, it works as follow:
-
-### `DetectorOp`
-
-`RandomSpotDetectorOp` implements `DetectorOp`.
-It is a SciJava "op" that accepts:
-- a `DetectionCreatorFactory`, which will be use to actually add the objects this detector will find in the source image,
-- and a `List< SourceAndConverter< ? > > sources` which represents the input image. The list represents the possibly multiple channels or sources in BDV linguo.
-
-### `SpotDetectorOp`
-
 `RandomSpotDetectionExampleMamut` implements `SpotDetectorOp`.
-It is also a SciJava op, but accepts:
+It is a SciJava op, which `compute` method accepts:
 - the `List< SourceAndConverter< ? > > sources`,
 - and the `ModelGraph graph` which is the Mastodon app data structure to which the spots will be added. 
 
-We will see later how to link the two. 
-This is basically simply reusing the existing facilities in a nice base abstract class.
-But for now let's focus on the main actor of the detection, the detector op.
+It is actually much simpler to extend the abstract class `AbstractSpotDetectorOp` that has many facilities to pass receive settings and manage logging, without you having to worry about it.
 
-## Writing a generic detector.
+## Writing a custom detector.
 
-We will be writing the `RandomSpotDetectorOp` class. 
-It is supposed to be generic, that is, be able to detect objects and add them to *any* kind of data structure. 
-Which means that the code of this class is supposed to receive an image, and yield a list of coordinates.
-In our example they will random.
+We will be writing the `RandomSpotDetectionExampleMamut` class by extending `AbstractSpotDetectorOp`. 
+For brievety and simplicity, this example detector will not actually process the image, but simply create spots at random location in the source image, with a radius specified by the yser.
 
-It is simpler and faster to inherit from a convenient abstract class for the detectors you want to write: `AbstractDetectorOp`.
+It is a lot simpler and faster to inherit from a convenient abstract class for the detectors you want to write: `AbstractSpotDetectorOp`.
 Hence, our detector class will start with:
 
 ```java
-@Plugin( type = DetectorOp.class )
-public class RandomSpotDetectorOp extends AbstractDetectorOp implements DetectorOp
+@Plugin( type = SpotDetectorOp.class, priority = Priority.LOW, name = "Random detector",
+		description = "<html>"
+				+ "This example detector generates a fixed number of spots at random "
+				+ "locations."
+				+ "<p>"
+				+ "It is only used as an example to show how to implement a custom "
+				+ "detector in Mastodon."
+				+ "</html>" )
+public class RandomSpotDetectionExampleMamut extends AbstractSpotDetectorOp
 {
 	// ...
 ```
 
-The `@Plugin( type = DetectorOp.class )` annotation will make the detector discoverable by Mastodon.
-This inheritance leaves us with only one method to implement:
+The `@Plugin( type = SpotDetectorOp.class )` annotation will make the detector discoverable by Mastodon.
+The `priority` attribute will determine the position of the detector in the UI menu (not very important), where it will be shown with the `name` and `description` set by the two last attributes.
+
+The abstract class leaves us with only one method to implement:
 
 ```java
 	@Override
-	public void mutate1( final DetectionCreatorFactory detectionCreatorFactory, final List< SourceAndConverter< ? > > sources )
+	public void compute( final List< SourceAndConverter< ? > > sources, final ModelGraph graph )
 	{
 		// ...
 ```
-The abstract class `AbstractDetectorOp` we inherit provides several useful fields that are used to store settings, communicate success or failure with an error message, or sends messages to the user interface.
+The abstract class `AbstractSpotDetectorOp` we inherit provides several useful fields that are used to store settings, communicate success or failure with an error message, or sends messages to the user interface.
 The first one is the `ok` flag, that states whether the computation finished successfully. 
 If not, a meaningful error message should be provided in the `errorMessage` field. The user interface will use them.
 
@@ -126,6 +105,10 @@ To check that they are present in the map and of the right class, we use a utili
 
 In the import list:
 ```java
+import static org.mastodon.tracking.detection.DetectorKeys.DEFAULT_MAX_TIMEPOINT;
+import static org.mastodon.tracking.detection.DetectorKeys.DEFAULT_MIN_TIMEPOINT;
+import static org.mastodon.tracking.detection.DetectorKeys.DEFAULT_RADIUS;
+import static org.mastodon.tracking.detection.DetectorKeys.DEFAULT_SETUP_ID;
 import static org.mastodon.tracking.detection.DetectorKeys.KEY_MAX_TIMEPOINT;
 import static org.mastodon.tracking.detection.DetectorKeys.KEY_MIN_TIMEPOINT;
 import static org.mastodon.tracking.detection.DetectorKeys.KEY_RADIUS;
@@ -263,41 +246,11 @@ Now let's create N random points within these bounds.
 			}
 ```
 
-### The detection creator factory design.
+### Addings spots to the model.
 
 We have now to create the `Spot` objects corresponding to these detections to the model.
 
-To simplify doing so, the detection framework uses a factory, that can be configured elsewhere, and that provides facilities to add new spots in a safe way. 
-It is the second argument of the `mutate1` method we implement. 
-It has only one useful method, that creates a spot adder for the current time-point.
-
-```java
-			final DetectionCreator spotAdder = detectionCreatorFactory.create( tp );
-```
-
-This spot adder is actually important. It is the medium through which we offer *generalisability*.
-
-Indeed, notice that we did not use any of the class specific to the _Mamut_ application in this class: there is no mention of the `Spot` class nor to the `Model` class. 
-Yet we will need to create `Spot` objects from the detections and add them to the `Model`
-instance of the data. 
-This is what the `spotAdder` does.
-
-The one we use in the Mamut application takes the detection, creates spots from them and add them to the model. 
-We could have made another design devoid of the `spotAdder` and the `detectionCreatorFactory`, directly using the `Model` class. 
-But we wanted to make it possible to reuse any of the detector we built for Mastodon with other application type.
-
-For instance, if someone wants to make a new application with the Mastodon code, but that does not use the Mamut classes, they can reuse directly the all the code under the
-`org.mastodon.tracking.detection` package for detection. 
-They will have to implement a `DetectionCreatorFactory` specific to their application, that will know how to add detections to their specific model.
-But the actual detector code can be reused as is with this design.
-
-We already use the flexibility of this design in the Mamut application, with several implementations of the `DetectionCreatorFactory` interface.
-The "Advanced DoG detector" offers a special option to configure the behavior of the
-detector, when a spot is found where another already exists. 
-The user can specify whether they want to add it on top of the existing one, skip adding the new spot, replace the existing one, or remove all existing spots before detection (the default). 
-This is simply done with several implementations of `DetectionCreatorFactory` that know how to perform each of these behaviors.
-
-Also: the detections are have now are just points. 
+The detections are have now are just points. 
 Their position is stored in pixel units, in the reference frame of the source.
 But each source might be rotated, translated, etc. 
 And this might change for every time-point and source. 
@@ -309,28 +262,17 @@ There is a utility method to extract it for the current source, time-point and l
 ```java
 			final AffineTransform3D transform = DetectionUtil.getTransform( sources, tp, setup, level );
 ```
-
-Coming back to the `spotAdder`. 
-Adding spots must be done within a block calling the following methods in order:
+We have now to create the `Spot` objects corresponding to these detections to the model. 
+We want to be nice and efficient. We will use a spot reference for addition, and lock the graph for modification. 
+To be extra cautious we lock and unlock the graph in a try / finally block.
+And we won't forget to transform the point coordinates in the global coordinate system before creating the spots:
 
 ``` java
-			spotAdder.preAddition();
-			try {
-					// Detect objects and transform their position.
-					...
-					spotAdder.createDetection( pos, radius, quality );
-			}
-			finally
-			{
-					spotAdder.postAddition();
-			}
-```
-
-The `preAddition()` and `postAddition()` contain any task that must  be performed before and after adding detection to the model in batch. 
-In our case implementing this results into:
-
-```java
-			spotAdder.preAddition();
+// The lock.
+			final ReentrantReadWriteLock lock = graph.getLock();
+			lock.writeLock().lock();
+			// The ref.
+			final Spot ref = graph.vertexRef();
 			try
 			{
 				for ( final double[] point : points )
@@ -347,17 +289,28 @@ In our case implementing this results into:
 					 * `worldCoords` now contains the coordinate of the
 					 * detection, in physical units, in the global reference
 					 * frame. We can now create the `Spot` object from these
-					 * coordinates, using the `spotAdder` we created above. It
-					 * requires a `quality` value, for which we use a dummy
-					 * random value as well.
+					 * coordinates.
 					 */
+					final Spot spot = graph.addVertex( ref ).init( tp, worldCoords, radius );
+```
+
+Mastodon stores a `quality` feature value, that reports how 'good' the detection is. 
+By convention, it is a strictly positive value (zero or negative values can be used to indicated manual creation), not necessarily normalized. 
+Large quality values are indicative of spots for which the confidence is high. 
+The exact signification depends on the detector implementation.
+Here is will be just random and the abstract class has a protected field for the quality feature ready to use.
+
+```java
 					final double quality = ran.nextDouble();
-					spotAdder.createDetection( worldCoords, radius, quality );
+					qualityFeature.set( spot, quality );
 				}
 			}
 			finally
 			{
-				spotAdder.postAddition();
+				// unlock.
+				lock.writeLock().unlock();
+				// release the ref.
+				graph.releaseRef( ref );
 			}
 		}
 ```
@@ -367,51 +320,15 @@ Gracefully exit, stating we are ok.
 
 ``` java
 		ok = true;
-	} // end of the mutate1 method.
+	} // end of the compute method.
 ```
 
-That's it for the `RandomSpotDetectorOp` class.
-This is enough to write a generic detector.
+That's it for the detection part.
 
-## Writing a detector for the Mastodon app.
 
-Now we want to write the part specific to the Mastodon 'Mamut' app. 
-This is done in the `RandomSpotDetectionExampleMamut` class, which has a separate hierarchy. 
-But by implementing a convenient abstract class, the code can be made really short:
+### Declaring required parameters.
 
-```java
-@Plugin( SpotDetectorOp.class, priority = Priority.LOW, name = "Random detector",
-		description = "<html>"
-				+ "This example detector generates a fixed number of spots at random "
-				+ "locations."
-				+ "<p>"
-				+ "It is only used as an example to show how to implement a custom "
-				+ "detector in Mastodon."
-				+ "</html>" )
-public class RandomSpotDetectionExampleMamut extends AbstractSpotDetectorOp
-```
-
-We also have a `@Plugin` annotation, with a specific hierarchy (`type = SpotDetectorOp.class`).
-By extending `AbstractSpotDetectorOp`, we just have two methods to implement:
-
-```java
-	@Override
-	public void compute( final List< SourceAndConverter< ? > > sources, final ModelGraph graph )
-```
-
-Normally, we would need to write the content of this method, instantiating and calling the `RandomSpotDetectorOp` class we just wrote.
-But  the mother class contains a convenience `exec` method that makes it simple:
-
-```java
-	@Override
-	public void compute( final List< SourceAndConverter< ? > > sources, final ModelGraph graph )
-	{
-		exec( sources, graph, RandomSpotDetectorOp.class );
-	}
-```
-This is enough to create a `RandomSpotDetectorOp` detector, run it on the source image with the configured parameters, and convert its output to `Spot`s. 
-
-The second method is used to specify default settings. 
+The second method of the class is used to specify default settings. 
 This is important for Mastodon to discover what parameters are needed, what name they have and what type they accept.
 This is done via the method `getDefaultSettings()` method.
 You should create a map with all the required parameters for your detectors (and only them) and set a default value of the right class. 
@@ -432,12 +349,9 @@ Ideally, if you have parameters that are the same that for the built-in detector
 } // end of class RandomSpotDetectionExampleMamut
 ```
 
-That's it.
-This is sufficient to plug our detector in the Mastodon app.
-
+This code is sufficient to plug our detector in the Mastodon app.
 The next step would be to write a config panel that can be shown in the detection wizard.
 But we could also call this detector programmatically.
-
 
 ## Compiling and installing the code
 
@@ -778,21 +692,12 @@ If you add this class, compile it and add the resulting jar to Fiji, this should
 
 What we described here is a means to implement a detector that will work by finding spots on the image:
 
-- `RandomSpotDetectorOp` does the main job of processing the image and generating a list of X,Y,Z coordinates per time-point.
-- `RandomSpotDetectionExampleMamut` reuses it to convert these lists to create Mastodon `Spot` object and add them to the data model. It also specifies what parameters are needed to configure the detector.
+- `RandomSpotDetectionExampleMamut` does the main job of processing the image and generating a list of X,Y,Z coordinates per time-point.
+It then convert these lists to create Mastodon `Spot` object and add them to the data model. 
+It also specifies what parameters are needed to configure the detector.
 
 This is enough the run the detector from scripts.
 
 - `RandomSpotDetectorDescriptor` deals with the user interface and integration inside the tracking wizard.
-
-Using a `DetectorOp` and `SpotDetectorOp` allows to make your detector general and seperate concers (first one performs generic detection, second one takes care about integration into Mastodon data structures).
-However you can skip the generic part, and immediately make a detector that would work only for the Mastodon app data structures, by only implementing the `SpotDetectorOp` interface (of better extending the `AbstractSpotDetectorOp` abstract class).
-In that case you would do the heavy lifting in the 
-```java
-public void compute( final List< SourceAndConverter< ? > > sources, final ModelGraph graph )
-```
-method, process the image and add the created `Spot`s object to the `ModelGraph`.
-This would be particularly suitable if you want to use algorithms that do not work by finding X,Y,Z detections, as we did above. 
-That would be the case for detectors based on StarDist for instance, that return the shape of objects, and that could be encoded in the `Spot` ellipsoids. 
 
 To go further, do not hesitate to study the builtin detectors, such as the DoG detector to see [how we use imglib2 algorithms to build a detector ](https://github.com/mastodon-sc/mastodon-tracking/blob/master/src/main/java/org/mastodon/tracking/detection/DoGDetectorOp.java) and [how we put a preview button in the UI](https://github.com/mastodon-sc/mastodon-tracking/blob/master/src/main/java/org/mastodon/tracking/mamut/trackmate/wizard/descriptors/DoGDetectorDescriptor.java).

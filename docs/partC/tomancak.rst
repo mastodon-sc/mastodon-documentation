@@ -17,3 +17,4 @@ Track editing, analysis and export add-ons (Tomancak)
     tomancak/export
     tomancak/mergeprojects
     tomancak/spatialtrackmatching
+    tomancak/lineageanalysis

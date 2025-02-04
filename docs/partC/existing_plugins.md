@@ -66,3 +66,7 @@ A collection of tools that extend Mastodon, e.g.:
 * See [Tomancak](tomancak.rst).
 
 ### Visualization add-ons (Blender-View)
+
+Allows to connect Mastodon to Blender for 3D visualization.
+
+* See [Blender-View](blender_view.rst).

@@ -3,6 +3,13 @@
 ## Blender View (Linked to Mastodon)
 
 * Menu Location: `Window > Blender Views > New Blender View (Linked to Mastodon)`
+* Before the Blender window opens, the user is asked to set a time scaling factor.
+  * A time scaling factor of 1 means that there is no time scaling and the frame number in Big Data View / TrackScheme
+    views matches the frame number in Blender.
+  * A Time scaling factor larger than 1 means that interpolation between frames in the Blender view is computed, which
+    leads to a smoother animation. Frame numbers in Blender are then multiplied by the time scaling factor.
+* Example with time scaling factor of 1: ![time_scaling_factor_1.gif](usage/time_scaling_factor_1.gif)
+* Example with time scaling factor of 10: ![time_scaling_factor_10.gif](usage/time_scaling_factor_10.gif)
 * Wait for some seconds, for the data to load into Blender.
 * Play around!
 

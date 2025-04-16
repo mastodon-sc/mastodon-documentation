@@ -1,8 +1,8 @@
 # Creating custom detectors in Mastodon.
 
 In this developer tutorial we will introduce how to create your own detectors in Mastodon.
-Detectors are special Mastodon plugins that are used to detect objects of interest, typically cells, in an image. 
-They will be used subsequently for linking and analysis, building cell trajectories and linages. 
+Detectors are special Mastodon plugins that are used to detect objects of interest, typically cells, in an image.
+They will be used subsequently for linking and analysis, building cell trajectories and lineages.
 Mastodon is like  [TrackMate](https://imagej.net/plugins/trackmate/) and can be extended with new detectors and linkers by third-parties.
 It can serve as a platform for you to deploy a novel detection algorithm and benefit from the existing visualization, analysis and IO facilities of Mastodon.
 

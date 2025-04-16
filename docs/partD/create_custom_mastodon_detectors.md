@@ -25,9 +25,12 @@ The detector example we will use in this tutorial are in the package:
 You will find three classes there, the purpose of which we will explain shortly.
 They implement a dummy detector that creates spots at random locations in the source image.
 
-One class is needed for the detector itself and one for the integration in the detection wizard.
+One class is needed for the detector itself:
 
 > `RandomSpotDetectionExampleMamut`
+
+And one class for the integration into the detection wizard:
+
 > `RandomSpotDetectorDescriptor`
 
 `RandomSpotDetectionExampleMamut` implements `SpotDetectorOp`.

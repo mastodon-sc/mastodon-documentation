@@ -1,76 +1,153 @@
-# Spatial track matching
+# Spatial Track Matching
 
-The "spatial track matching" plugin in Mastodon is a plugin for comparing two stereotypically developing embryo in Mastodon.
-Usually datasets opened in Mastodon are completely independent, without interaction between them.
-The "spatial track matching" plugin however allows to select two openend Mastodon datasets and compute the correspondance between the cells in both datasets.
-Once the correspondance between cell has been computed, the plugin allows to perform various operations: starting at syncing the focused cell between two datasets,
-copying cell names between datasets, copying "tag sets", sorting on datasets in Mastodon TrackScheme such that it matched the other dataset etc.. 
+The **Spatial Track Matching** plugin in Mastodon enables the comparison of two datasets showing stereotypically developing embryos. Typically, Mastodon datasets operate independently without interaction. This plugin, however, allows users to select two open datasets in Mastodon and compute the correspondence between their cells.
 
-However the plugin doesn't support all types a datasets. The two Mastodon datasets need to show a stereotypically developing embryos of the same species.
-Both datasets need to start at the same stage with at least 3 cells. The plugin also allows to skip initial frames of a datasets to match the stage.
-At this "initial stage" all cells need to be named manually. At the names have to matche between the two datasets.
-The plugin was sucessfully tested with Macrostumum embryo (starting at 4 cell stage), Platynereis embryies (starting at ~32 cell stage), an Phallusia mammillata (starting at ~64 cell stage).
+Once correspondence is established, the plugin offers several operations, such as:
+- Synchronizing the focused cell between two datasets.
+- Copying cell names from one dataset to another.
+- Copying "tag sets" between datasets.
+- Sorting tracks in Mastodon's TrackScheme to match the other dataset.
+- Plotting angles between cell division directions.
 
-## How does this work:
+## Datasets Restriction
 
-Lets assume we have Mastodon datasets for two embryos, lets call them embryo X and embryo Y. Both datasets start at a four cell stage. And these four initial cells have been labeled by an expert as A, B, C and D. So for the initial time point we know the correspondence between the four cells in the two dataset. Cell A of embryo X corresponds to Cell A of embryo Y, cell B of embryo X corresponds to cell B of embryo Y etc.
+The plugin has specific requirements for supported datasets:
+- Both datasets must feature stereotypically developing embryos of the same species.
+- The datasets must begin at a similar developmental stage, with at least three dividing cells. \
+  (If the datasets start at different stages or too early e.g., fewer than three dividing cells,
+  users can specify a "first frame" to align them. Any data before this frame is ignored.)
+- At the initial stage, all cells must be manually named, and their names must match between the two datasets.
 
-Now there's the question if when a cell divides, for example cell B divides in both datesets. How do the two daugther cells of cell B in embryo X correspond to the daughter cells of cell B in embryo Y?
+The plugin has been successfully tested on the following: *Macrostomum* embryos (starting at the 4-cell stage),
+*Platynereis* embryos (starting at ~32-cell stage), *Phallusia mammillata* embryos (starting at ~64-cell stage).
 
-![What is the correct correspondance between daugter cells](spatialtrackmatching/question.png)
-
-To answer this question. Lets first for conveniance give names to the daugther cells X1 and X2 in embryo X and Y1 and Y2 in embryo Y:
-
-![](spatialtrackmatching/explain1.png)
-
-There are only two possible correspondences for the daugther cells. First option X1 corresponds to Y1 and X2 to Y2 or second option X1 corresponds to Y2 and X2 corresponds to Y1. Two find the right correspondance our strategy is to align the embryos with each other. For the is use the known correspondences A-A, B-B, C-C, D-D. And we find the rotation, translation and scaling of embryo Y that brings the cells A,B,C and D closest (sum of squared distances) two the cells of embryo X:
-
-![](spatialtrackmatching/explain2.png)
-
-Now that both embryos are in the same coordinate system, it is possible two compare directions in both datasets. The mastodon dataset contains the coordinates for all cells at all timepoints. So the vector (or direction) from daughter cell X1 to X2 (purple arrow) and Y1 to Y2 (green arrow) can be easily computed, as well as the angle between the two direction:
-
-![](spatialtrackmatching/explain3.png)
-
-The angle tells us which of the two correspondances is correct. If the angle is less than 90 degree then X1-Y1, X2-Y2 is correct. Otherwise X1-Y2 and X2-Y1 is the correct correpondence.
-
-It's a simple idea. But we have seen how we find the correspondance for a cell division, if we have the correspondance for the parent cells. Repeating this step for all cell divisions in the mastodon datasets gives us the full set of correspondances in the two datasets.
-
-But there is no garantie whether or not the found correspondence is biologically correct or relevant. The method however allows us to get an ideo of the quality of the found correspondencs. Having computed the angle between cell division direction, we know that an angle close to 0 or 180 degree cleary indicates a specivic correspondance while a angle close to 90 degree very vaguely distinguishes between the two option.
-
-The spatial track matching plugin has the option to plot cell devision angles. Here is such a plot:
-![](spatialtrackmatching/plot_cell_division_angle.png)
-
-The plot shows the cell division angles the match cell division of two embryos. Until timepoint 300 there is allmost no cell division angle close to 90 degree. Indicating that the spatial track matching works well until timepoint 300. However there are two cell division angles close to 90 degree early on. They probably indicate a difference in the developement between the to embryos!
-
+Note: Cells or tracks without divisions are ignored by the plugin.
 
 ## Installation
 
-This plugin is avaliable as part of the "Mastodon-Tomancak" collection of plugins for Mastodon. It is usually installed
-within Fiji, be activating the two update sites "Mastodon" and "Mastodon-Tomancak". ([How to activate and update site.](https://imagej.net/update-sites/following))
+The plugin is included in the **"Mastodon-Tomancak"** collection of plugins for Mastodon.
+To install it in Fiji, activate the update sites: **Mastodon** and **Mastodon-Tomancak**.\
+(For help read the guide on [how to follow an update site](https://imagej.net/update-sites/following).)
 
 ## Usage
 
-After completing the installation process, restart Fiji and open two Mastodon datasets of stereo typically developing embryos.
-([Example datasets](https://github.com/mastodon-sc/mastodon-example-data/blob/master/astec/))
-The recording in both datasets should show an embryo starting at same stage (for example 4, 8, 32 cells etc.) and the cells on the first timepoint must have the same names in both datasets.
+First make sure to have the update sites installed and restart Fiji.
 
-(It is possible to select a "first timepoint for registration". This option can be used if the two datasets start at different stages. All timepoints before this "first timepoint" are ignored by the spatial track matching plugin. This option should also be used if the two datasets start with less than three dividing cells.)
+To use the plugin:
+1. Open two Mastodon datasets containing stereotypically developing embryos.\
+   Example datasets can be found [here](https://github.com/mastodon-sc/mastodon-example-data/blob/master/astec/).
+1. Make sure to have this initial cells named with corresponding names in both dataset.\
+   (Cells/spots can be renamed in Mastodon by pressing `F2`.)
+1. In the Mastodon menu navigate to `Plugins > Lineage Analysis > Spatial Track Matching`.\
+   A dialog box, "Spatial Track Matching Across Two Mastodon Projects," will appear. 
+1. Select your projects as project A and project B.
+1. (Optional: If the datasets start at different stages specify a "first frame" to align them. Any data before this frame is ignored.)
 
-From the Mastodon menu select `Plugins > Lineage analysis > Spatial Track Matching'. This will show a new dialog "Spatial Track Matching Across Two Mastodon Projects". The two Mastodon projects should be selected a "project A:" and "project B:".
+Now by click one of the menu availabe buttons, on of these actions can be performed:
+- Sorting TrackSchemes of one dataset to be consistent with the order.
+- Copying tag sets between datasets.
+- Plotting angles between cell division directions.
+- Clicking a lock icon <img src="spatialtrackmatching/lock_icon.png" height=20> will suncronized the focus of cells between the two datsets. This works best together with the "Branch TrackScheme" opened for both datasets.
+- Renaming cells in one dataset to match the other.
 
-The "Spatial Track Matching [...]" dialog allows to perform a variaty of operations with two linked dataset. You can copy tagsets from on dataset to the other. You can rename the cells in one dataset to match the names in the other dataset. Or you can sore the TrackSchemes accordingly, or plot angles between cell division directions.
+## Example
+
+* project A (left
+  side): [Phallusia mammillata](https://github.com/mastodon-sc/mastodon-example-data/blob/master/astec/Pm01.mastodon)
+* project B (right
+  side): [Phallusia mammillata](https://github.com/mastodon-sc/mastodon-example-data/blob/master/astec/Pm02.mastodon)
+* Visualisation: ![spatial_track_matching.gif](spatialtrackmatching/spatial_track_matching.gif)
+
+---
+---
+Here’s the revised and polished version of your text. I've improved grammar, flow, and clarity while maintaining the technical details:
+
+---
+
+## Algorithm for Finding Cell Correspondences
+
+### Principle
+
+Let’s assume we have Mastodon datasets for two embryos, which we’ll call embryo X and embryo Y. Both datasets start at the four-cell stage, and these initial cells have been labeled by an expert as A, B, C, and D. At this initial timepoint, we already know the correspondence: cell A in embryo X corresponds to cell A in embryo Y, cell B in embryo X corresponds to cell B in embryo Y, and so on.
+
+Now, when a cell divides—for instance, cell B in both datasets—the question arises: how do the two daughter cells of cell B in embryo X correspond to the two daughter cells of cell B in embryo Y?
+
+<img src="spatialtrackmatching/question.png" width=400>
+
+To answer this question, lets first name the daughter cells for convenience: X1 and X2 in embryo X, and Y1 and Y2 in embryo Y.
+
+<img src="spatialtrackmatching/explain1.png" width=300>
+
+There are only two possible correspondences for the daughter cells:
+1. X1 corresponds to Y1, and X2 corresponds to Y2.
+2. X1 corresponds to Y2, and X2 corresponds to Y1.
+
+To determine the correct correspondence, our strategy is to align the embryos with one another.
+We use the known correspondences (A ↔ A, B ↔ B, C ↔ C, D ↔ D) to calculate the rotation, translation, and scaling of embryo Y that minimizes the sum of squared distances between cells A, B, C, and D in both datasets.
+
+<img src="spatialtrackmatching/explain2.png" width=150>
+
+Once the embryos are aligned within the same coordinate system, we can compare directions in both datasets. Mastodon provides the coordinates for all cells at all timepoints, allowing us to compute the vectors (directions) between the daughter cells: from X1 to X2 (purple arrow) and from Y1 to Y2 (green arrow). We call those vectors between the daugther cells, *cell division direction*. The angle between these two vectors can then be calculated.
+
+<img src="spatialtrackmatching/explain3.png" width=180>
+
+The angle determines the correct correspondence:
+- If the angle is less than 90 degrees, the correspondence is X1 ↔ Y1 and X2 ↔ Y2.
+- If the angle is greater than or equal to 90 degrees, the correspondence is X1 ↔ Y2 and X2 ↔ Y1.
+
+This simple yet effective approach lets us find the correspondence for a cell division, provided we already know the correspondence for the parent cells. By repeating this process for all cell divisions in the Mastodon datasets, we can establish the full set of correspondences between the two datasets.
+
+Certainly! Here’s an improved version of your paragraph with clearer phrasing, improved grammar, and enhanced readability:
+
+### Correctness of the Result
+
+There is no guarantee that the determined correspondences are biologically accurate or relevant. However, the method provides an indication of the quality of the computed correspondences. By analyzing the angle between the cell division directions, we can assess their reliability. Angles close to 0° or 180° strongly suggest a specific correspondence, whereas angles near 90° offer only a weak distinction between the two possible options.
+
+The Spatial Track Matching plugin includes an option to plot cell division angles. Below is an example of such a plot:
+
+<img src="spatialtrackmatching/plot_cell_division_angle.png" width=600>
+
+The plot illustrates the cell division angles corresponding to matched cell divisions between two embryos.
+Up to timepoint 300, there are almost no division angles close to 90°,
+which indicates that the spatial track matching works reliably within this range.
+However, there are two cell division angles near 90° early on,
+which might suggest developmental differences between the two embryos.
+
+### Alignment of the Two Datasets
+
+The algorithm for finding correspondences relies on the angles between cell division directions in the embryos. Achieving a good alignment between the two embryos/datasets is critical for obtaining high-quality results. To facilitate this, three slightly different methods have been implemented for computing the alignment:
+
+#### 1. Fixed Spatial Registration Based on Root Cells
+
+This is the simplest approach and works well when the embryos remain relatively stationary during the recording. The alignment is based on the correspondence between the initial root cells (e.g., A ↔ A, B ↔ B, C ↔ C, D ↔ D). These root cells appear in multiple timepoints in the cell tracking data.
+
+For each root cell (e.g., cell A), there is not just one coordinate vector, but one for each timepoint before the cell divides. To simplify, the last coordinate vector before division is used. If there are four root cells (A, B, C, D), we extract one coordinate vector for each of these cells in embryo X and another set for the same cells in embryo Y. These vectors are then aligned by computing a transformation (translation, rotation, and scaling) that minimizes the squared distances between corresponding vectors. This transformation is used to align embryo Y with embryo X.
+
+#### 2. Dynamic Spatial Registration Based on Root Cells and Their Descendants
+
+This approach is more dynamic and works even if the embryos rotate during the recording. It starts with the correspondence between the initial root cells (e.g., A ↔ A, B ↔ B, C ↔ C, D ↔ D). 
+
+For each root cell (e.g., cell A), instead of extracting a fixed position vector. We extrac a position vector by timepoint which will be denoted as P(A,X,t), where A is the cell, X is the embrbryo and t is the timepoint. If the timepoint t is between the appearance of the cell A and there cell division P(A,X,t) will simple denote the position vector of the cell A. Afterwards when the cell divided into two daugther cells it will be the average position of the two daugther cells of cell A at that time point. When the daugter cell divide further it will simply be the average position of all the descendants of cell A at the time point in embryo A.
+
+This approach gives us a position for each initial cell at each timepoint for both embryos. So for our example we would have:
+- for embryo X: P(A,X,t), P(B,X,t), P(C,X,t), P(D,X,t)
+- for embryo Y: P(A,Y,t), P(B,Y,t), P(C,Y,t), P(D,Y,t). 
+
+When comparing a cell division in embryo X at timepoint t_X with a cell division in embryo Y at timepoint t_Y,
+the algorithm aligns the positions P(A,X,t_X+2), ..., P(D,X,t_X+2) with P(A,Y,t_Y+2), ..., P(D,Y,t_Y+2). The resulting rotation is then used to transform the cell division directions in embryo Y into the coordinate system of embryo X before calculating the cell division angle.
+
+Since this transformation depends on the timepoints of the cell division, it changes dynamically over time. This allows the algorithm to compensate for movement (specifically rotation) of the embryos during the recording.
+
+#### 3. Dynamic Spatial Registration Based on the "Landmarks" Tag Set
 
 
-## Pre-conditions
+The method is similar to the second approach, except that instead of relying on the root cells and their descendants, it uses the tagged cells.
+A tag set named "landmarks" has to be present in both Mastodon datasets. The tag names in the "landmarks" tag set must match between the two datasets.
+The only difference to approach 2 is that rather of calculating a average position P(A,X,t) of the descendants of cell A in embryo X at timepoint t. We instead compute P(S, X, t) the avarage position of the spots labeled with tag S at timepoint t in embryo X.
 
-The following conditions need to be met for the algorithm to work:
+### Remarks
 
-* Both projects should show stereotypically developing embryos.
-* The first frame should show both the embryos at a similar developmental stage. The frame number that is considered
-  the first frame can be set by the user.
-* Root nodes must be labeled, and the labels should match between the two projects.
-* There needs to be at least three tracks with cell divisions, that can be paired based on their names.
-* Note: The plugin ignores tracks that have no cell divisions.
+In the first timepoints after cell division the daugther cells usually move a lot. To reduce the noise when compution a cell division direction, we avarage over the position of the daugther cell in the three time points after cell division. This has the effect the the "timepoint of the cell division direction" is t + 2. If t denotes last timepoint before cell division. This is also the reason why an offset t+2 is used when computing the dynamic spatial registration.
 
 ## Operations based on the correspondence information
 
@@ -116,20 +193,9 @@ The plugin allows performing various operations based on the correspondence info
               in both projects.
 * Spatial track matching method:
     * Fixed spatial registration based on root cells
-        * Pairs of root cells with the same name are used to estimate the transformation between the two embryos.
+      (see [above](#1-fixed-spatial-registration-based-on-root-cells))
     * Dynamic spatial registration based on root cells and their descendants
-        * Pairs of root cells with the same name in both projects and respective descendants are used to estimate the
-          transformation between
-          the two embryos. The transformation is stabilized by averaging over the descendants of the root cells.
+      (see [above](#2-dynamic-spatial-registration-based-on-root-cells-and-their-descendants))
     * Dynamic spatial registration based on "landmarks" tag set
-        * The user can define "landmark" spots in both projects. These spots need to be tagged with the same tag of a
-          tag set called "landmarks" in both projects. The transformation is estimated based on the positions of the
-          landmarks.
+      (see [above](#3-dynamic-spatial-registration-based-on-the-landmarks-tag-set))
 
-## Example
-
-* project A (left
-  side): [Phallusia mammillata](https://github.com/mastodon-sc/mastodon-example-data/blob/master/astec/Pm01.mastodon)
-* project B (right
-  side): [Phallusia mammillata](https://github.com/mastodon-sc/mastodon-example-data/blob/master/astec/Pm02.mastodon)
-* Visualisation: ![spatial_track_matching.gif](spatialtrackmatching/spatial_track_matching.gif)

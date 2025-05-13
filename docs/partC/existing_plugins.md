@@ -12,7 +12,7 @@ The following plugins are available with the core of Mastodon.
 ### Importers
 
 - [CSV importer](csv_import/csv-importer.md)
-- [GraphML importer](graphml_import/graphml-importer.md)
+- [GraphML importer](graphml_import/graphml_importer.md)
 
 ### Image data
 

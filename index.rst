@@ -99,7 +99,7 @@ Table of content.
     :maxdepth: 3
 
     docs/partC/existing_plugins.md
-    docs/partC/csv-importer.md
+    docs/partC/csv_import/csv-importer.md
     docs/partC/stats-on-nearest-neighbors.md
     docs/partC/track-image.md
     docs/partC/deep_lineage.rst

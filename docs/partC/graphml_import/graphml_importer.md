@@ -7,7 +7,7 @@
     * Spots have to be saved in a GraphML file with a specific format
     * Besides the spots, also links, labels, track_ids and features can be imported
     * The X, Y, Z coordinates are scaled by the pixel sizes read from the setup with the specified id.
-* Command name: `show csv importer dialog`
+* Command name: `import graphml`
 * Default bindings: Not mapped
 * Artifact: mastodon
 * Distribution: Included in the Mastodon update site.

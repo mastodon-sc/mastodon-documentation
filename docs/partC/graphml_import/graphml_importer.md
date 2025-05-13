@@ -16,7 +16,6 @@
 
 ## GraphML format requirements
 
-*
 * The GraphML file must contain keys for properties with <code>attr.name</code> 'x', 'y', 'z' and 'frame' to be properly
   imported.
 * If it contains the key with <code>attr.name</code> 'label', data with this key is imported as spot labels.

@@ -11,7 +11,7 @@
 * Artifact: mastodon-pasteur
 * Distribution: Included in the Mastodon update site.
 * Link to code: https://github.com/mastodon-sc/mastodon-pasteur/tree/master/src/main/java/org/mastodon/mamut/io/csv
-* The dialog: ![csv_importer_dialog.png](img/csv_importer_dialog.png)!
+* The dialog: ![csv_importer_dialog.png](img/csv_importer_dialog.png)
 
 ## Parameters
 

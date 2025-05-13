@@ -12,7 +12,7 @@
 * Artifact: mastodon
 * Distribution: Included in the Mastodon update site.
 * Link to code: https://github.com/mastodon-sc/mastodon/tree/master/src/main/java/org/mastodon/mamut/io/importer/graphml
-* The dialog: ![graphml_import.png](img/graphml_import.png)!
+* The dialog: ![graphml_import.png](img/graphml_import.png)
 
 ## GraphML format requirements
 

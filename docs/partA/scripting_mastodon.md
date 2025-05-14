@@ -221,8 +221,9 @@ We get results that are slightly different from the previous run, as we changed 
 
 ## Computing features.
 
-Numerical features can be also computed via the script. 
-As noted in a [previous tutorial](numerical_features_tags_the_table_view.md), only the features that take a long time to compute have a 'manual' computer.
+Numerical features can be also computed via the script.
+As noted in a [previous tutorial](numerical_features_tags_the_table_and_grapher_view.md), only the features that take a
+long time to compute have a 'manual' computer.
 You can get the list of computer as follow:
 
 ```python

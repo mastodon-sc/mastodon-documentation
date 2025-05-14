@@ -90,7 +90,8 @@ The arguments of this function are first, the feature name (`Spot position`) and
 Indeed, many features aggregates several _projections_.
 A projection is a component of a feature that is always a real scalar. 
 For instance, the `Spot position` feature is composed of 3 projects: `X`, `Y` and `Z`.
-See the part on numerical feature computation in the [tutorial on the table views](../partA/numerical_features_tags_the_table_view.md) for more details.
+See the part on numerical feature computation in
+the [tutorial on the table and grapher views](numerical_features_tags_the_table_and_grapher_view.md) for more details.
 Anyway, we need to remember that the `vertexFeature` function will return a scalar value for all spots, so it needs a feature _projection_ to be specified.
 
 In the last part of the expression, we have a boolean comparison resulting in a boolean result: `> 100.` (the dot only stresses that 100 is floating point number).

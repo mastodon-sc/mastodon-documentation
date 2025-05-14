@@ -75,7 +75,7 @@ Table of content.
    docs/partA/getting_started.md
    docs/partA/manual_editing.md
    docs/partA/inspecting_large_datasets.md
-   docs/partA/numerical_features_tags_the_table_view.md
+   docs/partA/numerical_features_tags_the_table_and_grapher_view.md
    docs/partA/semi_automated_tracking.md
    docs/partA/selection_creator.md
    docs/partA/scripting_mastodon.md

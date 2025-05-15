@@ -494,10 +494,10 @@ lasso will be selected.
 
 ### Grapher stlye configuration.
 
-You can configure the grapher style in the preferences dialog. You find it in the menu `File > Preferences`.
+You can configure the grapher style in the preference dialog. You find it in the menu `File > Preferences`.
 Besides default colors, you can configure the size of the points in the plot. There are two modes:
 
-* Auto vertex size: This option will use large circle in sparse regions of the plot and small circles in dense regions.
+* Auto vertex size: This option will use large circles in sparse regions of the plot and small circles in dense regions.
 * Fixed vertex size: This option will use the same size for all points in the plot. You can set the size in pixels.
 * Draw Labels: This option will draw the labels of the points in the plot.
 

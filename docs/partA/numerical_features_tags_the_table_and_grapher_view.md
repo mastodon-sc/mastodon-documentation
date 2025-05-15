@@ -401,3 +401,107 @@ This means that if you call the command from a selection table, only the current
 
 ## The grapher views.
 
+Besides the table view that allows you to inspect the data tabularly, Mastodon ships a second view that is more
+suitable for visualizing the data: the **grapher view**. You can open a new grapher view by selecting the menu item
+`Window > New grapher` or via the main window.
+
+![Mastodon_MainWindow_Grapher.png](../imgs/Mastodon_MainWindow_Grapher.png)
+
+### Plotting feature values.
+
+The grapher view is a plotting tool that can be used to visualize the feature values of the data items.
+In the left area of the grapher view, you can select the feature values to plot. You need to select a feature for the X
+axis and a feature for the Y axis. After making this choice, you have to press the `Plot` button to trigger the painting
+of the plot.
+After that you can Zoom in and out and pan the plot with the mouse.
+
+* Zoom in/out: in X axis: `Shift + Mouse Wheel`.
+* Zoom in/out: in Y axis: `Control + Mouse Wheel`.
+* Pan: `Right Mouse Button` and dragging the mouse.
+
+You can use the tags like in the table views to visualize categories in the plotted data.
+You can also use the feature color modes in the plotted data to visualize a third dimension.
+Both options can be reached via the `View > Coloring` menu.
+Finally, there is an option to show a legend of the current coloring mode.
+You can toggle it on or off and set the location of this legend in the _View > Colorbar_ menu.
+
+![Mastodon_Grapher_radius_quick_mean_velocity.png](../imgs/Mastodon_Grapher_radius_quick_mean_velocity.png)
+<figcaption><i>The grapher view with spot radius as X axis and mean of channel 1 as Y axis. The link velocity is used to color code the points.</i></figcaption>
+
+![Mastodon_Grapher_radius_velocity_classes.png](../imgs/Mastodon_Grapher_radius_velocity_classes.png)
+<figcaption><i>The grapher view with spot radius as X axis and velocity as Y axis. A tag set called lineage classification is used to color code the points.</i></figcaption>
+
+### Filtering items.
+
+Additionally, you can set some filtering for the items to plot. You can choose between the following options:
+
+#### Plot currently selected items
+
+This option will plot only the items that are currently selected in the grapher view. This can be useful if you make a
+selection in the table or track scheme view, or the [selection creator](selection_creator.md) and want to visualize only
+the selected items in the grapher view.
+
+![Mastodon_Grapher_selected_items.png](../imgs/Mastodon_Grapher_selected_items.png)
+<figcaption><i>The grapher view with spot radius as X axis and mean of channel 1 as Y axis. Only the points that are about to divide in the next time frame are shown.</i></figcaption>
+
+#### Plot track(s) of selected items
+
+This option will plot all tracks that contain the selected items. This can be useful if you want to visualize a feature
+value of a spot over time.
+
+![Mastodon_Grapher_frame_radius_velocity.png](../imgs/Mastodon_Grapher_frame_radius_velocity.png)
+<figcaption><i>The grapher view with frame as X axis and radius as Y axis showing the tracks of the selected spots. Spots are color-coded with velocity. The plot allows seeing the change of the radius over time</i></figcaption>
+
+#### Plot spots of (spatial) context
+
+This option allows you to select either the full graph (i.e. all spots and links) or the spots that are currently
+visible in a selectable Big Data Viewer (BDV) view.
+
+![Mastodon_Grapher_spatial_context.gif](../imgs/Mastodon_Grapher_spatial_context.gif)
+<figcaption><i>Spot center intensity as X axis and Spot radius as Y axis. Since the BigDataViewer is chosen as context, the Grapher updates while we are sliding through time in the BigDataViewer.</i></figcaption>
+
+#### Keep current
+
+The default option is to keep the current selection of items in the grapher view. After pressing the `Plot` button, the
+side panel falls back to this option.
+
+### Plotting edges.
+
+You can visualize the edges between the spots of the graph. This makes particularly sense when you are plotting
+features over time, i.e. with the `frame` as X axis.
+
+![Mastodon_Grapher_frame_radius_velocity.png](../imgs/Mastodon_Grapher_frame_radius_velocity.png)
+<figcaption><i>The grapher view with frame as X axis and radius as Y axis showing the tracks of the selected spots. Spots are color-coded with velocity. The plot allows seeing the change of the radius over time.</i></figcaption>
+
+### Selecting items.
+
+#### Rectangle selection.
+
+Press the left mouse button and drag the mouse to create a rectangle. Spots and links that are fully contained in the
+rectangle will be selected.
+
+![Mastodon_Grapher_rectangle_selection.gif](../imgs/Mastodon_Grapher_rectangle_selection.gif)
+<figcaption><i>The grapher view with frame as X axis and radius as Y axis. Spots that are selected with the rectangle are also selected in track scheme view and the BDV view.</i></figcaption>
+
+#### Lasso selection.
+
+Press `Control` and the left mouse button and drag to create a lasso selection. Spots and links that are fully contained
+in the
+lasso will be selected.
+
+![Mastodon_Grapher_lasso_selection.gif](../imgs/Mastodon_Grapher_lasso_selection.gif)
+<figcaption><i>The grapher view with spot ellipsoid aspect ratio as X axis and intensity as Y axis. Spots that are selected with the lasso are also selected in track scheme view and the BDV view.</i></figcaption>
+
+### Grapher stlye configuration.
+
+You can configure the grapher style in the preferences dialog. You find it in the menu `File > Preferences`.
+Besides default colors, you can configure the size of the points in the plot. There are two modes:
+
+* Auto vertex size: This option will use large circle in sparse regions of the plot and small circles in dense regions.
+* Fixed vertex size: This option will use the same size for all points in the plot. You can set the size in pixels.
+* Draw Labels: This option will draw the labels of the points in the plot.
+
+![Mastodon_Grapher_style_configuration.gif](../imgs/Mastodon_Grapher_style_configuration.gif)
+
+
+

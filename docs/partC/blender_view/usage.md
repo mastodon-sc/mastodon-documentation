@@ -57,7 +57,7 @@ Now, the active time points and the active spot are synchronized between Blender
   Blender's [Geometry Nodes](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/introduction.html) to
   visualize the data.
 * This option opens a new Blender window with the cell tracking data. The data in the Blender window is detached
-  from the Mastodon data, i.e. there is no interaction with Mastodon possible, and data updated in Mastodon is not
+  from the Mastodon data, i.e., there is no interaction with Mastodon possible, and data updated in Mastodon is not
   updated in the Blender View. It can handle large datasets efficiently. It is possible to modify the visualization
   in Blender.
 * Preferred option for high quality rendering of movies.

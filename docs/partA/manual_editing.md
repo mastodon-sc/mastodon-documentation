@@ -189,29 +189,33 @@ If you draw a link between two spots that are already connected, their link will
 ![](../imgs/Mastodon_TrackSchemeManualLinking1.png){width="32%"}
 ![](../imgs/Mastodon_TrackSchemeManualLinking2.png){width="32%"}
 ![](../imgs/Mastodon_TrackSchemeManualLinking3.png){width="32%"}
+![Mastodon_TrackSchemeManualLinking4.gif](../imgs/Mastodon_TrackSchemeManualLinking4.gif)
 <figcaption><i>Manually creating links in TrackScheme. Press and hold </i><code>L</code><i> while hovering the mouse over a spot. Then drag the link in red to the target spot. A new link will be created between the two spots when you release </i><code>L</code><i>. Doing this between two spots that are already connected removes the link between them.</i></figcaption>
 
 
 In BDV views, it is again very similar.
-Move the mouse over a spot until it is highlighted then press and hold the `L` key.
+Move the mouse over a spot until it is highlighted then press and hold the `A` key.
 The view will automatically move to the next frame. 
 The link to create will be painted as a white line, and the ghost shape of the source spot is painted as a dashed white ellipse.
-Move the mouse to the target spot in this frame until it is highlighted, then release the key. 
-The link is created. If you press `Shift L` in a spot, the BDV view will move to the **previous** frame, and create a backward link.
+Move the mouse to the target spot in this frame until it is highlighted, then release the key.
+The link is created. If you press `C` in a spot, the BDV view will move to the **previous** frame, and create a backward
+link.
 
 ![](../imgs/Mastodon_BDVManualLinking1.png){width="32%"}
 ![](../imgs/Mastodon_BDVManualLinking2.png){width="32%"}
 ![](../imgs/Mastodon_BDVManualLinking3.png){width="32%"}
-<figcaption><i>Manually creating links in BDV views. Press and hold </i><code>L</code><i> while hovering the mouse over a spot. 
+![Mastodon_BDVManualLinking4.gif](../imgs/Mastodon_BDVManualLinking4.gif)
+<figcaption><i>Manually creating links in BDV views. Press and hold </i><code>A</code><i> while hovering the mouse over a spot. 
 The viewer moves to the next frame and paints the source spot as a dashed, white outline, and the link to create as a white line.
 Then drag the white link to the target spot. 
-A new link will be created between the two spots when you release </i><code>L</code><i>. 
+A new link will be created between the two spots when you release </i><code>A</code><i>. 
 As for TrackScheme, doing this between two spots that are already connected removes the link between them.</i></figcaption>
 
 You cannot move in Z while creating a link this way.
-You must orient the BDV view so that the source and target spot are roughly in the same  displayed slice.
-However you can move in time. 
-While still holding the key, press the or and or key to navigate backward and forward in time.
+You must orient the BDV view so that the source and target spot are roughly in the same displayed slice.
+However, you can move in time.
+While still holding the key <code>A</code>, press the <code>M</code> key or the <code>n</code> key to navigate backward
+and forward in time.
 This way you can create links between spots separated by more than one time-point.
 
 ## The selection. 

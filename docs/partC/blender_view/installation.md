@@ -17,11 +17,14 @@
 
 * Menu Location: `Window > Blender Views > Configure Blender Template Files...`
 * This command allows you to configure the Blender template files that are used when opening a new Blender window. This
-  is useful, if you want to use a different Blender template file than the default one. Blender templates can be used to
+  is useful if you want to use a different Blender template file than the default one. Blender templates can be used to
   define the initial state of a new Blender window, e.g. the camera position, the lighting, the background color, etc.
 * An example of a Blender template files can be downloaded from
   here: [blender_template.zip](https://github.com/user-attachments/files/18346100/default_empty_spot-radius_2024-05-31.zip).
   Needs to be unzipped before use.
+* Note: The template file must be a Blender file with the extension '.blend'. The template file is only used for the "
+  Advanced"
+  Visuals" view. The "Linked to Mastodon" view does not use the template file.
 * Same dataset with default
   and [custom](https://github.com/user-attachments/files/18346100/default_empty_spot-radius_2024-05-31.zip) Blender
   template file:

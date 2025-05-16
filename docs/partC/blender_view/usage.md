@@ -8,6 +8,8 @@
     views matches the frame number in Blender.
   * A Time scaling factor larger than 1 means that interpolation between frames in the Blender view is computed, which
     leads to a smoother animation. Frame numbers in Blender are then multiplied by the time scaling factor.
+  * Note: Interpolation may also happen in cases where spots of a track are not
+    present in all frames. In this case, the positions of the missing spots are interpolated.
 * Example with time scaling factor of 1: ![time_scaling_factor_1.gif](usage/time_scaling_factor_1.gif)
 * Example with time scaling factor of 10: ![time_scaling_factor_10.gif](usage/time_scaling_factor_10.gif)
 * Wait for some seconds, for the data to load into Blender.
@@ -27,7 +29,7 @@
     * Select a "tag set" (The colors will be visualized in the 3d view.)
     * Update the "tag set" (After you made changes in tags in Mastodon.)
 
-### Synchronize time point and active spot between Mastodon and Blender
+### Synchronize time-point and active spot between Mastodon and Blender
 
 In the Mastodon TrackScheme window click one of the lock symbols 1, 2 or 3.
 In Blender go to the "Mastodon 3D View" panel, and choose the same number 1, 2 or 3 as "Synchronization Group".
@@ -46,7 +48,7 @@ Now, the active time points and the active spot are synchronized between Blender
 * Menu Location: `Window > Blender Views > New Blender View (Advanced Visuals)`
 * Choose the tag set or the feature color mode you want to use for
   visualization. ![blender_advanced_visuals.png](usage/blender_advanced_visuals.png)
-* Wait for some seconds, for the data to load into Blender.
+* Wait for some seconds for the data to load into Blender.
 * Play around!
 
 ### Geometry Nodes
@@ -55,13 +57,15 @@ Now, the active time points and the active spot are synchronized between Blender
   Blender's [Geometry Nodes](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/introduction.html) to
   visualize the data.
 * This option opens a new Blender window with the cell tracking data. The data in the Blender window is detached
-  from the Mastodon data, i.e. there is no interaction with Mastodon possible and data updated in Mastodon is not
+  from the Mastodon data, i.e. there is no interaction with Mastodon possible, and data updated in Mastodon is not
   updated in the Blender View. It can handle large datasets efficiently. It is possible to modify the visualization
   in Blender.
 * Preferred option for high quality rendering of movies.
-* The timescale in Blender is increased by a factor of 10 compared to Mastodon. This is done to make the visualization
-  more appealing. 1 frame in Blender corresponds to 10 frames in Mastodon.
 * The data can be rotated and shown from all angles.
+* Note: In contrast to the "Linked to Mastodon" view, the "Advanced Visuals" view does not
+  support the synchronization of the time point and the active spot with Mastodon. Furthermore, the "Advanced Visuals"
+  view does not support
+  the interpolation missing spots within a track.
 
 ### Example of a visualization of feature color modes
 

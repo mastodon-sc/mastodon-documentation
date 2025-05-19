@@ -17,7 +17,8 @@ There are two options available:
 
 * This Blender View uses
   Blender's [Geometry Nodes](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/introduction.html) to
-  visualize the data. For this purpose, Mastodon exports the data to a CSV file, which is then read by Blender.
+  visualize the data. For this purpose, Mastodon exports the data to a CSV file, which is then read by Blender, when the
+  Blender view is started.
 * This option opens a new Blender window with the cell tracking data. The data in the Blender window is detached
   from the Mastodon data, i.e., there is no interaction with Mastodon possible, and data updated in Mastodon is not
   updated in the Blender View. It can handle large datasets efficiently. It is possible to modify the visualization

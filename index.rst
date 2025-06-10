@@ -79,6 +79,7 @@ Table of content.
    docs/partA/semi_automated_tracking.md
    docs/partA/selection_creator.md
    docs/partA/scripting_mastodon.md
+   docs/partA/remote_images.md
    docs/partA/video_tutorials.md
 
 

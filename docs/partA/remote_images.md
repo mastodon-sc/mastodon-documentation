@@ -9,7 +9,7 @@ Mastodon is compatible with two main technologies for handling large images stor
 - OME-NGFF specifications, mainly OME-Zarr and N5 file formats.
 We can use them transparently, along with the possibility to open local files, thanks to Mastodon file format separating the storage for tracking data and image data.
 
-## The Mastodon file format
+## The Mastodon file format.
 
 This is a brief explanation of the mastodon file format, to introduce how we implemented opening local and remove images. 
 This can be useful to know if you need to change the image file a Mastodon project points to. 
@@ -68,10 +68,174 @@ The Mastodon control window should open and you will be able to browse a large i
 The Mastodon projects you save from these files will keep the link to the remote image. 
 For instance you can open the Mastodon file `MaMuT_Parhyale_demo-mamut.mastodon` in the same folder and have the remote image and the tracking data:
 
-
 ![](../imgs/Mastodon_remote_img_07.gif){width="400px" align="center"}
-
 
 Parenthetically, the tracking data stored in this file is the result of the TGMM tracking algorithm ([Amat et al 2014](https://doi.org/10.1038/nmeth.3036)).
 Note also that the image is stored remotely, but all the tracking annotations are local only. 
 They live in the `.mastodon` file on your computer.
+
+
+## Another example.
+
+In the `Tribolium` folder of the Zenodo dataset used on this page you can find another example of a BDV image hosted on the same server.
+The image data is a TRIF training video 02 from the [Cell Tracking Challenge](https://CellTrackingChallenge.net), used with authorization.
+The original dataset provider is Dr. A. Jain. Max Planck Institute of Molecular Cell Biology and Genetics, Dresden, Germany.
+
+![](../imgs/Mastodon_remote_img_13.gif){align="center"}
+
+The following shows the nuclei (detecting with a plain DoG detector in Mastodon) colored by the mean distance to the 6 nearest neighbor.
+With such a display we see the propagation of the cell division wave.
+More information on the page describing the [nearest-neighbor statistics plugin](../partC/stats-on-nearest-neighbors.md).
+
+![](../imgs/Mastodon_remote_img_14.png){width="600px" align="center"}
+
+![](../imgs/Mastodon_remote_img_15.gif){width="600px" align="center"}
+
+
+
+## The Big Data Server.
+
+The Big Data Server is a simple Java program that can serve images that you converted to the XML file format.
+It is simple, there is no authentification and everything is public and read-only.
+But it is a great tool if you do not want to deploy a fully-fledged S3 server, but still want to share an image with collaborators and avoid making multiple copies of it.
+
+The server code and instructions can be found on the [Fiji wiki](https://imagej.net/plugins/bdv/server).
+We will not repeat them here, but show how we set up the server we used above.
+
+The Pasteur server we used in the two examples above is configured as follow.
+The files present on the server are the following:
+
+```sh
+$ ls -1 /opt/bigdataserver/ 
+server/
+CTC_TRIF_trainingVideo02-00-00.h5
+CTC_TRIF_trainingVideo02-01-00.h5
+CTC_TRIF_trainingVideo02-02-00.h5
+CTC_TRIF_trainingVideo02-03-00.h5
+CTC_TRIF_trainingVideo02.h5
+CTC_TRIF_trainingVideo02.xml
+MaMuT_Parhyale_demo.h5
+MaMuT_Parhyale_demo.settings.xml
+MaMuT_Parhyale_demo.xml
+server-runme.sh
+server-runme.txt
+```
+
+The XML and H5 files are classical BDV image file format. 
+This is what you get out of converting a large imge into the BDV format.
+
+The file `server-runme.txt` contains the link to the local XML files:
+
+```
+Parhyale        /opt/bigdataserver/MaMuT_Parhyale_demo.xml
+TRIF02          /opt/bigdataserver/CTC_TRIF_trainingVideo02.xml
+```
+
+The first column contains the name that will be used by the local client to point to the specific BDV image, stored in the second column.
+For instance in the MaMuT dataset and TRIF dataset above, the XML files that will point to the server contain:
+
+
+```xml
+    <ImageLoader format="bdv.remote">
+      <baseUrl>http://157.99.69.93:8080/Parhyale/</baseUrl>
+    </ImageLoader>
+```
+for the MaMuT dataset and
+```xml
+    <ImageLoader format="bdv.remote">
+      <baseUrl>http://157.99.69.93:8080/TRIF02/</baseUrl>
+    </ImageLoader>
+```
+for the TRIF02 dataset.
+
+The server is launched by a shell command:
+```sh
+$ cat server-runme.sh
+IPADDR=157.99.69.93
+PORT=8080
+cd /opt/bigdataserver/server && \
+/opt/bigdataserver/server/jre1.8.0_271/bin/java -jar bigdataviewer-server-3.1.3-SNAPSHOT.jar -s $IPADDR -p $PORT -t ./thumbnails  -d /opt/bigdataserver/server-runme.txt
+```
+
+The server itself is contained in the `server` subfolder.
+```sh
+$ ls -1 /opt/bigdataserver/server
+bigdataviewer-server-3.1.3-SNAPSHOT.jar
+thumbnails
+```
+
+It should be rather simple to adapt this to your configuration.
+
+
+## Opening a remote OME-Zarr image.
+
+OME-Zarr is emerging as a standard to serve large images remotely. 
+They can be served from S3 servers conveniently and there are already examples out there.
+Let's create a Mastodon project based on an image stored in the Image Data Resource ([IDR](https://idr.openmicroscopy.org/)).
+
+The IDR lets you browse the images it store via an OMERO instance. 
+For instance, we would like to open one image of the following dataset:
+
+[https://idr.openmicroscopy.org/webclient/?show=project-2051](https://idr.openmicroscopy.org/webclient/?show=project-2051)
+
+in Mastodon.
+Specifically [this one](https://idr.openmicroscopy.org/webclient/img_detail/13457227/?dataset=15159):
+
+![](../imgs/Mastodon_remote_img_08.png){width="600px" align="center"}
+
+The IDR serves some of these images as OME-NGFF, as listed on [this page](https://idr.github.io/ome-ngff-samples/).
+There, we have to look for our target image. 
+The Zarr file has the same name than the image ID in OMERO (`13457227`).
+We just have to copy the `.zarr` link in this table:
+
+![](../imgs/Mastodon_remote_img_09.png){width="600px" align="center"}
+
+`https://uk1s3.embassy.ebi.ac.uk/idr/zarr/v0.4/idr0101A/13457227.zarr`
+
+This is all the information we need for Mastodon.
+
+Open the Mastodon launcher, and select _new from OME-NGFF_.
+In the panel that appear, click on the _Browse_ button.
+The `Open N5` window appears.
+
+
+In the main textfield, simply paste the `https://uk1s3.embassy.ebi.ac.uk/idr/zarr/v0.4/idr0101A/13457227.zarr` link and click _Detect datasets_.
+After a while, the panel below should be populated with the information that could be retrieved about the image:
+
+![](../imgs/Mastodon_remote_img_10.png){width="600px" align="center"}
+
+Click _OK_. 
+The Mastodon launcher now has this information.
+
+![](../imgs/Mastodon_remote_img_11.png){width="600px" align="center"}
+
+Click on the _create_ button.
+You will be prompted for a location in which to save a `xml` file, that will contain a link to the remote image.
+You can then inspect the XML content to see the following:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SpimData version="0.2">
+  <BasePath type="relative">.</BasePath>
+  <SequenceDescription>
+    <ImageLoader format="bdv.n5.universe" version="1.0">
+      <Url>https://uk1s3.embassy.ebi.ac.uk/idr/zarr/v0.4/idr0101A/13457227.zarr</Url>
+      <Dataset>/</Dataset>
+    </ImageLoader>
+```
+
+And you now have a Mastodon project that points to this image.
+In the folder `ZARR-IDR` you will find a copy of the Mastodon project generated from this remote image, with some automated detection of spots for one of the cell.
+
+![](../imgs/Mastodon_remote_img_12.png)
+
+
+## Opening a local OME-Zarr images.
+
+Opening local OME-Zarr images works like for remote. 
+You simply have to point the path in the `Open N5` window to a local file.
+
+In the `ZARR-local` folder your will find a Zarr file of a _C.elegans_ movie (where one part of the image was manually erased).
+It was created from an ImageJ tiff, using the _File > Save as > HDF5/N5/Zarr/OME-NGFF_ command.
+
+

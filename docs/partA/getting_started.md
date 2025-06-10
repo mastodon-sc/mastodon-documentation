@@ -217,7 +217,7 @@ This is an important limitation of Mastodon.
 For now, select the `DoG detector` and click `Next`.
 
 Here is briefly how it works. 
-The LoG detector, and its approximation the DoG detector, is the best detector for blob-like particles in the presence of noise (See [Sage et al, 2005](https://ieeexplore.ieee.org/abstract/document/1495509).
+The LoG detector, and its approximation the DoG detector, is the best detector for blob-like particles in the presence of noise (see [Sage et al, 2005](https://ieeexplore.ieee.org/abstract/document/1495509).
 It is based on applying a Laplacian of Gaussian (LoG) filter on the image and looking for local maxima. 
 The result is obtained by summing the second order spatial derivatives of the gaussian- filtered image, and normalizing for scale.
 Local maxima in the filtered image yields spot detections. 

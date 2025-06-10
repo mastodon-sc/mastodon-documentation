@@ -39,7 +39,10 @@ The data layout is schematically the following:
 
 ![](../imgs/Mastodon_remote_img_03.png)
 
-Download the exemple datasets from here: TODO TODO XXXX
+Download the exemple datasets from here: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15632011.svg)](https://doi.org/10.5281/zenodo.15632011)
+
+Unzip the file. 
+It should contain 4 folders.
 
 The `ParhyaleHawaiensis` folder contains the first 10 timepoints of the MaMuT dataset, published in [Wolff, Tinevez, Pietzsch et al, 2018](https://doi.org/10.7554/eLife.34410).
 If you open the file `MaMuT_Parhyale_demo.xml`, you can see that the link to the image is different from what we had with a local file:

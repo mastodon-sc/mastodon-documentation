@@ -1,10 +1,10 @@
-# Simi-BioCell importer.
+# Simi-BioCell importer
 
 When starting Mastodon, on the Mastodon Launcher, it is possible to import Simi-BioCell files as a new Mastodon project.
 
 ![Simi-BioCell importer panel](img/Mastodon_LauncherGUI_ImportSimi.png)
 
-## Simi-BioCell files description.
+## Simi-BioCell files description
 
 Simi-BioCell files are normally shipped as a pair of `sbc/sbd` files, but we need only the `sbd` file for import. Both
 are text files. The `sbc` file starts with something like this:

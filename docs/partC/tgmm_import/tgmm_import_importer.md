@@ -1,4 +1,4 @@
-# TGMM importer.
+# TGMM importer
 
 This panel lets you import the lineage data generated with the TGMM (Tracking with Gaussian Mixture Models) software
 tool. For information about TGMM, read the following paper:
@@ -7,7 +7,7 @@ Amat F, Lemon W, Mossing DP, McDole K, Wan Y, Branson K, Myers EW, Keller PJ. *F
 lineages from large-scale fluorescence microscopy data.* [**Nature Methods. 2014;11:951.
 **](https://www.nature.com/articles/nmeth.3036) doi: 10.1038/nmeth.3036
 
-## The TGMM file structure.
+## The TGMM file structure
 
 TGMM outputs a folder containing one XML file per time-point. For instance:
 

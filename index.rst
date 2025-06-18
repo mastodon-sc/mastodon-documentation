@@ -102,6 +102,7 @@ Table of content.
     docs/partC/existing_plugins.md
     docs/partC/csv_import/csv-importer.md
     docs/partC/graphml_import/graphml_importer.md
+    docs/partC/simi_bio_cell_import/simi_bio_cell_importer.md
     docs/partC/stats-on-nearest-neighbors.md
     docs/partC/track-image.md
     docs/partC/deep_lineage.rst

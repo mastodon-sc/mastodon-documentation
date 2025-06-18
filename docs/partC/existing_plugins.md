@@ -13,6 +13,7 @@ The following plugins are available with the core of Mastodon.
 
 - [CSV importer](csv_import/csv-importer.md)
 - [GraphML importer](graphml_import/graphml_importer.md)
+- [Simi-BioCell importer](simi_bio_cell_import/simi_bio_cell_importer.md)
 
 ### Image data
 

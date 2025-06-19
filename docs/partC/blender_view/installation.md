@@ -1,5 +1,9 @@
 # Installation
 
+* We have implemented a user-friendly installation routine within Mastodon, enabling users to leverage Blender’s 3D
+  capabilities with just a few clicks. The installer can be accessed from any Mastodon window via `Window > Blender Views > Setup
+  Blender Addon`.
+
 ## Setup Blender Addon...
 
 * Pre-requisites:
@@ -13,6 +17,8 @@
 * In Mastodon's main menu, you will find an entry ```Window > Blender Views > Setup Blender Addon ...```, click it and
   follow the instructions to install the Mastodon Blender Plugin.
 
+![blender_view.png](installation/blender_view.png)
+
 ## Configure Blender Template Files...
 
 * Menu Location: `Window > Blender Views > Configure Blender Template Files...`
@@ -22,9 +28,8 @@
 * An example of a Blender template files can be downloaded from
   here: [blender_template.zip](https://github.com/user-attachments/files/18346100/default_empty_spot-radius_2024-05-31.zip).
   Needs to be unzipped before use.
-* Note: The template file must be a Blender file with the extension '.blend'. The template file is only used for the "
-  Advanced"
-  Visuals" view. The "Linked to Mastodon" view does not use the template file.
+* Note: The template file must be a Blender file with the extension `.blend`. The template file is only used for the
+  `Advanced Visuals` view. The `Linked to Mastodon` view does not use the template file.
 * Same dataset with default
   and [custom](https://github.com/user-attachments/files/18346100/default_empty_spot-radius_2024-05-31.zip) Blender
   template file:

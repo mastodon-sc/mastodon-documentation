@@ -1,5 +1,10 @@
 # About Mastodon Blender View
 
+Blender is free and open-source 3D graphics software (https://blender.org) with a wide variety of use cases: 3D
+modeling, texturing, data visualization, animation, and rendering, to name a few. It also has a history of scientific
+usage and offers many features, tutorials, and community resources. It exposes a Python API, which we use to
+import Mastodon’s track data and convert it into 3D geometry.
+
 The Mastodon Blender View is a plugin for the [Mastodon](https://github.com/mastodon-sc/mastodon/) cell tracking
 software.
 The plugin allows visualizing Mastodon cell tracking data in the [Blender](https://blender.org) 3d modeling software.
@@ -46,7 +51,7 @@ There are two options available:
 ## For both options
 
 * The data can be rotated and shown from all angles.
-* The plugin has been successfully tested with Blender 3.5, 3.6, 4.0, 4.1 and 4.2. It is recommended to use the latest
+* The plugin has been successfully tested with Blender 3.5, 3.6, 4.0, 4.1, and 4.2. It is recommended to use the latest
   version of Blender. However, the plugin is not guaranteed to work with future versions of Blender.
 
 ## Example of a visualization

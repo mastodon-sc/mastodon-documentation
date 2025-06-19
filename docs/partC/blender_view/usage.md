@@ -21,13 +21,15 @@
 
 * Click on the 3D view in Blender.
 * Press ```N```, This makes a few tabs appear on the right edge of the 3D view.
-* Alternatively, click the arrow on the right edge of the 3D view. ![blender_arrow.png](usage/blender_arrow.png)
+* Alternatively, click the arrow on the right edge of the 3D view. ![mastodon_panel.png](usage/mastodon_panel.png)
 * One of the tabs is called "Mastodon 3D View".
 * Click it and you will be able to:
     * Select a Mastodon synchronization group
     * Change sphere sizes
     * Select a "tag set" (The colors will be visualized in the 3d view.)
-    * Update the "tag set" (After you made changes in tags in Mastodon.)
+  * Changes to Tag Sets or tag colors in Mastodon require updating via the `Update` button.
+  * Modifications to tracks (e.g., deletions or annotations) in Mastodon require launching a new Blender View window, as
+    real-time updates are not supported.
 
 ### Synchronize time-point and active spot between Mastodon and Blender
 
@@ -53,6 +55,17 @@ Now, the active time points and the active spot are synchronized between Blender
 * Note: In contrast to the "Linked to Mastodon" view, the "Advanced Visuals" view does not
   support the synchronization of the time point and the active spot with Mastodon. Furthermore, the "Advanced Visuals"
   view does not support the interpolation missing spots within a track.
+
+## Rendering images and movies in Blender
+
+A rendered image of the current 3D viewport view can be obtained using the `View > Viewport Render Image` command
+located in the upper left corner of the 3D viewport. The resulting image can then be saved.
+To render multiple frames, Blender's Timeline editor can be used to set a Start and End frame, and these frames can be
+recorded by executing the `View > Viewport Render Animation` command. Note that Blender’s
+Output Properties can be adjusted to change the file save location (default: `/tmp`) and
+the output format (default: `PNG`).
+
+![blender_render.png](usage/blender_render.png)
 
 ### Example of a visualization of feature color modes
 

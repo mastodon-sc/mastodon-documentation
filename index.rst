@@ -80,6 +80,7 @@ Table of content.
    docs/partA/selection_creator.md
    docs/partA/scripting_mastodon.md
    docs/partA/remote_images.md
+   docs/partA/customizing_gui.md
    docs/partA/video_tutorials.md
 
 

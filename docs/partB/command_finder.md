@@ -1,4 +1,4 @@
-# Command Finder
+# Command Finder.
 
 Mastodon offers a window-specific quick search functionality that filters available commands.
 The `Command Finder` can be opened by pressing `Ctrl + Shift + F` in any active BDV, TrackScheme, Grapher, Table, or

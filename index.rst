@@ -94,6 +94,7 @@ Table of content.
    docs/partB/table_table_navigation_keys.md
    docs/partB/table_focus_navigation.md
    docs/partB/table_mastodon_selection_keys.md
+   docs/partB/customizing_keys.md
    docs/partB/command_finder.md
 
 .. toctree::

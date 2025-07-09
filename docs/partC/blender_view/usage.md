@@ -77,6 +77,35 @@ the output format (default: `PNG`).
 * Tracking data of phallusia mammillata embryogenesis
   by [Guignard et a. (2020)](https://doi.org/10.1126/science.aar5663).
 
+## Templates for advanced visualizations
+
+To further enhance visualizations and enable true rendering in Blender, users typically need to configure camera
+settings, adjust lighting, and optionally modify the provided and preset Geometry Nodes (in order to manipulate
+textures, sphere shapes, etc.). However, doing so requires some familiarity with Blender’s more advanced tools. To
+simplify this process, we provide an additional file, default_empty.blend file, which we used for advanced
+visualizations and high-quality renderings. It can be downloaded here: https://zenodo.org/records/15826991.
+
+When using this file, multiple visualization options become available for spheres and tracks, respectively. These
+options can be accessed via the Modifier Properties panel (see Figure 7), located in the Properties Editor and
+highlighted with a pink circle. Clicking the icon expands the panel (see pink frame in Figure), allowing users to
+enable or disable spheres and tracks, adjusting Sphere Radius and Resolution, and modifying Sphere Displacement to
+create more deformed sphere shapes if desired. The Time Size Falloff option allows spheres to gradually shrink spheres
+over time. Additional parameters such as Track Length (incoming and outgoing), Track Width, and Interpolation Resolution
+can also be defined. An easy-to-use cropping functionality can also be accessed at the bottom of the panel.
+
+* ![blender_template.png](usage/blender_template.png)
+* Visualization options provided by the custom ‘default_empty.blend’ file. The Modifier Properties panel (located in the
+  Properties Editor and highlighted with a pink circle) can be expanded by clicking it. This panel (see pink frame)
+  allows you to adjust the sphere size and subdivisions of spots, toggle track visibility, and modify track width as
+  well as the number of frames shown before and after the current time point.
+
+The final Blender scene manually adjusted by the user can again serve as a reusable template for other Mastodon
+projects by simply saving it with Blender (File > Save as). We recommend deleting the visualized dataset first to create
+an empty template for reuse. To do this, left-click the mesh in the 3D viewport, press the ‘X’ key, and confirm by
+selecting Delete. Alternatively, you can use a .blend file that already includes a mesh from a previous Mastodon project
+as a starting point. This allows you to add additional datasets to the same Blender scene. In this way, multiple
+Mastodon projects can be visualized and rendered together within a single file.
+
 ## Export CSV for Blender
 
 * Menu Location: `Window > Blender Views > Export CSV for Blender`

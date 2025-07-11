@@ -16,7 +16,7 @@
    same as the duration before the first division of the selected motif.
 3. For each branch, the algorithm computes the tree edit distance between the selected motif and the branch
    tree. For more details on the tree edit distance, see
-   section [Zhang tree edit distance](clustering#zhang-tree-edit-distance).
+   section [Zhang tree edit distance](clustering.md#zhang-tree-edit-distance).
 4. The algorithm creates a new tag set and tags the spots belonging to the `n` most similar branches with a color
    that is faded out from the original motif color. `n` is the number of motifs specified by the user. The lower the
    computed distance, the more similar the found motif is to the original motif.

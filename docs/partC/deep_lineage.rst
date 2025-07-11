@@ -23,6 +23,7 @@ Track analysis, import and export add-ons (DeepLineage)
     deep_lineage/features
     deep_lineage/detectors
     deep_lineage/clustering
+    deep_lineage/lineagemotifs
     deep_lineage/dimensionalityreduction
     deep_lineage/import
     deep_lineage/export

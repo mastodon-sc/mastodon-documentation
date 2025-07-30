@@ -58,12 +58,6 @@ Now by clicking one of the available buttons, these actions can be performed:
   side): [Phallusia mammillata](https://github.com/mastodon-sc/mastodon-example-data/blob/master/astec/Pm02.mastodon)
 * Visualisation: ![spatial_track_matching.gif](spatialtrackmatching/spatial_track_matching.gif)
 
----
----
-Here’s the revised and polished version of your text. I've improved grammar, flow, and clarity while maintaining the technical details:
-
----
-
 ## Algorithm for Finding Cell Correspondences
 
 ### Principle
@@ -96,8 +90,6 @@ The angle determines the correct correspondence:
 - If the angle is greater than or equal to 90 degrees, the correspondence is X1 ↔ Y2 and X2 ↔ Y1.
 
 This simple yet effective approach lets us find the correspondence for a cell division, provided we already know the correspondence for the parent cells. By repeating this process for all cell divisions in the Mastodon datasets, we can establish the full set of correspondences between the two datasets.
-
-Certainly! Here’s an improved version of your paragraph with clearer phrasing, improved grammar, and enhanced readability:
 
 ### Correctness of the Result
 

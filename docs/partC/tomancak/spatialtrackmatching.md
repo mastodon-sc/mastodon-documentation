@@ -100,7 +100,9 @@ which might suggest developmental differences between the two embryos.
 
 ### Alignment of the Two Datasets
 
-The algorithm for finding correspondences relies on the angles between cell division directions in the embryos. Achieving a good alignment between the two embryos/datasets is critical for obtaining high-quality results. To facilitate this, three slightly different methods have been implemented for computing the alignment:
+The algorithm for finding correspondences relies on the angles between cell division directions in the embryos. Achieving a good alignment between the two embryos/datasets is critical for obtaining high-quality results. To facilitate this, three slightly different methods have been implemented for computing the alignment.
+
+(Note: The term *"root cell"* is frequently used below. It simply refers to cells visible in the first time point of the cell tracking dataset. These cells serve as the starting nodes - commonly called "roots" - of lineage trees. Biologically, they are not unique; if recording began earlier, a different set of cells would be designated as root cells.)
 
 #### 1. Fixed Spatial Registration Based on Root Cells
 

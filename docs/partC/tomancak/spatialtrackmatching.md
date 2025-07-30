@@ -23,15 +23,7 @@ The plugin has been successfully tested on the following: *Macrostomum* embryos 
 
 Note: Cells or tracks without divisions are ignored by the plugin.
 
-## Installation
-
-The plugin is included in the **"Mastodon-Tomancak"** collection of plugins for Mastodon.
-To install it in Fiji, activate the update sites: **Mastodon** and **Mastodon-Tomancak**.\
-(For help read the guide on [how to follow an update site](https://imagej.net/update-sites/following).)
-
 ## Usage
-
-First make sure to have the update sites installed and restart Fiji.
 
 To use the plugin:
 1. Open two Mastodon datasets containing stereotypically developing embryos.\

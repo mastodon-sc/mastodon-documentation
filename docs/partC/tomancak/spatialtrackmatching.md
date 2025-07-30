@@ -36,14 +36,14 @@ First make sure to have the update sites installed and restart Fiji.
 To use the plugin:
 1. Open two Mastodon datasets containing stereotypically developing embryos.\
    Example datasets can be found [here](https://github.com/mastodon-sc/mastodon-example-data/blob/master/astec/).
-1. Make sure to have this initial cells named with corresponding names in both dataset.\
+1. Make sure to have the initial cells named with corresponding names in both dataset.\
    (Cells/spots can be renamed in Mastodon by pressing `F2`.)
 1. In the Mastodon menu navigate to `Plugins > Lineage Analysis > Spatial Track Matching`.\
    A dialog box, "Spatial Track Matching Across Two Mastodon Projects," will appear. 
 1. Select your projects as project A and project B.
-1. (Optional: If the datasets start at different stages specify a "first frame" to align them. Any data before this frame is ignored.)
+1. (Optional: If the datasets start at different stages, specify a "first frame" to align them. Any data before this frame is ignored.)
 
-Now by click one of the menu availabe buttons, on of these actions can be performed:
+Now by clicking one of the available buttons, these actions can be performed:
 - Sorting TrackSchemes of one dataset to be consistent with the order.
 - Copying tag sets between datasets.
 - Plotting angles between cell division directions.
@@ -82,7 +82,7 @@ There are only two possible correspondences for the daughter cells:
 1. X1 corresponds to Y1, and X2 corresponds to Y2.
 2. X1 corresponds to Y2, and X2 corresponds to Y1.
 
-To determine the correct correspondence, our strategy is to align the embryos with one another.
+To determine the correct correspondence, our strategy is to spatially align the embryos with one another.
 We use the known correspondences (A ↔ A, B ↔ B, C ↔ C, D ↔ D) to calculate the rotation, translation, and scaling of embryo Y that minimizes the sum of squared distances between cells A, B, C, and D in both datasets.
 
 <img src="spatialtrackmatching/explain2.png" width=150>
@@ -103,7 +103,7 @@ Certainly! Here’s an improved version of your paragraph with clearer phrasing,
 
 There is no guarantee that the determined correspondences are biologically accurate or relevant. However, the method provides an indication of the quality of the computed correspondences. By analyzing the angle between the cell division directions, we can assess their reliability. Angles close to 0° or 180° strongly suggest a specific correspondence, whereas angles near 90° offer only a weak distinction between the two possible options.
 
-The Spatial Track Matching plugin includes an option to plot cell division angles. Below is an example of such a plot:
+The Spatial Track Matching dialog includes an option to plot cell division angles (<i>"plot angles"</i>). Below is an example of such a plot:
 
 <img src="spatialtrackmatching/plot_cell_division_angle.png" width=600>
 
@@ -127,7 +127,7 @@ For each root cell (e.g., cell A), there is not just one coordinate vector, but 
 
 This approach is more dynamic and works even if the embryos rotate during the recording. It starts with the correspondence between the initial root cells (e.g., A ↔ A, B ↔ B, C ↔ C, D ↔ D). 
 
-For each root cell (e.g., cell A), instead of extracting a fixed position vector. We extrac a position vector by timepoint which will be denoted as P(A,X,t), where A is the cell, X is the embrbryo and t is the timepoint. If the timepoint t is between the appearance of the cell A and there cell division P(A,X,t) will simple denote the position vector of the cell A. Afterwards when the cell divided into two daugther cells it will be the average position of the two daugther cells of cell A at that time point. When the daugter cell divide further it will simply be the average position of all the descendants of cell A at the time point in embryo A.
+For each root cell (e.g., cell A), instead of extracting a fixed position vector. We extract a position vector by timepoint which will be denoted as P(A,X,t), where A is the cell, X is the embryo and t is the timepoint. If the timepoint t is between the appearance of the cell A and its cell division, P(A,X,t) will simply denote the position vector of the cell A. Afterwards when the cell has divided into two daugther cells, it will be the average position of the two daugther cells of cell A at that time point. When the daughter cells divide further, it will simply be the average position of all the descendants of cell A at the time point in embryo A.
 
 This approach gives us a position for each initial cell at each timepoint for both embryos. So for our example we would have:
 - for embryo X: P(A,X,t), P(B,X,t), P(C,X,t), P(D,X,t)
@@ -147,7 +147,7 @@ The only difference to approach 2 is that rather of calculating a average positi
 
 ### Remarks
 
-In the first timepoints after cell division the daugther cells usually move a lot. To reduce the noise when compution a cell division direction, we avarage over the position of the daugther cell in the three time points after cell division. This has the effect the the "timepoint of the cell division direction" is t + 2. If t denotes last timepoint before cell division. This is also the reason why an offset t+2 is used when computing the dynamic spatial registration.
+In the first timepoints after cell division the daugther cells usually move a lot. To reduce the noise when computing a cell division direction, we avarage over the position of the daugther cell in the three time points after cell division. This has the effect that the "timepoint of the cell division direction" is t + 2, if t denotes the last timepoint before cell division. This is also the reason why an offset t+2 is used when computing the dynamic spatial registration.
 
 ## Operations based on the correspondence information
 

@@ -39,7 +39,7 @@ Now by clicking one of the available buttons, these actions can be performed:
 - Sorting TrackSchemes of one dataset to be consistent with the order.
 - Copying tag sets between datasets.
 - Plotting angles between cell division directions.
-- Clicking a lock icon <img src="spatialtrackmatching/lock_icon.png" height=20> will suncronized the focus of cells between the two datsets. This works best together with the "Branch TrackScheme" opened for both datasets.
+- Clicking a lock icon <img src="spatialtrackmatching/lock_icon.png" height=20> will synchronize the focus of cells between the two datsets. This works best together with the "Branch TrackScheme" opened for both datasets.
 - Renaming cells in one dataset to match the other.
 
 ## Example
@@ -60,7 +60,7 @@ Now, when a cell divides—for instance, cell B in both datasets—the question 
 
 <img src="spatialtrackmatching/question.png" width=400>
 
-To answer this question, lets first name the daughter cells for convenience: X1 and X2 in embryo X, and Y1 and Y2 in embryo Y.
+To answer this question, let's first name the daughter cells for convenience: X1 and X2 in embryo X, and Y1 and Y2 in embryo Y.
 
 <img src="spatialtrackmatching/explain1.png" width=300>
 
@@ -73,7 +73,7 @@ We use the known correspondences (A ↔ A, B ↔ B, C ↔ C, D ↔ D) to calcula
 
 <img src="spatialtrackmatching/explain2.png" width=150>
 
-Once the embryos are aligned within the same coordinate system, we can compare directions in both datasets. Mastodon provides the coordinates for all cells at all timepoints, allowing us to compute the vectors (directions) between the daughter cells: from X1 to X2 (purple arrow) and from Y1 to Y2 (green arrow). We call those vectors between the daugther cells, *cell division direction*. The angle between these two vectors can then be calculated.
+Once the embryos are aligned, and transferred to the same coordinate system, we can compare directions in both datasets. Mastodon provides the coordinates for all cells at all timepoints, allowing us to compute the vectors (directions) between the daughter cells: from X1 to X2 (purple arrow in the image below) and from Y1 to Y2 (green arrow). We call those vectors between the daughter cells, *cell division direction*. The angle between these two vectors can then be calculated.
 
 <img src="spatialtrackmatching/explain3.png" width=180>
 
@@ -106,37 +106,39 @@ The algorithm for finding correspondences relies on the angles between cell divi
 
 This is the simplest approach and works well when the embryos remain relatively stationary during the recording. The alignment is based on the correspondence between the initial root cells (e.g., A ↔ A, B ↔ B, C ↔ C, D ↔ D). These root cells appear in multiple timepoints in the cell tracking data.
 
-For each root cell (e.g., cell A), there is not just one coordinate vector, but one for each timepoint before the cell divides. To simplify, the last coordinate vector before division is used. If there are four root cells (A, B, C, D), we extract one coordinate vector for each of these cells in embryo X and another set for the same cells in embryo Y. These vectors are then aligned by computing a transformation (translation, rotation, and scaling) that minimizes the squared distances between corresponding vectors. This transformation is used to align embryo Y with embryo X.
+For each root cell (e.g., cell A), there is not just one coordinate vector, but one for each timepoint before the cell divides. The last coordinate vector before cell division is used to ensure uniqueness. If there are four root cells (A, B, C, D), we extract one coordinate vector for each of these cells in embryo X and another set for the same cells in embryo Y. These vectors are then aligned by computing a transformation (translation, rotation, and scaling) that minimizes the squared distances between corresponding vectors. This transformation is used to align embryo Y with embryo X.
 
 #### 2. Dynamic Spatial Registration Based on Root Cells and Their Descendants
 
 This approach is more dynamic and works even if the embryos rotate during the recording. It starts with the correspondence between the initial root cells (e.g., A ↔ A, B ↔ B, C ↔ C, D ↔ D). 
 
-For each root cell (e.g., cell A), instead of extracting a fixed position vector. We extract a position vector by timepoint which will be denoted as P(A,X,t), where A is the cell, X is the embryo and t is the timepoint. If the timepoint t is between the appearance of the cell A and its cell division, P(A,X,t) will simply denote the position vector of the cell A. Afterwards when the cell has divided into two daugther cells, it will be the average position of the two daugther cells of cell A at that time point. When the daughter cells divide further, it will simply be the average position of all the descendants of cell A at the time point in embryo A.
+Instead of extracting a constant coordinate vector, for each root cell (e.g., cell A). We extract a position vector for each root cell at each timepoint which will be denoted as P(A,X,t), where A is the root cell, X is the embryo and t is the timepoint. If the timepoint t is between the appearance of the cell A and its cell division, P(A,X,t) will simply denote the position vector of the cell A at that time point. Afterwards when the cell has divided into two daughter cells, it will be the average position of the two daughter cells of cell A at that time point. When the daughter cells divide further, it will simply be the average position of all the descendants of cell A at that time point in embryo X.
 
 This approach gives us a position for each initial cell at each timepoint for both embryos. So for our example we would have:
 - for embryo X: P(A,X,t), P(B,X,t), P(C,X,t), P(D,X,t)
 - for embryo Y: P(A,Y,t), P(B,Y,t), P(C,Y,t), P(D,Y,t). 
 
 When comparing a cell division in embryo X at timepoint t_X with a cell division in embryo Y at timepoint t_Y,
-the algorithm aligns the positions P(A,X,t_X+2), ..., P(D,X,t_X+2) with P(A,Y,t_Y+2), ..., P(D,Y,t_Y+2). The resulting rotation is then used to transform the cell division directions in embryo Y into the coordinate system of embryo X before calculating the cell division angle.
+the algorithm aligns the positions P(A,X,t_X+2), ..., P(D,X,t_X+2) with P(A,Y,t_Y+2), ..., P(D,Y,t_Y+2). The resulting rotation is then used to transform the cell division directions in embryo Y into the coordinate system of embryo X before calculating the cell division angle. (The reason for the offset t+2 is explained [below](#remarks))
 
 Since this transformation depends on the timepoints of the cell division, it changes dynamically over time. This allows the algorithm to compensate for movement (specifically rotation) of the embryos during the recording.
 
 #### 3. Dynamic Spatial Registration Based on the "Landmarks" Tag Set
 
-
 The method is similar to the second approach, except that instead of relying on the root cells and their descendants, it uses the tagged cells.
 A tag set named "landmarks" has to be present in both Mastodon datasets. The tag names in the "landmarks" tag set must match between the two datasets.
-The only difference to approach 2 is that rather of calculating a average position P(A,X,t) of the descendants of cell A in embryo X at timepoint t. We instead compute P(S, X, t) the avarage position of the spots labeled with tag S at timepoint t in embryo X.
+The only difference to approach 2 is that rather than calculating an average position P(A,X,t) of the descendants of cell A in embryo X at timepoint t. We instead compute P(S, X, t) the average position of the spots labeled with tag S at timepoint t in embryo X.
 
 ### Remarks
 
-In the first timepoints after cell division the daugther cells usually move a lot. To reduce the noise when computing a cell division direction, we avarage over the position of the daugther cell in the three time points after cell division. This has the effect that the "timepoint of the cell division direction" is t + 2, if t denotes the last timepoint before cell division. This is also the reason why an offset t+2 is used when computing the dynamic spatial registration.
+In the first timepoints after cell division the daughter cells usually move a lot. This causes noise when computing the cell division direction. To reduce the noise, we average the position of the daughter cells over the three time points after cell division.
+
+In a rotating embryo it is necessary to associate a cell division direction with a specific timepoint, such that the optimal alignment for that timepoint can be used when comparing directions.
+Since the cell division direction is averaged over the three timepoints after cell division. The "average timepoint" that should be associated with the cell division is actually t + 2, where t denotes the last timepoint before cell division.
 
 ## Operations based on the correspondence information
 
-The plugin allows performing various operations based on the correspondence information, such as:
+Spatial Track Matching can perform various operations based on the cell-cell-correspondence information, such as:
 
 * Couple projects:
     * Spot highlighting and focus are synchronized between the two projects.
@@ -177,10 +179,9 @@ The plugin allows performing various operations based on the correspondence info
             * in this case, the user can set the first frame to a later time point where there are at least three cells
               in both projects.
 * Spatial track matching method:
+  (see section [
+   "Alignment of the two datasets"](#alignment-of-the-two-datasets) for details)
     * Fixed spatial registration based on root cells
-      (see [above](#1-fixed-spatial-registration-based-on-root-cells))
     * Dynamic spatial registration based on root cells and their descendants
-      (see [above](#2-dynamic-spatial-registration-based-on-root-cells-and-their-descendants))
     * Dynamic spatial registration based on "landmarks" tag set
-      (see [above](#3-dynamic-spatial-registration-based-on-the-landmarks-tag-set))
 

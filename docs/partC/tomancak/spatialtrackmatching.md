@@ -81,11 +81,12 @@ The angle determines the correct correspondence:
 - If the angle is less than 90 degrees, the correspondence is X1 ↔ Y1 and X2 ↔ Y2.
 - If the angle is greater than or equal to 90 degrees, the correspondence is X1 ↔ Y2 and X2 ↔ Y1.
 
-This simple yet effective approach lets us find the correspondence for a cell division, provided we already know the correspondence for the parent cells. By repeating this process for all cell divisions in the Mastodon datasets, we can establish the full set of correspondences between the two datasets.
+This simple approach lets us find the correspondence for one cell division, provided we already know the correspondence for the parent cells.
+By iteratively repeating this process for all cell divisions, we can establish the full set of correspondences between the two datasets.
 
 ### Correctness of the Result
 
-There is no guarantee that the determined correspondences are biologically accurate or relevant. However, the method provides an indication of the quality of the computed correspondences. By analyzing the angle between the cell division directions, we can assess their reliability. Angles close to 0° or 180° strongly suggest a specific correspondence, whereas angles near 90° offer only a weak distinction between the two possible options.
+There is no guarantee that the determined correspondences are biologically accurate or relevant. However, the method provides an indicator for the quality of the computed correspondences. By analyzing the angle between the cell division directions, we can assess their reliability. Angles close to 0° or 180° strongly suggest a specific correspondence, whereas angles near 90° offer only a weak distinction between the two possible options.
 
 The Spatial Track Matching dialog includes an option to plot cell division angles (<i>"plot angles"</i>). Below is an example of such a plot:
 

@@ -58,11 +58,11 @@ Let’s assume we have Mastodon datasets for two embryos, which we’ll call emb
 
 Now, when a cell divides—for instance, cell B in both datasets—the question arises: how do the two daughter cells of cell B in embryo X correspond to the two daughter cells of cell B in embryo Y?
 
-<img src="spatialtrackmatching/question.png" width=400>
+![question.png](spatialtrackmatching/question.png)
 
 To answer this question, let's first name the daughter cells for convenience: X1 and X2 in embryo X, and Y1 and Y2 in embryo Y.
 
-<img src="spatialtrackmatching/explain1.png" width=300>
+![explain1.png](spatialtrackmatching/explain1.png)
 
 There are only two possible correspondences for the daughter cells:
 1. X1 corresponds to Y1, and X2 corresponds to Y2.
@@ -71,11 +71,11 @@ There are only two possible correspondences for the daughter cells:
 To determine the correct correspondence, our strategy is to spatially align the embryos with one another.
 We use the known correspondences (A ↔ A, B ↔ B, C ↔ C, D ↔ D) to calculate the rotation, translation, and scaling of embryo Y that minimizes the sum of squared distances between cells A, B, C, and D in both datasets.
 
-<img src="spatialtrackmatching/explain2.png" width=150>
+![explain2.png](spatialtrackmatching/explain2.png)
 
 Once the embryos are aligned, and transferred to the same coordinate system, we can compare directions in both datasets. Mastodon provides the coordinates for all cells at all timepoints, allowing us to compute the vectors (directions) between the daughter cells: from X1 to X2 (purple arrow in the image below) and from Y1 to Y2 (green arrow). We call those vectors between the daughter cells, *cell division direction*. The angle between these two vectors can then be calculated.
 
-<img src="spatialtrackmatching/explain3.png" width=180>
+![explain3.png](spatialtrackmatching/explain3.png)
 
 The angle determines the correct correspondence:
 - If the angle is less than 90 degrees, the correspondence is X1 ↔ Y1 and X2 ↔ Y2.
@@ -90,7 +90,7 @@ There is no guarantee that the determined correspondences are biologically accur
 
 The Spatial Track Matching dialog includes an option to plot cell division angles (<i>"plot angles"</i>). Below is an example of such a plot:
 
-<img src="spatialtrackmatching/plot_cell_division_angle.png" width=600>
+![plot_cell_division_angle.png](spatialtrackmatching/plot_cell_division_angle.png)
 
 The plot illustrates the cell division angles corresponding to matched cell divisions between two embryos.
 Up to timepoint 300, there are almost no division angles close to 90°,
@@ -181,8 +181,7 @@ Spatial Track Matching can perform various operations based on the cell-cell-cor
             * in this case, the user can set the first frame to a later time point where there are at least three cells
               in both projects.
 * Spatial track matching method:
-  (see section [
-   "Alignment of the two datasets"](#alignment-of-the-two-datasets) for details)
+  (see section ["Alignment of the two datasets"](#alignment-of-the-two-datasets) for details)
     * Fixed spatial registration based on root cells
     * Dynamic spatial registration based on root cells and their descendants
     * Dynamic spatial registration based on "landmarks" tag set

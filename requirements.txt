@@ -12,3 +12,5 @@ watchdog==2.1.9
 zipp==3.8.0
 javalang
 sphinx-material
+sphinxcontrib-jquery
+

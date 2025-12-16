@@ -158,6 +158,14 @@ positions of each segmented spot.
   automatically adapts to the data. In 2D applications its running time is similar to Cellpose3, but in 3D applications
   it is ~20 times slower than Cellpose3.
 
+## Example dataset:
+
+* You can try the detectors on
+  the [Mastodon example dataset](https://github.com/mastodon-sc/mastodon-example-data/tree/master/tgmm-mini)
+* Cellpose3: ![mastodon-cellpose3.gif](detectors/mastodon-cellpose3.gif)
+* Cellpose4: ![mastodon-cellpose4.gif](detectors/mastodon-cellpose4.gif)
+* StarDist: ![mastodon-stardist.gif](detectors/mastodon-stardist.gif)
+
 ## Trackastra Linker
 
 * This linker uses [TrackAstra](https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/09819.pdf) for linking spots
@@ -180,11 +188,3 @@ Parameters:
 * Window size: The size of the temporal window to consider for linking. Higher values lead to better linking results but
   also
   increase the running time. Must not be larger than the number of timepoints in the dataset.
-
-## Example dataset:
-
-* You can try the detectors on
-  the [Mastodon example dataset](https://github.com/mastodon-sc/mastodon-example-data/tree/master/tgmm-mini)
-* Cellpose3: ![mastodon-cellpose3.gif](detectors/mastodon-cellpose3.gif)
-* Cellpose4: ![mastodon-cellpose4.gif](detectors/mastodon-cellpose4.gif)
-* StarDist: ![mastodon-stardist.gif](detectors/mastodon-stardist.gif)

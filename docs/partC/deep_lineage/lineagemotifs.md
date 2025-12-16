@@ -44,6 +44,19 @@
     * <sup>1</sup>Local cost function: ![local_cost.gif](clustering/local_cost.gif)
     * <sup>2</sup>Local cost function with
       normalization: ![local_cost_normalized.gif](clustering/local_cost_normalized.gif)
+* Run on:
+    * The graph on which the motif search should be run
+        1. Branch graph (default):  faster, (sightly) less accurate
+        2. Model graph: much slower, (sightly) more accurate
+* Load motif from a file:
+    * Only available when choosing Find similar motifs based on imported motif
+    * The file must be a graph ml file containing a single tree with exactly one root node
+    * Such a file can be exported from any Mastodon project using after selecting a tracklet and
+      `File > Export > Export selected spots to GraphML (one file)`
+* Scaling of the search motif:
+    * Only available when choosing Find similar motifs based on imported motif
+    * The imported motif can be scaled in time to account for faster or slower cell cycles in the current project
+      compared to the project from which the motif had been exported.
 
 ## Example
 

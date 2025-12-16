@@ -1,12 +1,13 @@
-# Detectors added to Mastodon
+# Detectors and Linkers added to Mastodon
 
-**It is highly recommended to use all detectors, added by Mastodon Deep Lineage, only on machines with a GPU (ideally
-NVIDIA). The detectors are very slow on machines without a GPU. Moreover, consider running these detectors on a
+**It is highly recommended to use all detectors/linkers, added by Mastodon Deep Lineage, only on machines with a GPU (
+ideally
+NVIDIA). The detectors/linkers are very slow on machines without a GPU. Moreover, consider running these detectors on a
 workstation and not on a typical consumer machine for better performance.**
 
-* The detectors added to Mastodon are actually implemented in Python. They can be used in Fiji via
+* The detectors/linkers added to Mastodon are actually implemented in Python. They can be used in Fiji via
   the [Appose](https://apposed.org/) bridge between Java and Python.
-* Each detector needs a specific Python runtime environment with specific dependencies. These environments are
+* Each detector/linker needs a specific Python runtime environment with specific dependencies. These environments are
   automatically created and managed by Appose.
 * There is a User Interface in Mastodon to install / update / delete these environments. The UI can be opened via
   `Plugins > Tracking > Python Environments for Detection/Linking`.
@@ -14,10 +15,10 @@ workstation and not on a typical consumer machine for better performance.**
 * The dialog for managing the environments looks like
   this: ![python-environment-manager-dialog.png](detectors/python-environment-manager-dialog.png)
 * It is recommended to use this dialog before using the detectors. However, the environments will also be installed
-  automatically when using the detectors for the first time.
+  automatically when using the detectors/linkers for the first time.
 * In both case the installation process can be monitored using the Window `Console` in Fiji which can be accessed via
   `Window > Console` to monitor the progress of the installation.
-  ![console.png](doc/detectors/console.png)
+  ![console.png](detectors/console.png)
 * **Be aware that this installation processes may take some time and requires an internet connection. Depending on the
   detector, several gigabytes of data may be downloaded and installed to your system.**
 
@@ -156,6 +157,29 @@ positions of each segmented spot.
   It does not require a model to be selected since it
   automatically adapts to the data. In 2D applications its running time is similar to Cellpose3, but in 3D applications
   it is ~20 times slower than Cellpose3.
+
+## Trackastra Linker
+
+* This linker uses [TrackAstra](https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/09819.pdf) for linking spots
+  across timepoints.
+
+Parameters:
+
+* Link Threshold: Probability threshold for linking spots. Higher values lead to fewer links. Needs to be in the
+  range [0, 1].
+* Mode:
+    * Greedy linking with divisions: Uses a greedy algorithm to link spots and allows for cell divisions.
+    * Greedy linking without divisions: Uses a greedy algorithm to link spots and does not allow for cell divisions.
+* Model (depends on dimensionality of data):
+    * General Model (2D): Pre-trained model trained
+      on [diverse 2D datasets](https://github.com/weigertlab/trackastra/blob/main/trackastra/model/pretrained.json).
+      Recommended for 2D data.
+    * Cell Tracking Challenge (2D+3D): Pre-trained model trained on data from the Cell Tracking Challenge.
+* Source: The channel name of the source image that was used for detection.
+* Resolution level: The resolution level of the source image. 0 is the full resolution, 1 is half resolution, etc.
+* Window size: The size of the temporal window to consider for linking. Higher values lead to better linking results but
+  also
+  increase the running time. Must not be larger than the number of timepoints in the dataset.
 
 ## Example dataset:
 

@@ -158,7 +158,7 @@ positions of each segmented spot.
   automatically adapts to the data. In 2D applications its running time is similar to Cellpose3, but in 3D applications
   it is ~20 times slower than Cellpose3.
 
-## Example dataset:
+## Example dataset
 
 * You can try the detectors on
   the [Mastodon example dataset](https://github.com/mastodon-sc/mastodon-example-data/tree/master/tgmm-mini)
@@ -168,7 +168,7 @@ positions of each segmented spot.
 
 ## Trackastra Linker
 
-* This linker uses [TrackAstra](https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/09819.pdf) for linking spots
+* This linker uses [Trackastra](https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/09819.pdf) for linking spots
   across timepoints.
 
 Parameters:
@@ -178,7 +178,7 @@ Parameters:
 * Mode:
     * Greedy linking with divisions: Uses a greedy algorithm to link spots and allows for cell divisions.
     * Greedy linking without divisions: Uses a greedy algorithm to link spots and does not allow for cell divisions.
-* Model (depends on dimensionality of data):
+* Model (depends on the dimensionality of data):
     * General Model (2D): Pre-trained model trained
       on [diverse 2D datasets](https://github.com/weigertlab/trackastra/blob/main/trackastra/model/pretrained.json).
       Recommended for 2D data.

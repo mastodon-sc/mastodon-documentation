@@ -17,6 +17,8 @@
 * In Mastodon's main menu, you will find an entry ```Window > Blender Views > Setup Blender Addon ...```, click it and
   follow the instructions to install the Mastodon Blender Plugin.
 
+![blender_view.png](installation/blender_view.png)
+
 ## Troubleshooting: Python packages installed in the wrong location
 
 * The installation routine installs a set of Python packages into Blender's bundled Python, located at
@@ -41,9 +43,6 @@
     * `python_dateutil-*.dist-info`
     * `six-*.dist-info`
     * `six.py`
-
-
-![blender_view.png](installation/blender_view.png)
 
 ## Configure Blender Template Files...
 

@@ -106,6 +106,10 @@ selecting Delete. Alternatively, you can use a .blend file that already includes
 as a starting point. This allows you to add additional datasets to the same Blender scene. In this way, multiple
 Mastodon projects can be visualized and rendered together within a single file.
 
+For a hands-on walkthrough of this procedural workflow — from importing the exported CSV to building cells and
+trajectory tails with Geometry Nodes and Shader Nodes and compositing the final render — see Samuel Pantze's tutorial
+[Visualizing Cell Trajectories from Mastodon in Blender](https://artsnscience.eu/mastodon-blender-cell-trajectories/).
+
 ## Export CSV for Blender
 
 * Menu Location: `Window > Blender Views > Export CSV for Blender`

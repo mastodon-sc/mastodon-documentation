@@ -22,7 +22,8 @@ author = 'Jean-Yves Tinevez'
 extensions = ['myst_parser', 'javasphinx']
 
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'docs/index.md']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'docs/index.md', '.pixi', 'README.md']
+suppress_warnings = ['config.cache']
 
 source_suffix = {
     '.rst': 'restructuredtext',
@@ -64,4 +65,3 @@ html_theme_options = {
     'globaltoc_depth': 3
 }
 
-exclude_patterns = [ 'README.md' ]

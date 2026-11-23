@@ -1,0 +1,31 @@
+[workspace]
+authors = [
+    "Jean-Yves Tinevez <tinevez@pasteur.fr>",
+    "Stefan Hahmann <stefan.hahmann@tu-dresden.de>",
+    "Matthias Arzt <arzt@mpi-cbg.de>",
+    "Vladimír Ulman <ulman@fi.muni.cz>",
+]
+channels = ["conda-forge"]
+name = "mastodon-documentation"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+html = "sphinx-build -M html . _build"
+clean = "sphinx-build -M clean . _build"
+
+[dependencies]
+python = "3.10.*"
+pip = "*"
+
+# mirrors requirements.txt
+[pypi-dependencies]
+myst_parser = "*"
+pyparsing = "==3.0.9"
+python-dateutil = "==2.8.2"
+six = "==1.16.0"
+watchdog = "==2.1.9"
+zipp = "==3.8.0"
+javalang = "*"
+sphinx-material = "*"
+sphinxcontrib-jquery = "*"

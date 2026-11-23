@@ -19,7 +19,7 @@
 * Menu Location: `File > Export > Export measurements > Export division counts per time point`
 * This command writes the time point and the number of divisions at each time point to a single CSV file.
 * A division is defined as a spot with more than one outgoing edge.
-* Example: ![export_division_counts_per_time_point.png](doc/export/export_division_counts_per_time_point.png)
+* Example: ![export_division_counts_per_time_point.png](export/export_division_counts_per_time_point.png)
 
 ## Export phyloXML for selected spot
 

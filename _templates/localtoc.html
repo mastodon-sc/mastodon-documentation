@@ -1,5 +1,31 @@
-{#- Right-hand column: the theme's "Contents" box, followed by the citation of the Mastodon paper. -#}
-{% include "!localtoc.html" %}
+{#- Right-hand column: the theme's "Contents" box, followed by the citation of the Mastodon paper.
+    The "Contents" part is a copy of sphinx_material's localtoc.html, with one change: on a page whose
+    only heading is its title, the theme would list nothing and hide the box, so we list the title. -#}
+{#- Sphinx sets display_toc to false when the page has only one heading, so test the TOC itself instead. -#}
+{% set has_toc = toc and toc|striptags|trim %}
+{% set toc_nodes = derender_toc(toc, True, pagename) if has_toc else [] %}
+{% if has_toc and not toc_nodes %}{% set toc_nodes = derender_toc(toc, False, pagename) %}{% endif %}
+<nav class="md-nav md-nav--secondary">
+  {%- if has_toc and toc_nodes and sidebars and 'localtoc.html' in sidebars %}
+    <label class="md-nav__title" for="__toc">{{ theme_localtoc_label_text }}</label>
+  {%- endif %}
+  <ul class="md-nav__list" data-md-scrollfix="">
+    {%- if has_toc and sidebars and 'localtoc.html' in sidebars %}
+      {%- for item in toc_nodes recursive %}
+        <li class="md-nav__item"><a href="{{ item.href|e }}" class="md-nav__link">{{ item.contents }}</a>
+          {%- if item.children -%}
+            <nav class="md-nav">
+              <ul class="md-nav__list">{{ loop(item.children) }}</ul>
+            </nav>
+          {%- endif %}
+        </li>
+      {%- endfor %}
+    {%- endif %}
+    {%- if show_source %}
+    {% include "sourcelink.html" %}
+    {%- endif %}
+  </ul>
+</nav>
 <nav class="md-nav md-nav--secondary cite-mastodon">
   <label class="md-nav__title">How to cite</label>
   <ul class="md-nav__list">

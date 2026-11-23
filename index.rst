@@ -127,6 +127,7 @@ Table of content.
    :maxdepth: 4
 
    docs/partE/numerical_features.md
+   docs/partE/example_scripts.md
    docs/partE/mastodon_graph_data_structure.md
    docs/partE/convex_polytopes.md
    docs/partE/org/mastodon/mamut/package-index.rst
